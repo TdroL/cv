@@ -1,0 +1,1488 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
+ *
+ * ==|== normalize ==========================================================
+ */
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/* line 29, ../scss/main.scss */
+article,
+aside,
+details,
+footer,
+header,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* line 33, ../scss/main.scss */
+canvas {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* line 39, ../scss/main.scss */
+[hidden] {
+  display: none;
+}
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+/* line 53, ../scss/main.scss */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  height: 100%;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+/* line 66, ../scss/main.scss */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* line 71, ../scss/main.scss */
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+/* line 81, ../scss/main.scss */
+a {
+  color: #ff5e28;
+}
+/* line 84, ../scss/main.scss */
+a:visited {
+  color: #f43d00;
+}
+/* line 87, ../scss/main.scss */
+a:hover {
+  text-decoration: underline;
+  color: #ff845b;
+}
+/* line 92, ../scss/main.scss */
+a:focus {
+  outline: thin dotted;
+}
+/* line 96, ../scss/main.scss */
+a:hover, a:active {
+  outline: 0;
+}
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Redeclare monospace font family: h5bp.com/j
+ */
+/* line 112, ../scss/main.scss */
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+
+/*
+ * Improve readability of pre-formatted text
+ */
+/* line 122, ../scss/main.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 128, ../scss/main.scss */
+q {
+  quotes: none;
+}
+/* line 132, ../scss/main.scss */
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+/* line 138, ../scss/main.scss */
+small {
+  font-size: 85%;
+}
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+/* line 148, ../scss/main.scss */
+ul,
+ol {
+  margin: 1em 0;
+  padding: 0 0 0 40px;
+}
+
+/* line 153, ../scss/main.scss */
+dd {
+  margin: 0 0 0 40px;
+}
+
+/* line 158, ../scss/main.scss */
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * 1. Improve image quality when scaled in IE7: h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/i/440
+ */
+/* line 175, ../scss/main.scss */
+img {
+  border: 0;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* =============================================================================
+   Chrome Frame Prompt
+   ========================================================================== */
+/* line 185, ../scss/main.scss */
+.chromeframe {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==|== primary styles =====================================================
+   Author: tdroL
+   ========================================================================== */
+/* line 197, ../scss/main.scss */
+body {
+  margin: 0;
+  font: 1em/1.5 Georgia, serif;
+  color: #222;
+  background: #fff5c6;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #faedaf), color-stop(100%, #4f4e28));
+  background: -webkit-radial-gradient(#faedaf, #4f4e28);
+  background: -moz-radial-gradient(#faedaf, #4f4e28);
+  background: -o-radial-gradient(#faedaf, #4f4e28);
+  background: radial-gradient(#faedaf, #4f4e28);
+}
+
+/* line 205, ../scss/main.scss */
+#container {
+  width: 960px;
+  margin: 20px auto;
+  position: relative;
+}
+
+@-moz-keyframes position-1-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    -moz-transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    -moz-transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    -moz-transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  11.062% {
+    -moz-transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  11.562% {
+    -moz-transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  12.062% {
+    -moz-transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  27.414% {
+    -moz-transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  27.914% {
+    -moz-transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  28.414% {
+    -moz-transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  57.028% {
+    -moz-transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  57.528% {
+    -moz-transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  58.028% {
+    -moz-transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  84.875% {
+    -moz-transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  85.375% {
+    -moz-transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  85.875% {
+    -moz-transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+}
+
+@-webkit-keyframes position-1-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    -webkit-transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    -webkit-transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    -webkit-transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  11.062% {
+    -webkit-transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  11.562% {
+    -webkit-transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  12.062% {
+    -webkit-transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  27.414% {
+    -webkit-transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  27.914% {
+    -webkit-transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  28.414% {
+    -webkit-transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  57.028% {
+    -webkit-transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  57.528% {
+    -webkit-transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  58.028% {
+    -webkit-transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  84.875% {
+    -webkit-transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  85.375% {
+    -webkit-transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  85.875% {
+    -webkit-transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+}
+
+@-o-keyframes position-1-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    -o-transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    -o-transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    -o-transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  11.062% {
+    -o-transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  11.562% {
+    -o-transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  12.062% {
+    -o-transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  27.414% {
+    -o-transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  27.914% {
+    -o-transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  28.414% {
+    -o-transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  57.028% {
+    -o-transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  57.528% {
+    -o-transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  58.028% {
+    -o-transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  84.875% {
+    -o-transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  85.375% {
+    -o-transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  85.875% {
+    -o-transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+}
+
+@-ms-keyframes position-1-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    -ms-transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    -ms-transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    -ms-transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  11.062% {
+    -ms-transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  11.562% {
+    -ms-transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  12.062% {
+    -ms-transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  27.414% {
+    -ms-transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  27.914% {
+    -ms-transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  28.414% {
+    -ms-transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  57.028% {
+    -ms-transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  57.528% {
+    -ms-transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  58.028% {
+    -ms-transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  84.875% {
+    -ms-transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  85.375% {
+    -ms-transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  85.875% {
+    -ms-transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+    transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+}
+
+@keyframes position-1-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    transform: translate3d(58.8%, -0.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    transform: translate3d(59.7%, 0.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    transform: translate3d(60.6%, 0.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  11.062% {
+    transform: translate3d(71.4%, 15.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  11.562% {
+    transform: translate3d(71%, 15.7%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  12.062% {
+    transform: translate3d(70.6%, 16.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  27.414% {
+    transform: translate3d(45.4%, 19.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  27.914% {
+    transform: translate3d(45.7%, 19.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  28.414% {
+    transform: translate3d(46%, 18.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  57.028% {
+    transform: translate3d(82%, -10.4%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  57.528% {
+    transform: translate3d(81.8%, -11.1%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  58.028% {
+    transform: translate3d(81.6%, -11.8%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  84.875% {
+    transform: translate3d(38.4%, -8.2%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  85.375% {
+    transform: translate3d(37.8%, -7.9%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  85.875% {
+    transform: translate3d(37.2%, -7.6%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  }
+}
+
+@-moz-keyframes position-2-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    -moz-transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    -moz-transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    -moz-transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  9.671% {
+    -moz-transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  10.171% {
+    -moz-transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  10.671% {
+    -moz-transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  19.718% {
+    -moz-transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  20.218% {
+    -moz-transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  20.718% {
+    -moz-transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  35.362% {
+    -moz-transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  35.862% {
+    -moz-transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  36.362% {
+    -moz-transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  45.534% {
+    -moz-transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  46.034% {
+    -moz-transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  46.534% {
+    -moz-transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  59.012% {
+    -moz-transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  59.512% {
+    -moz-transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  60.012% {
+    -moz-transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  78.14% {
+    -moz-transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  78.64% {
+    -moz-transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  79.14% {
+    -moz-transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  87.402% {
+    -moz-transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  87.902% {
+    -moz-transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  88.402% {
+    -moz-transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+}
+
+@-webkit-keyframes position-2-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    -webkit-transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    -webkit-transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    -webkit-transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  9.671% {
+    -webkit-transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  10.171% {
+    -webkit-transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  10.671% {
+    -webkit-transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  19.718% {
+    -webkit-transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  20.218% {
+    -webkit-transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  20.718% {
+    -webkit-transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  35.362% {
+    -webkit-transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  35.862% {
+    -webkit-transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  36.362% {
+    -webkit-transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  45.534% {
+    -webkit-transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  46.034% {
+    -webkit-transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  46.534% {
+    -webkit-transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  59.012% {
+    -webkit-transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  59.512% {
+    -webkit-transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  60.012% {
+    -webkit-transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  78.14% {
+    -webkit-transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  78.64% {
+    -webkit-transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  79.14% {
+    -webkit-transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  87.402% {
+    -webkit-transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  87.902% {
+    -webkit-transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  88.402% {
+    -webkit-transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+}
+
+@-o-keyframes position-2-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    -o-transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    -o-transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    -o-transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  9.671% {
+    -o-transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  10.171% {
+    -o-transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  10.671% {
+    -o-transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  19.718% {
+    -o-transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  20.218% {
+    -o-transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  20.718% {
+    -o-transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  35.362% {
+    -o-transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  35.862% {
+    -o-transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  36.362% {
+    -o-transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  45.534% {
+    -o-transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  46.034% {
+    -o-transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  46.534% {
+    -o-transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  59.012% {
+    -o-transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  59.512% {
+    -o-transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  60.012% {
+    -o-transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  78.14% {
+    -o-transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  78.64% {
+    -o-transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  79.14% {
+    -o-transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  87.402% {
+    -o-transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  87.902% {
+    -o-transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  88.402% {
+    -o-transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+}
+
+@-ms-keyframes position-2-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    -ms-transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    -ms-transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    -ms-transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  9.671% {
+    -ms-transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  10.171% {
+    -ms-transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  10.671% {
+    -ms-transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  19.718% {
+    -ms-transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  20.218% {
+    -ms-transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  20.718% {
+    -ms-transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  35.362% {
+    -ms-transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  35.862% {
+    -ms-transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  36.362% {
+    -ms-transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  45.534% {
+    -ms-transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  46.034% {
+    -ms-transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  46.534% {
+    -ms-transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  59.012% {
+    -ms-transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  59.512% {
+    -ms-transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  60.012% {
+    -ms-transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  78.14% {
+    -ms-transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  78.64% {
+    -ms-transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  79.14% {
+    -ms-transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  87.402% {
+    -ms-transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  87.902% {
+    -ms-transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  88.402% {
+    -ms-transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+    transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+}
+
+@keyframes position-2-in-background {
+  /* line 263, ../scss/main.scss */
+  99.5% {
+    transform: translate3d(-59.55%, -8.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  0% {
+    transform: translate3d(-59.4%, -9.775%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  0.5% {
+    transform: translate3d(-59.25%, -10.6%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  9.671% {
+    transform: translate3d(-45.75%, -21.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  10.171% {
+    transform: translate3d(-45.225%, -21.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  10.671% {
+    transform: translate3d(-44.7%, -21.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  19.718% {
+    transform: translate3d(-39.3%, -4.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  20.218% {
+    transform: translate3d(-39.825%, -4.15%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  20.718% {
+    transform: translate3d(-40.35%, -3.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  35.362% {
+    transform: translate3d(-64.65%, 7.4%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  35.862% {
+    transform: translate3d(-65.625%, 7.325%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  36.362% {
+    transform: translate3d(-66.6%, 7.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  45.534% {
+    transform: translate3d(-77.4%, -6.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  46.034% {
+    transform: translate3d(-77.25%, -7.075%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  46.534% {
+    transform: translate3d(-77.1%, -7.9%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  59.012% {
+    transform: translate3d(-60.9%, -24.1%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  59.512% {
+    transform: translate3d(-59.85%, -23.875%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  60.012% {
+    transform: translate3d(-58.8%, -23.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  78.14% {
+    transform: translate3d(-37.2%, 0.65%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  78.64% {
+    transform: translate3d(-36.975%, 1.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  79.14% {
+    transform: translate3d(-36.75%, 2.45%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 263, ../scss/main.scss */
+  87.402% {
+    transform: translate3d(-50.25%, 10.55%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 276, ../scss/main.scss */
+  87.902% {
+    transform: translate3d(-50.85%, 10.25%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+
+  /* line 289, ../scss/main.scss */
+  88.402% {
+    transform: translate3d(-51.45%, 9.95%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  }
+}
+
+/* line 626, ../scss/main.scss */
+.area {
+  position: relative;
+  z-index: 2;
+  width: 940px;
+  margin-bottom: 1em;
+  padding: 10px;
+  background: #333;
+  color: #fef;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  /*
+  	&.position-3 {
+  		@include transform(
+  			scale(0.125)
+  			rotateX(120deg)
+  			rotateY(30deg)
+  			rotateZ(160deg) translate3d(700px, -1500px, 0)
+  		, false);
+  	}
+  
+  	&.position-3.in-background {
+  
+  	}
+  */
+}
+/* line 639, ../scss/main.scss */
+.csstransforms3d .area.enable-animations {
+  -webkit-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
+  -moz-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
+  -o-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
+  transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+/* line 643, ../scss/main.scss */
+.csstransforms3d .area.enable-animations * {
+  -webkit-transition: 500ms opacity;
+  -moz-transition: 500ms opacity;
+  -o-transition: 500ms opacity;
+  transition: 500ms opacity;
+}
+/* line 647, ../scss/main.scss */
+.csstransforms3d .area.enable-animations[class*=position] {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  -webkit-filter: blur(35px);
+  -moz-filter: blur(35px);
+  filter: blur(35px);
+}
+/* line 653, ../scss/main.scss */
+.csstransforms3d .area.enable-animations[class*=position] * {
+  opacity: 0;
+}
+/* line 658, ../scss/main.scss */
+.csstransforms3d .area.enable-animations.in-background {
+  -webkit-filter: blur(50px);
+  -moz-filter: blur(50px);
+  filter: blur(50px);
+}
+/* line 662, ../scss/main.scss */
+.csstransforms3d .area.enable-animations.position-1 {
+  -webkit-transform: translate3d(60%, 0%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  -moz-transform: translate3d(60%, 0%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  -ms-transform: translate3d(60%, 0%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  -o-transform: translate3d(60%, 0%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+  transform: translate3d(60%, 0%, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
+}
+/* line 675, ../scss/main.scss */
+.csstransforms3d .area.enable-animations.position-1.in-background {
+  -webkit-animation: position-1-in-background 60s infinite linear;
+  -moz-animation: position-1-in-background 60s infinite linear;
+  -ms-animation: position-1-in-background 60s infinite linear;
+  -o-animation: position-1-in-background 60s infinite linear;
+  animation: position-1-in-background 60s infinite linear;
+}
+/* line 679, ../scss/main.scss */
+.csstransforms3d .area.enable-animations.position-2 {
+  -webkit-transform: translate3d(-60%, -10%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  -moz-transform: translate3d(-60%, -10%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  -ms-transform: translate3d(-60%, -10%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  -o-transform: translate3d(-60%, -10%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+  transform: translate3d(-60%, -10%, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
+}
+/* line 692, ../scss/main.scss */
+.csstransforms3d .area.enable-animations.position-2.in-background {
+  -webkit-animation: position-2-in-background 60s infinite linear;
+  -moz-animation: position-2-in-background 60s infinite linear;
+  -ms-animation: position-2-in-background 60s infinite linear;
+  -o-animation: position-2-in-background 60s infinite linear;
+  animation: position-2-in-background 60s infinite linear;
+}
+/* line 698, ../scss/main.scss */
+.no-csstransforms3d .area.enable-animations[class*=position] {
+  display: none;
+}
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+/*
+ * Contain floats: h5bp.com/q
+ */
+/* line 730, ../scss/main.scss */
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+/* line 735, ../scss/main.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 739, ../scss/main.scss */
+.clearfix {
+  *zoom: 1;
+}

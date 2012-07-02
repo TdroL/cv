@@ -1,0 +1,741 @@
+@import "compass";
+@import "compass/css3";
+@import "animation";
+
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
+ *
+ * ==|== normalize ==========================================================
+ */
+
+
+/* =============================================================================
+   HTML5 display definitions
+   ========================================================================== */
+
+article,
+aside,
+details,
+footer,
+header,
+nav,
+section,
+summary {
+	display: block;
+}
+
+canvas {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+[hidden] {
+	display: none;
+}
+
+
+/* =============================================================================
+   Base
+   ========================================================================== */
+
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+
+html {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	height: 100%;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+::selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+
+/* =============================================================================
+   Links
+   ========================================================================== */
+
+a {
+	$link-color: #ff5e28;
+	color: $link-color;
+	&:visited {
+		color: darken($link-color, 10%);
+	}
+	&:hover {
+		text-decoration: underline;
+		color: lighten($link-color, 10%);
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover, &:active {
+		outline: 0;
+	}
+}
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+/*
+ * Redeclare monospace font family: h5bp.com/j
+ */
+
+pre,
+code,
+kbd,
+samp {
+	font-family: monospace, serif;
+	_font-family: 'courier new', monospace;
+	font-size: 1em;
+}
+
+/*
+ * Improve readability of pre-formatted text
+ */
+
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+q {
+	quotes: none;
+
+	&:before,
+	&:after {
+		content: "";
+		content: none;
+	}
+}
+
+small {
+	font-size: 85%;
+}
+
+
+/* =============================================================================
+   Lists
+   ========================================================================== */
+
+ul,
+ol {
+	margin: 1em 0;
+	padding: 0 0 0 40px;
+}
+
+dd {
+	margin: 0 0 0 40px;
+}
+
+nav ul,
+nav ol {
+	list-style: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+/* =============================================================================
+   Embedded content
+   ========================================================================== */
+
+/*
+ * 1. Improve image quality when scaled in IE7: h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/i/440
+ */
+
+img {
+	border: 0;
+	vertical-align: middle;
+	-ms-interpolation-mode: bicubic;
+}
+
+/* =============================================================================
+   Chrome Frame Prompt
+   ========================================================================== */
+
+.chromeframe {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+
+/* ==|== primary styles =====================================================
+   Author: tdroL
+   ========================================================================== */
+
+body {
+	margin: 0;
+	font: 1em/1.5 Georgia, serif;
+	color: #222;
+	background: #fff5c6;
+	@include background(radial-gradient(#faedaf, #4f4e28));
+}
+
+#container {
+	width: 960px;
+	margin: 20px auto;
+	position: relative;
+}
+
+$position-1-scale: 0.05;
+$position-1-base-pos-x: 60%;
+$position-1-base-pos-y: 0%;
+$position-1-rotate: -330deg 150deg 35deg;
+$position-2-scale: 0.06;
+$position-2-base-pos-x: -60%;
+$position-2-base-pos-y: -10%;
+$position-2-rotate: 30deg 35deg 30deg;
+$transition-to-background-duration: 500ms;
+$transition-float-in-background-duration: 60s;
+$blur-radius: 50px;
+
+@mixin in-background-animation($x, $y, $scale, $rotate, $positions) {
+	$total-length: 0;
+	$lengths: ();
+	$frames: 0;
+
+	$ext-positions: append($positions, nth($positions, 1));
+
+	@for $i from 2 through length($ext-positions) {
+		$prev: nth($ext-positions, $i - 1);
+		$curr: nth($ext-positions, $i);
+		$length-x: nth($prev, 1) - nth($curr, 1);
+		$length-y: nth($prev, 2) - nth($curr, 2);
+		$length: sqrt($length-x * $length-x + $length-y * $length-y);
+		$total-length: $total-length + $length;
+		$lengths: append($lengths, $length);
+		$frame: nth($frames, length($frames)) + $length;
+		$frames: append($frames, $frame);
+	}
+
+	$padding: 0.05;
+	$npadding: 1 - $padding;
+	@for $i from 1 through length($positions) {
+		$prev: 0 0;
+		@if $i != 1 {
+			$prev: nth($ext-positions, $i - 1);
+		}
+		@else {
+			$prev: nth($positions, length($positions));
+		}
+		$px: nth($prev, 1);
+		$py: nth($prev, 2);
+		$curr: nth($ext-positions, $i);
+		$cx: nth($curr, 1);
+		$cy: nth($curr, 2);
+		$next: nth($ext-positions, $i + 1);
+		$nx: nth($next, 1);
+		$ny: nth($next, 2);
+
+		$frame: nth($frames, $i) * 100 / $total-length;
+
+		#{((100 + ($frame - 0.5)) % 100) * 1%} {
+			@include transform(
+					translate3d(
+						$x + $cx * $npadding + $padding * $px,
+						$y + $cy * $npadding + $padding * $py,
+						0)
+					scale($scale)
+					rotateX(nth($rotate, 1))
+					rotateY(nth($rotate, 2))
+					rotateZ(nth($rotate, 3)),
+			false);
+		}
+
+		#{$frame * 1%} {
+			@include transform(
+					translate3d(
+						$x + $cx * $npadding + 0.5 * $padding * ($nx + $px),
+						$y + $cy * $npadding + 0.5 * $padding * ($ny + $py),
+						0)
+					scale($scale)
+					rotateX(nth($rotate, 1))
+					rotateY(nth($rotate, 2))
+					rotateZ(nth($rotate, 3)),
+			false);
+		}
+
+		#{($frame + 0.5) * 1%} {
+			$next: nth($ext-positions, $i + 1);
+			$nx: nth($next, 1);
+			$ny: nth($next, 2);
+
+			@include transform(
+					translate3d(
+						$x + ($cx * $npadding + $padding * $nx),
+						$y + ($cy * $npadding + $padding * $ny),
+						0)
+					scale($scale)
+					rotateX(nth($rotate, 1))
+					rotateY(nth($rotate, 2))
+					rotateZ(nth($rotate, 3)),
+			false);
+		}
+	}
+}
+
+// floating animation
+@include keyframes(position-1-in-background) {
+	@include in-background-animation(
+		$position-1-base-pos-x, $position-1-base-pos-y,
+		$position-1-scale, $position-1-rotate,
+		(0*4 0*4, 3*4 4*4, -4*4 5*4, 6*4 -3*4, -6*4 -2*4));
+
+	// 0% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x + 0% * $position-1-scale,
+	// 				$position-1-base-pos-y + 0% * $position-1-scale,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg +   0deg)
+	// 			rotateY(150deg)
+	// 			rotateZ(35deg),
+	// 	false);
+	// }
+	// 1% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x + 0% * $position-1-scale + 1%,
+	// 				$position-1-base-pos-y + 0% * $position-1-scale + 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg +   0deg)
+	// 			rotateY(150deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 13% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x + 3% * $position-1-scale,
+	// 				$position-1-base-pos-y + 4% * $position-1-scale - 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg +  50deg)
+	// 			rotateY(180deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 14% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x + 3% * $position-1-scale,
+	// 				$position-1-base-pos-y + 4% * $position-1-scale,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg +  50deg)
+	// 			rotateY(180deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 15% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x + 3% * $position-1-scale - 1%,
+	// 				$position-1-base-pos-y + 4% * $position-1-scale + 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg +  50deg)
+	// 			rotateY(180deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 31% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x - 4% * $position-1-scale + 1%,
+	// 				$position-1-base-pos-y + 5% * $position-1-scale + 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 115deg)
+	// 			rotateY(250deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 32% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x - 4% * $position-1-scale,
+	// 				$position-1-base-pos-y + 5% * $position-1-scale,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 115deg)
+	// 			rotateY(250deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 33% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x - 4% * $position-1-scale,
+	// 				$position-1-base-pos-y + 5% * $position-1-scale - 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 115deg)
+	// 			rotateY(250deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 59% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x + 6% * $position-1-scale,
+	// 				$position-1-base-pos-y - 3% * $position-1-scale + 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 216deg)
+	// 			rotateY(160deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 60% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x + 6% * $position-1-scale,
+	// 				$position-1-base-pos-y - 3% * $position-1-scale,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 216deg)
+	// 			rotateY(160deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 61% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x + 6% * $position-1-scale - 1%,
+	// 				$position-1-base-pos-y - 3% * $position-1-scale - 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 216deg)
+	// 			rotateY(160deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 86% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x - 6% * $position-1-scale,
+	// 				$position-1-base-pos-y - 2% * $position-1-scale - 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 90deg)
+	// 			rotateY(130deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 87% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x - 6% * $position-1-scale,
+	// 				$position-1-base-pos-y - 2% * $position-1-scale,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 90deg)
+	// 			rotateY(130deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+	// 88% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-1-base-pos-x - 6% * $position-1-scale + 1%,
+	// 				$position-1-base-pos-y - 2% * $position-1-scale + 1%,
+	// 				0)
+	// 			scale(0.05)
+	// 			rotateX(-330deg + 90deg)
+	// 			rotateY(130deg)
+	// 			rotateZ(35deg),
+	// 		false);
+	// }
+}
+
+@include keyframes(position-2-in-background) {
+	@include in-background-animation(
+		$position-2-base-pos-x, $position-2-base-pos-y,
+		$position-2-scale, $position-2-rotate,
+		(0*4 0*3, 5*3 -4*3, 7*3 2*3, -2*3 6*3, -6*3 1*3, 0*3 -5*3, 8*3 4*3, 3*3 7*3));
+
+	// /* hand-made */
+	// $scale: 4;
+	// 0% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 0% * $scale,
+	// 				$position-2-base-pos-y + 0% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// 1% {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 0% * $scale + 1%,
+	// 				$position-2-base-pos-y + 0% * $scale + 1%,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// #{round((0.6)*15.625%) - 1%} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 5% * $scale - 1%,
+	// 				$position-2-base-pos-y - 4% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// #{round((0.6)*15.625%)} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 5% * $scale,
+	// 				$position-2-base-pos-y - 4% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }#{round((0.6)*15.625%) + 1%} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 5% * $scale + 1%,
+	// 				$position-2-base-pos-y - 4% * $scale + 1%,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// #{round((0.6+0.6)*15.625%)} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 7% * $scale,
+	// 				$position-2-base-pos-y + 2% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// #{round((0.6+0.6+1)*15.625%)} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x - 2% * $scale,
+	// 				$position-2-base-pos-y + 6% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// #{round((0.6+0.6+1+0.7)*15.625%)} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x - 6% * $scale,
+	// 				$position-2-base-pos-y + 1% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// #{round((0.6+0.6+1+0.7+0.8)*15.625%)} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 0% * $scale,
+	// 				$position-2-base-pos-y - 5% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// #{round((0.6+0.6+1+0.7+0.8+1.2)*15.625%)} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 8% * $scale,
+	// 				$position-2-base-pos-y + 4% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+	// #{round((0.6+0.6+1+0.7+0.8+1.2+0.7)*15.625%)} {
+	// 	@include transform(
+	// 			translate3d(
+	// 				$position-2-base-pos-x + 3% * $scale,
+	// 				$position-2-base-pos-y + 7% * $scale,
+	// 				0)
+	// 			scale(0.06)
+	// 			rotateX(30deg)
+	// 			rotateY(35deg)
+	// 			rotateZ(30deg),
+	// 		false);
+	// }
+}
+
+.area {
+	position: relative;
+	z-index: 2;
+	width: 960px - 2*10px;
+	margin-bottom: 1em;
+	padding: 10px;
+	background: #333;
+	color: #fef;
+	@include border-radius(10px);
+	@include transform(
+		translateZ(0)
+	, false); // enable the gpu accel.
+
+	.csstransforms3d &.enable-animations {
+		@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1)); // enable transitions for moving area to the background
+		@include filter(none); // remove any filters for areas in foreground
+
+		* {
+			@include transition($transition-to-background-duration opacity); // enable transition for hiding the content
+		}
+
+		&[class*=position] {
+			z-index: 1;
+			position: absolute;
+			top: 0;
+			@include filter(blur($blur-radius*0.7)); // blur fix for areas flying to the background
+
+			* {
+				opacity: 0; // hide contents while moving to the background
+			}
+		}
+
+		&.in-background {
+			@include filter(blur($blur-radius)); // full blur for areas in the background
+		}
+
+		&.position-1 {
+			@include transform(
+					translate3d(
+						$position-1-base-pos-x,
+						$position-1-base-pos-y,
+						0)
+					scale(0.05)
+					rotateX(-330deg)
+					rotateY(150deg)
+					rotateZ(35deg),
+				false); // move to the background position (transition)
+		}
+
+		&.position-1.in-background {
+			@include animation(position-1-in-background $transition-float-in-background-duration infinite linear); // add the float animation
+		}
+
+		&.position-2 {
+			@include transform(
+					translate3d(
+						$position-2-base-pos-x,
+						$position-2-base-pos-y,
+						0)
+					scale(0.06)
+					rotateX(30deg)
+					rotateY(35deg)
+					rotateZ(30deg),
+				false); // move to the background position (transition)
+		}
+
+		&.position-2.in-background {
+			@include animation(position-2-in-background $transition-float-in-background-duration infinite linear); // add the float animation
+		}
+	}
+
+	.no-csstransforms3d &.enable-animations {
+		&[class*=position] {
+			display: none;
+		}
+	}
+/*
+	&.position-3 {
+		@include transform(
+			scale(0.125)
+			rotateX(120deg)
+			rotateY(30deg)
+			rotateZ(160deg) translate3d(700px, -1500px, 0)
+		, false);
+	}
+
+	&.position-3.in-background {
+
+	}
+*/
+}
+
+
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/*
+ * Contain floats: h5bp.com/q
+ */
+
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
