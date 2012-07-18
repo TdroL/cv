@@ -10,8 +10,8 @@ touch $COFFEE_PID $COMPASS_PID
 function start_coffee {
 	local PID=`cat $COFFEE_PID`
 	ps -ef | grep $PID | grep /bin/sh$ > /dev/null || {
-		echo "Starting coffeescrit watcher"
-		(coffee -o assets/js/ -cbw assets/cs/ &> $COFFEE_LOG) &
+		echo "Starting coffeescript watcher"
+		(coffee -o assets/js/ -cbw assets/coffee/ &> $COFFEE_LOG) &
 		echo $! > $COFFEE_PID
 	}
 }

@@ -1,0 +1,330 @@
+
+body {
+	margin: 0;
+	font: 1em/1.5 Georgia, serif;
+	color: #222;
+	background: #fff5c6;
+	@include background(radial-gradient(#faedaf, #4f4e28));
+}
+
+#container {
+	width: 960px;
+	margin: 20px auto;
+	position: relative;
+}
+
+nav {
+	$length: 150px;
+	$margin-at-small: 30px;
+
+	ul {
+		@extend .clearfix;
+		margin-bottom: 1em;
+		height: $length;
+	}
+
+	li {
+		display: block;
+		float: left;
+		width: 33%;
+		padding: 0;
+		margin: 0;
+
+		a, a:visited {
+			position: relative;
+
+			color: #eee !important;
+			font: 50px "Pontano Sans", Tahoma, sans-serif;
+			text-decoration: none;
+
+			display: block;
+			width: $length - $margin-at-small;
+			height: $length - $margin-at-small;
+			line-height: ($length - $margin-at-small);
+			@include border-radius($length - $margin-at-small);
+			text-align: center;
+			margin: ($margin-at-small/2) auto;
+
+			@include background(radial-gradient(hsl(0, 0, 40%) 0%, hsl(0, 0, 20%) 60%, hsl(0, 0, 40%) 61%, hsl(0, 0, 10%) 75%));
+			@include transition(100ms all);
+			@include transform(transformZ(0));
+
+			&.active {
+				@include background(radial-gradient(hsl(20, 90%, 40%) 0%, hsl(20, 90%, 20%) 60%, hsl(20, 90%, 40%) 61%, hsl(20, 90%, 10%) 75%));
+			}
+
+			&:hover, &:focus {
+				width: $length;
+				height: $length;
+				line-height: $length;
+				@include border-radius($length);
+				margin: 0 auto;
+
+				text-decoration: none;
+
+				@include background(radial-gradient(hsl(0, 0, 40%) 0%, hsl(0, 0, 20%) 57%, hsl(0, 0, 40%) 58%, hsl(0, 0, 10%) 75%));
+			}
+
+			&.active:hover, &.active:focus {
+				@include background(radial-gradient(hsl(20, 90%, 40%) 0%, hsl(20, 90%, 20%) 57%, hsl(20, 90%, 40%) 58%, hsl(20, 90%, 10%) 75%));
+			}
+		}
+	}
+}
+
+
+$position-1-scale: 0.05;
+$position-1-base-pos-x: 960px*0.6;
+$position-1-base-pos-y: 480px*0;
+$position-1-rotate: -330deg 150deg 35deg;
+$position-1-rotate-axis: 0 -1 -1;
+$position-1-transition-duration: 61s;
+
+$position-2-scale: 0.06;
+$position-2-base-pos-x: 960px*(-0.6);
+$position-2-base-pos-y: 480px*(-0.1);
+$position-2-rotate: 30deg 35deg 30deg;
+$position-2-rotate-axis: -1 0 1;
+$position-2-transition-duration: 71s;
+
+$position-3-scale: 0.04;
+$position-3-base-pos-x: 960px*(-0.7);
+$position-3-base-pos-y: 480px*(0.4);
+$position-3-rotate: 5deg 15deg 40deg;
+$position-3-rotate-axis: 0 1 0;
+$position-3-transition-duration: 83s;
+
+$transition-to-background-duration: 500ms;
+$blur-radius: 50px;
+$rotate-axis-max-angle: 60deg;
+
+@function fake-sin($t) {
+	@if $t >= 0.5 {
+		$t: $t - 0.5;
+		@return 16 * $t * ($t - 0.5);
+	} @else {
+		@return -16 * $t * ($t - 0.5);
+	}
+}
+
+@mixin in-background-animation($x, $y, $scale, $rotate, $rotate-axis: 0 0 0, $positions: (0 0)) {
+	$total-length: 0;
+	$lengths: ();
+	$frames: 0;
+
+	$ext-positions: append($positions, nth($positions, 1));
+
+	@for $i from 2 through length($ext-positions) {
+		$prev: nth($ext-positions, $i - 1);
+		$curr: nth($ext-positions, $i);
+		$length-x: nth($prev, 1) - nth($curr, 1);
+		$length-y: nth($prev, 2) - nth($curr, 2);
+		$length: sqrt($length-x * $length-x + $length-y * $length-y);
+		$total-length: $total-length + $length;
+		$lengths: append($lengths, $length);
+		$frame: nth($frames, length($frames)) + $length;
+		$frames: append($frames, $frame);
+	}
+
+	$padding: 0.05;
+	$npadding: 1 - $padding;
+	@for $i from 1 through length($positions) {
+		$prev: 0 0;
+		@if $i != 1 {
+			$prev: nth($ext-positions, $i - 1);
+		}
+		@else {
+			$prev: nth($positions, length($positions));
+		}
+		$px: nth($prev, 1);
+		$py: nth($prev, 2);
+		$curr: nth($ext-positions, $i);
+		$cx: nth($curr, 1);
+		$cy: nth($curr, 2);
+		$next: nth($ext-positions, $i + 1);
+		$nx: nth($next, 1);
+		$ny: nth($next, 2);
+
+		$frame: nth($frames, $i) * 100 / $total-length;
+		$t: ((100 + ($frame - 0.5)) % 100);
+		#{((100 + ($frame - 0.5)) % 100) * 1%} {
+			@include transform(
+					translate3d(
+						$x + $cx * $npadding + $padding * $px,
+						$y + $cy * $npadding + $padding * $py,
+						0)
+					scale($scale)
+					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * $rotate-axis-max-angle * fake-sin($t/100))
+					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * $rotate-axis-max-angle * fake-sin($t/100))
+					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * $rotate-axis-max-angle * fake-sin($t/100)),
+			false);
+		}
+
+		$t: $frame;
+		#{$frame * 1%} {
+			@include transform(
+					translate3d(
+						$x + $cx * $npadding + 0.5 * $padding * ($nx + $px),
+						$y + $cy * $npadding + 0.5 * $padding * ($ny + $py),
+						0)
+					scale($scale)
+					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * $rotate-axis-max-angle * fake-sin($t/100))
+					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * $rotate-axis-max-angle * fake-sin($t/100))
+					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * $rotate-axis-max-angle * fake-sin($t/100)),
+			false);
+		}
+
+		$t: $frame + 0.5;
+		#{($frame + 0.5) * 1%} {
+			$next: nth($ext-positions, $i + 1);
+			$nx: nth($next, 1);
+			$ny: nth($next, 2);
+
+			@include transform(
+					translate3d(
+						$x + ($cx * $npadding + $padding * $nx),
+						$y + ($cy * $npadding + $padding * $ny),
+						0)
+					scale($scale)
+					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * $rotate-axis-max-angle * fake-sin($t/100))
+					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * $rotate-axis-max-angle * fake-sin($t/100))
+					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * $rotate-axis-max-angle * fake-sin($t/100)),
+			false);
+		}
+	}
+}
+
+// floating animation
+@include keyframes(position-1-in-background) {
+	@include in-background-animation(
+		$position-1-base-pos-x, $position-1-base-pos-y,
+		$position-1-scale, $position-1-rotate, $position-1-rotate-axis,
+		(0 0, 48 64, -64 80, 96 -48, -96 -32));
+}
+
+@include keyframes(position-2-in-background) {
+	@include in-background-animation(
+		$position-2-base-pos-x, $position-2-base-pos-y,
+		$position-2-scale, $position-2-rotate, $position-2-rotate-axis,
+		(0 0, 60 -48, 84 24, -24 72, -72 12, 0 -60, 96 48, 36 84));
+}
+
+@include keyframes(position-3-in-background) {
+	@include in-background-animation(
+		$position-3-base-pos-x, $position-3-base-pos-y,
+		$position-3-scale, $position-3-rotate, $position-3-rotate-axis,
+		(0 0, -68 -52, 24 76, 12 -72, -52 76, -80 20));
+}
+
+.area {
+	position: relative;
+	z-index: 2;
+	$padding: 10px;
+	width: 960px - 2*$padding;
+	margin-bottom: 1em;
+	padding: $padding;
+	background: #333;
+	color: #fef;
+	@include box-shadow(0 0 10px #000);
+	@include border-radius($padding);
+	@include transform(
+		translateZ(0)
+	, false); // enable the gpu accel.
+
+	.csstransforms3d &.enable-animations {
+		@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1)); // enable transitions for moving area to the background
+		@include filter(none); // remove any filters for areas in foreground
+
+		* {
+			@include transition($transition-to-background-duration opacity); // enable transition for hiding the content
+		}
+
+		&[class*=position] {
+			z-index: 1;
+			position: absolute;
+			top: 0;
+			@include filter(blur($blur-radius*0.7)); // blur fix for areas flying to the background
+
+			* {
+				opacity: 0; // hide contents while moving to the background
+			}
+		}
+
+		&.in-background {
+			@include filter(blur($blur-radius)); // full blur for areas in the background
+		}
+
+		&.position-1 {
+			@include transform(
+					translate3d(
+						$position-1-base-pos-x,
+						$position-1-base-pos-y,
+						0)
+					scale($position-1-scale)
+					rotateX(nth($position-1-rotate, 1))
+					rotateY(nth($position-1-rotate, 2))
+					rotateZ(nth($position-1-rotate, 3)),
+				false); // move to the background position (transition)
+
+			&.in-background {
+				@include animation(position-1-in-background $position-1-transition-duration infinite linear); // add the float animation
+			}
+		}
+
+		&.position-2 {
+			@include transform(
+					translate3d(
+						$position-2-base-pos-x,
+						$position-2-base-pos-y,
+						0)
+					scale($position-2-scale)
+					rotateX(nth($position-2-rotate, 1))
+					rotateY(nth($position-2-rotate, 2))
+					rotateZ(nth($position-2-rotate, 3)),
+				false); // move to the background position (transition)
+
+			&.in-background {
+				@include animation(position-2-in-background $position-2-transition-duration infinite linear); // add the float animation
+			}
+		}
+
+		&.position-3 {
+			@include transform(
+					translate3d(
+						$position-3-base-pos-x,
+						$position-3-base-pos-y,
+						0)
+					scale($position-3-scale)
+					rotateX(nth($position-3-rotate, 1))
+					rotateY(nth($position-3-rotate, 2))
+					rotateZ(nth($position-3-rotate, 3)),
+				false); // move to the background position (transition)
+
+			&.in-background {
+				@include animation(position-3-in-background $position-3-transition-duration infinite linear); // add the float animation
+			}
+		}
+	}
+
+	.no-csstransforms3d &.enable-animations {
+		&[class*=position] {
+			display: none;
+		}
+	}
+/*
+	&.position-3 {
+		@include transform(
+			scale(0.125)
+			rotateX(120deg)
+			rotateY(30deg)
+			rotateZ(160deg) translate3d(700px, -1500px, 0)
+		, false);
+	}
+
+	&.position-3.in-background {
+
+	}
+*/
+}
+
+
