@@ -9,7 +9,7 @@ $(function() {
     $area.switchPosition('recall').siblings('.area').switchPosition('send');
     return $navLinks.removeClass('active').filter("[href=#" + ($area.attr('id')) + "]").addClass('active');
   };
-  $('nav ul').on('click', 'a[href^=#area]', function(e) {
+  $(document).on('click', 'a[href^=#area-]', function(e) {
     activateArea(this.hash);
     return e.preventDefault();
   });

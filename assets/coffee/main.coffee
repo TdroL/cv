@@ -10,7 +10,7 @@ $ ->
 		$navLinks.removeClass('active')
 			.filter("[href=##{$area.attr('id')}]").addClass 'active'
 
-	$('nav ul').on 'click', 'a[href^=#area]', (e) ->
+	$(document).on 'click', 'a[href^=#area-]', (e) ->
 		activateArea @hash
 
 		e.preventDefault()
