@@ -23,11 +23,11 @@ jQuery(document).on('webkitTransitionEnd msTransitionEnd oTransitionEnd', '*', f
 
 jQuery.fn.switchPosition = function(action, position) {
 
-	var rPosition = /^.*(position-\d+).*$/i, positionId, max_width, max_height;
+	var rposition = /^.*(position-\d+).*$/i, positionId, maxWidth, maxHeight;
 
 	position = position || '';
-	max_width = 960;
-	max_height = 2400;
+	maxWidth = 960;
+	maxHeight = 2400;
 
 	if (action && (action == 'send' || action == 'send-flash')) {
 		return this.trigger('transitionend.switchPosition').each(function() {
@@ -35,7 +35,7 @@ jQuery.fn.switchPosition = function(action, position) {
 			    self = this;
 
 			positionId = position || ('position-' + $this.data('position'));
-			positionId = positionId.replace(rPosition, '$1');
+			positionId = positionId.replace(rposition, '$1');
 
 			if (positionId == null) {
 				throw 'jQuery#switchPosition error: argument or data \'position\' must not be empty and must contain valid position';
@@ -43,8 +43,8 @@ jQuery.fn.switchPosition = function(action, position) {
 
 			$.data(self, 'dimentions', { width: $this.width(), height: $this.height() });
 
-			$this.width(Math.min($this.width(), max_width));
-			$this.height(Math.min($this.height(), max_height));
+			$this.width(Math.min($this.width(), maxWidth));
+			$this.height(Math.min($this.height(), maxHeight));
 
 			$this.addClass(positionId);
 
@@ -64,11 +64,11 @@ jQuery.fn.switchPosition = function(action, position) {
 	if (action && action == 'recall') {
 		return this.trigger('transitionend.switchPosition').each(function() {
 			var $this = $(this),
-			    classes = $this.attr('class');
+			    classes = $this.prop('class');
 
-			positionId = classes.replace(rPosition, '$1');
+			positionId = classes.replace(rposition, '$1');
 
-			if (rPosition.test(classes) && positionId != null) {
+			if (rposition.test(classes) && positionId != null) {
 				dimentions = $.data(this, 'dimentions');
 
 				if (dimentions != null) {

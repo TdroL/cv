@@ -5,6 +5,7 @@ body {
 	color: #222;
 	background: #fff5c6;
 	@include background(radial-gradient(#faedaf, #4f4e28) fixed no-repeat);
+	overflow-x: hidden;
 }
 
 #container {
@@ -108,8 +109,8 @@ table td:first-of-type {
 }
 
 $position-1-scale: 0.05;
-$position-1-base-pos-x: 960px*0.6;
-$position-1-base-pos-y: 480px*0;
+$position-1-base-pos-x: 960px*(0.6);
+$position-1-base-pos-y: 480px*(0.0);
 $position-1-rotate: -330deg 150deg 35deg;
 $position-1-rotate-axis: 0 -1 -1;
 $position-1-transition-duration: 61s;
@@ -122,8 +123,8 @@ $position-2-rotate-axis: -1 0 1;
 $position-2-transition-duration: 71s;
 
 $position-3-scale: 0.04;
-$position-3-base-pos-x: 960px*(-0.7);
-$position-3-base-pos-y: 480px*(0.4);
+$position-3-base-pos-x: 960px*(0.7);
+$position-3-base-pos-y: 480px*(0.3);
 $position-3-rotate: 5deg 15deg 40deg;
 $position-3-rotate-axis: 0 1 0;
 $position-3-transition-duration: 83s;
@@ -269,7 +270,7 @@ $rotate-axis-max-angle: 60deg;
 		@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1)); // enable transitions for moving area to the background
 		@include filter(none); // remove any filters for areas in foreground
 
-		* {
+		.wrapper {
 			@include transition($transition-to-background-duration opacity); // enable transition for hiding the content
 		}
 
@@ -279,7 +280,7 @@ $rotate-axis-max-angle: 60deg;
 			top: 0;
 			@include filter(blur($blur-radius*0.7)); // blur fix for areas flying to the background
 
-			* {
+			.wrapper {
 				opacity: 0; // hide contents while moving to the background
 			}
 		}
@@ -345,20 +346,4 @@ $rotate-axis-max-angle: 60deg;
 			display: none;
 		}
 	}
-/*
-	&.position-3 {
-		@include transform(
-			scale(0.125)
-			rotateX(120deg)
-			rotateY(30deg)
-			rotateZ(160deg) translate3d(700px, -1500px, 0)
-		, false);
-	}
-
-	&.position-3.in-background {
-
-	}
-*/
 }
-
-
