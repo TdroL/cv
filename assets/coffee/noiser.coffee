@@ -65,7 +65,7 @@ $ ->
 
 		elements['background']?.remove()
 		elements['background'] = cv.rect(0, 0, width, height)
-			.attr { fill: 'rgba(255, 255, 255, 0.8)' }
+			.attr { fill: 'rgba(255, 255, 255, 0.8)', 'stroke-width': 0 }
 
 		elements['cross-lines']?.remove()
 		elements['cross-lines'] = cv.path("M#{x-cross_dist},#{y}L#{x+cross_dist},#{y}M#{x},#{y-cross_dist}L#{x},#{y+cross_dist}")

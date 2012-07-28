@@ -189,53 +189,47 @@ img {
 /* line 195, ../scss/noiser.scss */
 body {
   margin: 0;
-  font: 1em/1.5 Georgia, serif;
+  font: 1em/1.5 "Asap", Arial, sans-serif;
   color: #222;
   background: #fff5c6;
-  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #faedaf), color-stop(100%, #4f4e28));
-  background: -webkit-radial-gradient(#faedaf, #4f4e28);
-  background: -moz-radial-gradient(#faedaf, #4f4e28);
-  background: -o-radial-gradient(#faedaf, #4f4e28);
-  background: radial-gradient(#faedaf, #4f4e28);
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #ffffff), color-stop(100%, #999999)) fixed no-repeat;
+  background: -webkit-radial-gradient(#ffffff, #999999) fixed no-repeat;
+  background: -moz-radial-gradient(#ffffff, #999999) fixed no-repeat;
+  background: -o-radial-gradient(#ffffff, #999999) fixed no-repeat;
+  background: radial-gradient(#ffffff, #999999) fixed no-repeat;
+  overflow-x: hidden;
 }
 
-/* line 203, ../scss/noiser.scss */
+/* line 204, ../scss/noiser.scss */
 #container {
   width: 960px;
   margin: 20px auto;
   position: relative;
 }
 
-/* line 209, ../scss/noiser.scss */
+/* line 210, ../scss/noiser.scss */
 .area {
   position: relative;
   z-index: 2;
   width: 940px;
   margin-bottom: 1em;
   padding: 10px;
-  background: #333;
-  color: #fef;
-  -webkit-box-shadow: 0 0 10px black;
-  -moz-box-shadow: 0 0 10px black;
-  box-shadow: 0 0 10px black;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
+  background: #fff;
+  color: #666;
+  -webkit-box-shadow: 0 0 10px #999999;
+  -moz-box-shadow: 0 0 10px #999999;
+  box-shadow: 0 0 10px #999999;
 }
 
-/* line 221, ../scss/noiser.scss */
-#canvas {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
-  overflow: hidden;
+/* line 222, ../scss/noiser.scss */
+#canvas svg {
+  border: 0;
+  -webkit-box-shadow: 0 0 5px #999999;
+  -moz-box-shadow: 0 0 5px #999999;
+  box-shadow: 0 0 5px #999999;
 }
 
-/* line 226, ../scss/noiser.scss */
+/* line 228, ../scss/noiser.scss */
 #coords {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -249,19 +243,19 @@ body {
 /*
  * Contain floats: h5bp.com/q
  */
-/* line 240, ../scss/noiser.scss */
+/* line 242, ../scss/noiser.scss */
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 245, ../scss/noiser.scss */
+/* line 247, ../scss/noiser.scss */
 .clearfix:after {
   clear: both;
 }
 
-/* line 249, ../scss/noiser.scss */
+/* line 251, ../scss/noiser.scss */
 .clearfix {
   *zoom: 1;
 }

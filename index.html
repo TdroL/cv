@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Spaaaaaceeeee~~</title>
-	<meta name="description" content="Experimental CSS 3D">
+	<title>Michał Lipka - Curriculum Vitae</title>
+	<meta name="description" content="Michał Lipka - Curriculum Vitae; experimental CSS-only 3D animation">
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="assets/css/main.css">
-	<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pontano+Sans"> -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Advent+Pro:400,300|Asap:400,400italic&amp;subset=latin,latin-ext">
 	<script src="assets/js/vendor/modernizr-2.6.1.min.js"></script>
 </head>
 <body>
@@ -18,41 +18,45 @@
 
 			<nav>
 				<ul>
-					<li><a href="#area-1" class="active" accesskey="1">1</a></li>
-					<li><a href="#area-2" accesskey="2">2</a></li>
-					<li><a href="#area-3" accesskey="3">3</a></li>
+					<li><a href="#area-1" accesskey="1">O mnie</a></li>
+					<li><a href="#area-2" accesskey="2">Wykształcenie i doświadczenie</a></li>
+					<li><a href="#area-3" accesskey="3">Dodatkowe informacje</a></li>
 				</ul>
 			</nav>
 		</header>
 
 		<article id="area-1" class="area" data-position="1">
 			<div class="wrapper">
-				<h2>Dane osobowe</h2>
+				<h2>O mnie</h2>
 
 				<aside>
-					<img src="#" alt="Moja parszywa morda">
+					<img src="http://s.gravatar.com/avatar/e02d4999db425bcf080697e1330b9bbc?s=260" alt="Zdjęcie">
 				</aside>
 
 				<ul>
 					<li>
-						<span>Imię i nazwisko:</span>
+						<span class="label">Imię i nazwisko:</span>
 						<span>Michał Lipka</span>
 					</li>
 					<li>
-						<span>Data urodzenia:</span>
-						<span>1988.02.23</span>
+						<span class="label">Data urodzenia:</span>
+						<span>1988-02-23</span>
 					</li>
 					<li>
-						<span>Adres zameldowania:</span>
-						<span>ul. Lazurowa 57, 20-781 Lublin</span>
+						<span class="label">Adres zameldowania:</span>
+						<span><span>ul. Lazurowa 57,</span> <span>20-781 Lublin</span></span>
 					</li>
 					<li>
-						<span>Telefon:</span>
+						<span class="label">Telefon:</span>
 						<span>501-618-599</span>
 					</li>
 					<li>
-						<span>E-mail:</span>
-						<span>stdrol@gmail.com</span>
+						<span class="label">E-mail:</span>
+						<span><a href="mailto:stdrol+cv@gmail.com">stdrol@gmail.com</a></span>
+					</li>
+					<li>
+						<span class="label">github:</span>
+						<span><a href="http://github.com/tdrol">github.com/tdrol</a></span>
 					</li>
 				</ul>
 			</div>
@@ -64,11 +68,11 @@
 
 				<ul>
 					<li>
-						<span>2010&nbsp;&ndash;&nbsp;2012</span>
+						<span class="date">2010&nbsp;&ndash;&nbsp;2012</span>
 						<span>Studia magisterskie na Politechnice Lubelskiej, kierunek: Informatyka i elektrotechinka, specjalizacja: Aplikacje internetowe</span>
 					</li>
 					<li>
-						<span>2007&nbsp;&ndash;&nbsp;2010</span>
+						<span class="date">2007&nbsp;&ndash;&nbsp;2010</span>
 						<span>Studia inżynierskie na Politechnice Lubelskiej, kierunek: Informatyka i elektrotechinka</span>
 					</li>
 				</ul>
@@ -76,8 +80,8 @@
 				<h2>Doświadczenie zawodowe</h2>
 				<ul>
 					<li>
-						<span>2007&nbsp;&ndash;</span>
-						<span>Freelancer (<a href="#area-2">przykładowe projekty</a>)</span>
+						<span class="date">2007&nbsp;&ndash;</span>
+						<span>Freelancer</span>
 					</li>
 				</ul>
 			</div>
@@ -86,16 +90,16 @@
 		<article id="area-3" class="area" data-position="3">
 			<div class="wrapper">
 				<h2>Dodatkowe informacje</h2>
-				<h3>Znajomość</h3>
+				<h3>Technologie</h3>
 				<ul>
-					<li>Języki programowania: C/C++, PHP, JavaScript (CoffeeScript), PL/SQL</li>
-					<li>Technologie/biblioteki: HTML5 (WebSocket, Canvas), CSS3 (SASS/SCSS), jQuery, Framework KohanaPHP (Bonafide, Jelly, Kostache), Git, MySQL</li>
-					<li>Systemy operacyjne: Windows, Linux (Debian)</li>
+					<li><em>Języki programowania:</em> C/C++, PHP, JavaScript (CoffeeScript), PL/SQL</li>
+					<li><em>Narzędzia/biblioteki:</em> HTML5 (WebSocket, Canvas), CSS3 (SASS/SCSS), jQuery, Framework KohanaPHP (Bonafide, Jelly, Kostache), Git, MySQL</li>
+					<li><em>Systemy operacyjne:</em> Windows, Linux (Debian)</li>
 				</ul>
 
 				<h3>Języki obce</h3>
 				<ul>
-					<li>Angielski: wystarczający do zrozumienia dokumentacji technicznych</li>
+					<li><em>Angielski:</em> wystarczający do zrozumienia dokumentacji technicznych</li>
 				</ul>
 
 				<h3>Zainteresowania</h3>
@@ -106,93 +110,6 @@
 				</ul>
 			</div>
 		</article>
-<!--
-		<div id="area-1" class="area" data-position="1">
-			<h1>Page 1</h1>
-
-			<article>
-				<h2>Dane osobowe</h2>
-
-				<aside>
-					<img src="#" alt="Moja parszywa morda">
-				</aside>
-
-				<ul>
-					<li><span>Imię i nazwisko:</span> Michał Lipka</li>
-
-					<li><span>Data urodzenia:</span> 1988.02.23</li>
-
-					<li><span>Adres zameldowania:</span> ul. Lazurowa 57, 20-781 Lublin</li>
-					<li><span>Telefon:</span> 501-618-599</li>
-					<li><span>E-mail:</span> stdrol@gmail.com</li>
-				</ul>
-
-				<h2>Doświadczenie zawodowe</h2>
-				<table>
-					<tr>
-						<td>2007&nbsp;&ndash;</td>
-						<td>Freelancer (<a href="#area-2">przykładowe projekty</a>)</td>
-					</tr>
-				</table>
-
-				<h2>Wykształcenie</h2>
-				<table>
-					<tr>
-						<td>2010&nbsp;&ndash;&nbsp;2012</td>
-						<td>Studia magisterskie na Politechnice Lubelskiej, kierunek: Informatyka i elektrotechinka, specjalizacja: Aplikacje internetowe</td>
-					</tr>
-					<tr>
-						<td>2007&nbsp;&ndash;&nbsp;2010</td>
-						<td>Studia inżynierskie na Politechnice Lubelskiej, kierunek: Informatyka i elektrotechinka</td>
-					</tr>
-				</table>
-
-				<h2>Dodatkowe informacje</h2>
-				<h3>Znajomość</h3>
-				<ul>
-					<li>Języki programowania: C/C++, PHP, JavaScript (CoffeeScript), PL/SQL</li>
-					<li>Technologie/biblioteki: HTML5 (WebSocket, Canvas), CSS3 (SASS/SCSS), jQuery, Framework KohanaPHP, Git, MySQL</li>
-					<li>Systemy operacyjne: Windows, Linux (Debian)</li>
-				</ul>
-
-				<h3>Języki obce</h3>
-				<ul>
-					<li>Angielski: wystarczający do zrozumienia dokumentacji technicznych</li>
-				</ul>
-
-				<h3>Zainteresowania</h3>
-				<ul>
-					<li>Gra na gitarze</li>
-					<li>Muzyka</li>
-					<li>Gry komputerowe</li>
-				</ul>
-			</article>
-		</div>
-
-		<div id="area-2" class="area" data-position="2">
-			<h1>Page 2</h1>
-
-			<article>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</article>
-		</div>
-
-		<div id="area-3" class="area" data-position="3">
-			<h1>Page 3</h1>
-
-			<article>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</article>
-		</div>
--->
 	</div>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

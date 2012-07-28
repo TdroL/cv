@@ -7,8 +7,9 @@ $ ->
 		$area.switchPosition('recall')
 			.siblings('.area').switchPosition 'send'
 
-		$navLinks.removeClass('active')
-			.filter("[href=##{$area.attr('id')}]").addClass 'active'
+		$navLinks.closest('li').removeClass('active').end()
+			.filter("a[href=##{$area.attr('id')}]")
+				.closest('li').addClass 'active'
 
 	$(document).on 'click', 'a[href^=#area-]', (e) ->
 		activateArea @hash
@@ -16,5 +17,5 @@ $ ->
 		e.preventDefault()
 
 	$('.area').addClass('enable-animations')
-		.not(':first').switchPosition('send-flash').one 'click', ->
-				$(this).switchPosition 'recall'
+
+	$navLinks.first().click()

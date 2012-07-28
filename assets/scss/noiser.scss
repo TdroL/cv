@@ -194,10 +194,11 @@ img {
 
 body {
 	margin: 0;
-	font: 1em/1.5 Georgia, serif;
+	font: 1em/1.5 'Asap', Arial, sans-serif;
 	color: #222;
 	background: #fff5c6;
-	@include background(radial-gradient(#faedaf, #4f4e28));
+	@include background(radial-gradient(#fff, #999) fixed no-repeat);
+	overflow-x: hidden;
 }
 
 #container {
@@ -212,15 +213,16 @@ body {
 	width: 960px - 2*10px;
 	margin-bottom: 1em;
 	padding: 10px;
-	background: #333;
-	color: #fef;
-	@include box-shadow(0 0 10px #000);
-	@include border-radius(10px);
+	background: #fff;
+	color: #666;
+	@include box-shadow(0 0 10px #999);
 }
 
 #canvas {
-	@include border-radius(10px);
-	overflow: hidden;
+	svg {
+		border: 0;
+		@include box-shadow(0 0 5px #999);
+	}
 }
 
 #coords {

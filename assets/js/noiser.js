@@ -74,7 +74,8 @@ $(function() {
       _ref.remove();
     }
     elements['background'] = cv.rect(0, 0, width, height).attr({
-      fill: 'rgba(255, 255, 255, 0.8)'
+      fill: 'rgba(255, 255, 255, 0.8)',
+      'stroke-width': 0
     });
     if ((_ref1 = elements['cross-lines']) != null) {
       _ref1.remove();
