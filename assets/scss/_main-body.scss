@@ -17,9 +17,7 @@ $container-width: 960px;
 	position: relative;
 }
 
-// 'Advent Pro', 'Pontano Sans', 'Exo', 'Asap',
-
-h1, h2, h3 {
+h1, h2, h3, h4 {
 	font-family: 'Advent Pro', Arial, sans-serif;
 	line-height: 1.2;
 	margin: 0 0 0.2em;
@@ -54,6 +52,7 @@ nav {
 			width: $container-width / 3;
 
 			a {
+				position: relative;
 				display: block;
 				text-align: center;
 
@@ -70,21 +69,41 @@ nav {
 
 				// colors shamelessly stolen from css-tricks.com
 				background: #4b4948;
+
+				&:after {
+					position: absolute;
+					z-index: -1;
+					bottom: 0; //-25px;
+					left: $container-width / 6 - 25px;
+					display: block;
+					content: '';
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 25px 25px 0;
+
+					@include transition(all 0.25s);
+				}
 			}
 
-			&.active a, a:hover, a:focus {
-				//line-height: 75px;
-				padding-bottom: 25px;
-
-				@include box-shadow(
-					inset 0 8px 40px -30px rgba(0,0,0,.3),
-					inset 0 -8px 40px -30px rgba(0,0,0,.3)
-				);
+			&.active a:after {
+				bottom: -20px;
 			}
+
+			// &.active a, a:hover, a:focus {
+			// 	@include box-shadow(
+			// 		inset 0 8px 40px -30px rgba(0,0,0,.3),
+			// 		inset 0 -8px 40px -30px rgba(0,0,0,.3)
+			// 	);
+			// }
 
 			&:nth-of-type(n) {
 				&.active a, a:hover, a:focus  {
 					background: #d54421;
+				}
+
+				a:after {
+					border-color: #d54421 transparent transparent;
 				}
 			}
 
@@ -92,11 +111,19 @@ nav {
 				&.active a, a:hover, a:focus  {
 					background: #98bf0d;
 				}
+
+				a:after {
+					border-color: #98bf0d transparent transparent;
+				}
 			}
 
 			&:nth-of-type(3n) {
 				&.active a, a:hover, a:focus  {
 					background: #01b0ec;
+				}
+
+				a:after {
+					border-color: #01b0ec transparent transparent;
 				}
 			}
 		}
@@ -177,6 +204,12 @@ article {
 		width: 400px;
 		margin-top: 2em;
 	}
+}
+
+footer p {
+	text-align: center;
+	font-size: 0.9em;
+	margin-bottom: 0.5em;
 }
 
 // primes:
