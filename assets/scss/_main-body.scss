@@ -1,245 +1,3 @@
-
-body {
-	margin: 0;
-	font: 1em/1.5 'Asap', Arial, sans-serif;
-	color: #222;
-	background: #fff5c6;
-	@include background(radial-gradient(#fff, #999) fixed no-repeat);
-	overflow-x: hidden;
-}
-
-$container-width: 960px;
-
-#container {
-	width: $container-width;
-	margin: 0 auto;
-	padding: 20px 0;
-	position: relative;
-}
-
-h1, h2, h3, h4 {
-	font-family: 'Advent Pro', Arial, sans-serif;
-	line-height: 1.2;
-	margin: 0 0 0.2em;
-}
-
-header {
-	h1, h2 {
-		display: inline-block;
-		text-transform: uppercase;
-	}
-
-	h1 {
-		font-size: 2.5em;
-		letter-spacing: -0.02em;
-	}
-
-	h2 {
-		font-weight: 300;
-	}
-}
-
-nav {
-	position: relative;
-	z-index: 3; // .area: z-index = 2
-
-	ul {
-		@extend .clearfix;
-		height: 75px;
-
-		li {
-			float: left;
-			width: $container-width / 3;
-
-			a {
-				position: relative;
-				display: block;
-				text-align: center;
-
-				&, &:hover, &:focus, &:visited
-				{
-					color: #fff;
-					font-style: 400;
-					text-decoration: none;
-				}
-
-				@include transition(all 0.25s);
-
-				line-height: 50px;
-
-				// colors shamelessly stolen from css-tricks.com
-				background: #4b4948;
-
-				&:after {
-					position: absolute;
-					z-index: -1;
-					bottom: 0; //-25px;
-					left: $container-width / 6 - 25px;
-					display: block;
-					content: '';
-					width: 0;
-					height: 0;
-					border-style: solid;
-					border-width: 25px 25px 0;
-
-					@include transition(all 0.25s);
-				}
-			}
-
-			&.active a:after {
-				bottom: -20px;
-			}
-
-			// &.active a, a:hover, a:focus {
-			// 	@include box-shadow(
-			// 		inset 0 8px 40px -30px rgba(0,0,0,.3),
-			// 		inset 0 -8px 40px -30px rgba(0,0,0,.3)
-			// 	);
-			// }
-
-			&:nth-of-type(n) {
-				&.active a, a:hover, a:focus  {
-					background: #d54421;
-				}
-
-				a:after {
-					border-color: #d54421 transparent transparent;
-				}
-			}
-
-			&:nth-of-type(2n) {
-				&.active a, a:hover, a:focus  {
-					background: #98bf0d;
-				}
-
-				a:after {
-					border-color: #98bf0d transparent transparent;
-				}
-			}
-
-			&:nth-of-type(3n) {
-				&.active a, a:hover, a:focus  {
-					background: #01b0ec;
-				}
-
-				a:after {
-					border-color: #01b0ec transparent transparent;
-				}
-			}
-		}
-	}
-}
-
-article {
-	@extend .clearfix;
-
-	h2 {
-		font-size: 2em;
-	}
-
-	aside {
-		position: relative;
-		float: right;
-		margin: 0 20px 20px 0;
-		padding: 20px;
-		@include box-shadow(0 0 5px #999);
-		@include transform(rotateZ(2.5deg) translateZ(0));
-
-		.csstransforms3d & {
-
-			&:before, &:after {
-				position: absolute;
-				z-index: 2;
-				background: #eee;
-				display: block;
-				content: '';
-				width: 100px;
-				height: 25px;
-				@include box-shadow(0 0 2px #999);
-			}
-
-			&:before {
-				top: 5px;
-				left: -35px;
-				@include transform(rotateZ(-35deg));
-			}
-
-			&:after {
-				bottom: 10px;
-				right: -35px;
-				@include transform(rotateZ(-45deg));
-			}
-		}
-	}
-
-	ul {
-		margin: 0 0 0.5em;
-
-		li {
-			list-style: none;
-			@extend .clearfix;
-
-			> span:first-of-type {
-				font-weight: bold;
-			}
-
-			> span.date {
-				display: block;
-			}
-
-			> span.label, > span.label + span {
-				display: block;
-				float: left;
-				width: 200px;
-			}
-
-			> span.label + span > span {
-				display: block;
-			}
-		}
-	}
-
-	aside + ul {
-		float: left;
-		width: 400px;
-		margin-top: 2em;
-	}
-}
-
-footer p {
-	text-align: center;
-	font-size: 0.9em;
-	margin-bottom: 0.5em;
-}
-
-// primes:
-//  2  3  5  7 11  13  17  19  23  29  31  37  41  43  47  53  59  61  67  71
-// 73 79 83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 167 173
-$position-1-scale: 0.05;
-$position-1-base-pos-x: 960px*(0.6);
-$position-1-base-pos-y: 480px*(0.0);
-$position-1-rotate: -330deg 150deg 35deg;
-$position-1-rotate-axis: 0 -1 -1;
-$position-1-transition-duration: 31s;
-
-$position-2-scale: 0.06;
-$position-2-base-pos-x: 960px*(-0.6);
-$position-2-base-pos-y: 480px*(-0.1);
-$position-2-rotate: 30deg 35deg 30deg;
-$position-2-rotate-axis: -1 0 1;
-$position-2-transition-duration: 37s;
-
-$position-3-scale: 0.04;
-$position-3-base-pos-x: 960px*(0.7);
-$position-3-base-pos-y: 480px*(0.3);
-$position-3-rotate: 5deg 15deg 40deg;
-$position-3-rotate-axis: 0 1 0;
-$position-3-transition-duration: 41s;
-
-$transition-to-background-duration: 500ms;
-$blur-radius: 50px;
-$rotate-axis-max-angle: 60deg;
-
 @function fake-sin($t) {
 	@if $t >= 0.5 {
 		$t: $t - 0.5;
@@ -289,35 +47,35 @@ $rotate-axis-max-angle: 60deg;
 
 		$frame: nth($frames, $i) * 100 / $total-length;
 		$t: ((100 + ($frame - 0.5)) % 100);
-		#{((100 + ($frame - 0.5)) % 100) * 1%} {
+		#{$t * 1%} {
 			@include transform(
 					translate3d(
 						$x + $cx * $npadding + $padding * $px,
 						$y + $cy * $npadding + $padding * $py,
 						0)
 					scale($scale)
-					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * $rotate-axis-max-angle * fake-sin($t/100))
-					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * $rotate-axis-max-angle * fake-sin($t/100))
-					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * $rotate-axis-max-angle * fake-sin($t/100)),
+					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100))
+					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100))
+					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100)),
 			false);
 		}
 
 		$t: $frame;
-		#{$frame * 1%} {
+		#{$t * 1%} {
 			@include transform(
 					translate3d(
 						$x + $cx * $npadding + 0.5 * $padding * ($nx + $px),
 						$y + $cy * $npadding + 0.5 * $padding * ($ny + $py),
 						0)
 					scale($scale)
-					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * $rotate-axis-max-angle * fake-sin($t/100))
-					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * $rotate-axis-max-angle * fake-sin($t/100))
-					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * $rotate-axis-max-angle * fake-sin($t/100)),
+					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100))
+					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100))
+					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100)),
 			false);
 		}
 
 		$t: $frame + 0.5;
-		#{($frame + 0.5) * 1%} {
+		#{$t * 1%} {
 			$next: nth($ext-positions, $i + 1);
 			$nx: nth($next, 1);
 			$ny: nth($next, 2);
@@ -328,13 +86,40 @@ $rotate-axis-max-angle: 60deg;
 						$y + ($cy * $npadding + $padding * $ny),
 						0)
 					scale($scale)
-					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * $rotate-axis-max-angle * fake-sin($t/100))
-					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * $rotate-axis-max-angle * fake-sin($t/100))
-					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * $rotate-axis-max-angle * fake-sin($t/100)),
+					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100))
+					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100))
+					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100)),
 			false);
 		}
 	}
 }
+
+// primes:
+//  2  3  5  7 11  13  17  19  23  29  31  37  41  43  47  53  59  61  67  71
+// 73 79 83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 167 173
+$position-1-scale: 0.05;
+$position-1-base-pos-x: 960px*(0.6);
+$position-1-base-pos-y: 480px*(0.0);
+$position-1-rotate: -330deg 150deg 35deg;
+$position-1-rotate-axis: 10deg -30deg -60deg;
+$position-1-transition-duration: 31s;
+
+$position-2-scale: 0.06;
+$position-2-base-pos-x: 960px*(-0.6);
+$position-2-base-pos-y: 480px*(-0.1);
+$position-2-rotate: 30deg 35deg 30deg;
+$position-2-rotate-axis: -30deg -30deg 70deg;
+$position-2-transition-duration: 37s;
+
+$position-3-scale: 0.04;
+$position-3-base-pos-x: 960px*(0.7);
+$position-3-base-pos-y: 480px*(0.3);
+$position-3-rotate: 5deg 15deg 40deg;
+$position-3-rotate-axis: 30deg 60deg -40deg;
+$position-3-transition-duration: 41s;
+
+$transition-to-background-duration: 500ms;
+$blur-radius: 50px;
 
 // floating animation
 @include keyframes(position-1-in-background) {
@@ -358,101 +143,515 @@ $rotate-axis-max-angle: 60deg;
 		(0 0, -68 -52, 24 76, 12 -72, -52 76, -80 20));
 }
 
-.area {
-	$padding: 10px;
+body {
+	margin: 0;
+	font: 1em/1.5 'Asap', Arial, sans-serif;
+	color: #222;
+	background-color: mix(#fff, #999);
+	overflow-x: hidden;
+}
 
-	position: relative;
-	z-index: 2;
-	width: $container-width - 2*$padding;
-	margin-bottom: 1em;
-	padding: $padding;
-	background: #fff;
-	color: #666;
-	@include box-shadow(0 0 10px #999);
-	@include transform(
-		translateZ(0)
-	, false); // enable the gpu accel.
+h1, h2, h3, h4 {
+	font-family: 'Advent Pro', Arial, sans-serif;
+	line-height: 1.2;
+	margin: 0 0 0.2em;
+}
 
-	.csstransforms3d &.enable-animations {
-		@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1)); // enable transitions for moving area to the background
-		@include filter(none); // remove any filters for areas in foreground
+@include respond-to(small) {
 
-		.wrapper {
-			@include transition($transition-to-background-duration opacity); // enable transition for hiding the content
+	header {
+		h1, h2 {
+			line-height: 1;
+			padding: 5px 5px 0;
+			margin: 3px;
+		}
+	}
+
+	nav {
+		a {
+			display: block;
+
+			&, &:hover, &:focus, &:visited
+			{
+				color: #fff;
+				font-style: 400;
+				text-decoration: none;
+			}
+
+			@include transition(all 0.25s);
+
+			line-height: 1.5;
+			padding: 5px;
+
+			// colors shamelessly stolen from css-tricks.com
+			background: #4b4948;
 		}
 
-		&[class*=position] {
-			z-index: 1;
-			position: absolute;
-			top: 0;
-			background: #999;
-			@include filter(blur($blur-radius*0.7)); // blur fix for areas flying to the background
-			@include box-shadow(0 0 100px #777);
+		li:nth-of-type(n) a {
+			background-color: #d54421;
+			@include background-image(linear-gradient(#d54421, lighten(#d54421, 5%), #d54421));
+		}
 
-			.wrapper {
-				opacity: 0; // hide contents while moving to the background
+		li:nth-of-type(2n) a {
+			background-color: #98bf0d;
+			@include background-image(linear-gradient(#98bf0d, lighten(#98bf0d, 5%), #98bf0d));
+		}
+
+		li:nth-of-type(3n) a {
+			background-color: #01b0ec;
+			@include background-image(linear-gradient(#01b0ec, lighten(#01b0ec, 5%), #01b0ec));
+		}
+	}
+
+	.area {
+		background: #fff;
+		padding: 5px;
+
+		aside {
+			text-align: center;
+
+			img {
+				max-width: 94%;
+				padding: 3%;
+				@include box-shadow(0 0 5px #999);
 			}
 		}
 
-		&.in-background {
-			@include filter(blur($blur-radius)); // full blur for areas in the background
+		ul {
+			padding: 0;
+
+			li {
+				list-style: none;
+				@include clearfix;
+				padding-bottom: 0.25em;
+
+				> span:first-of-type {
+					font-weight: bold;
+				}
+
+				> span.date {
+					display: block;
+				}
+
+				> span.label, > span.label + span {
+					display: block;
+					float: left;
+					width: 50%;
+				}
+
+				> span.label + span > span {
+					display: block;
+				}
+			}
+
+			ul {
+				margin: 0 0 0.5em 0.5em;
+
+				li {
+					list-style: disc;
+				}
+			}
 		}
+	}
+}
 
-		&.position-1 {
-			@include transform(
-					translate3d(
-						$position-1-base-pos-x,
-						$position-1-base-pos-y,
-						0)
-					scale($position-1-scale)
-					rotateX(nth($position-1-rotate, 1))
-					rotateY(nth($position-1-rotate, 2))
-					rotateZ(nth($position-1-rotate, 3)),
-				false); // move to the background position (transition)
+@include respond-to(medium) {
+	header {
+		h1, h2 {
+			padding: 0;
+			line-height: 1;
+			display: inline-block;
+			text-transform: uppercase;
+		}
+	}
 
-			&.in-background {
-				@include animation(position-1-in-background $position-1-transition-duration infinite linear); // add the float animation
+	nav li {
+		a {
+			display: block;
+			padding: 5px 10px;
+			background: #4b4948;
+
+			&, &:hover, &:focus, &:visited
+			{
+				color: #fff;
+				font-style: 400;
+				text-decoration: none;
 			}
 		}
 
-		&.position-2 {
-			@include transform(
-					translate3d(
-						$position-2-base-pos-x,
-						$position-2-base-pos-y,
-						0)
-					scale($position-2-scale)
-					rotateX(nth($position-2-rotate, 1))
-					rotateY(nth($position-2-rotate, 2))
-					rotateZ(nth($position-2-rotate, 3)),
-				false); // move to the background position (transition)
+		&:nth-of-type(n) a {
+			background-color: #d54421;
+			@include background-image(linear-gradient(#d54421, lighten(#d54421, 5%), #d54421));
+		}
 
-			&.in-background {
-				@include animation(position-2-in-background $position-2-transition-duration infinite linear); // add the float animation
+		&:nth-of-type(2n) a {
+			background-color: #98bf0d;
+			@include background-image(linear-gradient(#98bf0d, lighten(#98bf0d, 5%), #98bf0d));
+		}
+
+		&:nth-of-type(3n) a {
+			background-color: #01b0ec;
+			@include background-image(linear-gradient(#01b0ec, lighten(#01b0ec, 5%), #01b0ec));
+		}
+	}
+
+	.area {
+		padding: 10px;
+		background: #fff;
+
+		@include clearfix;
+
+		aside {
+			float: right;
+			margin: 0 20px 20px 0;
+			padding: 20px;
+			@include box-shadow(0 0 5px #999);
+			@include transform(rotateZ(2.5deg) translateZ(0));
+		}
+
+		ul {
+			margin: 0 0 0.5em;
+
+			li {
+				list-style: none;
+				@include clearfix;
+
+				> span:first-of-type {
+					font-weight: bold;
+				}
+
+				> span.date {
+					display: block;
+				}
+
+				> span.label, > span.label + span {
+					display: block;
+					float: left;
+					width: 150px;
+				}
+
+				> span.label + span > span {
+					display: block;
+				}
 			}
 		}
 
-		&.position-3 {
-			@include transform(
-					translate3d(
-						$position-3-base-pos-x,
-						$position-3-base-pos-y,
-						0)
-					scale($position-3-scale)
-					rotateX(nth($position-3-rotate, 1))
-					rotateY(nth($position-3-rotate, 2))
-					rotateZ(nth($position-3-rotate, 3)),
-				false); // move to the background position (transition)
+		aside + ul {
+			float: left;
+			width: 300px;
+			margin-top: 2em;
+		}
+	}
+}
 
-			&.in-background {
-				@include animation(position-3-in-background $position-3-transition-duration infinite linear); // add the float animation
+@include respond-to(wide) {
+
+	body {
+		@include background(radial-gradient(#fff, #999) fixed no-repeat);
+	}
+
+	$container-width: 960px;
+
+	#container {
+		width: $container-width;
+		margin: 0 auto;
+		padding: 20px 0;
+		position: relative;
+	}
+
+	header {
+		h1, h2 {
+			display: inline-block;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			font-size: 2.5em;
+			letter-spacing: -0.02em;
+		}
+
+		h2 {
+			font-weight: 300;
+		}
+	}
+
+	nav {
+		position: relative;
+		z-index: 3; // .area: z-index = 2
+
+		ul {
+			@include clearfix;
+			height: 75px;
+
+			li {
+				$li-width: $container-width / 3;
+				float: left;
+				width: $li-width;
+				position: relative;
+
+				a {
+					display: block;
+					text-align: center;
+
+					&, &:hover, &:focus, &:visited
+					{
+						color: #fff;
+						font-style: 400;
+						text-decoration: none;
+					}
+
+					@include transition(all 0.25s);
+
+					line-height: 50px;
+
+					// colors shamelessly stolen from css-tricks.com
+					background: #4b4948;
+				}
+
+				span.arrow {
+					position: absolute;
+					z-index: -1;
+					bottom: 0;
+					left: $li-width / 2 - 25px;
+					display: block;
+					content: '';
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-color: transparent;
+					border-width: 25px 25px 0;
+
+					@include transition(all 0.25s);
+				}
+
+				&.active span.arrow {
+					bottom: -20px;
+				}
+
+				&:nth-of-type(n) {
+					&.active a, a:hover, a:focus {
+						background-color: #d54421;
+						@include background-image(linear-gradient(#d54421, lighten(#d54421, 5%), #d54421));
+					}
+
+					span.arrow {
+						border-top-color: #d54421;
+					}
+				}
+
+				&:nth-of-type(2n) {
+					&.active a, a:hover, a:focus {
+						background-color: #98bf0d;
+						@include background-image(linear-gradient(#98bf0d, lighten(#98bf0d, 5%), #98bf0d));
+					}
+
+					span.arrow {
+						border-top-color: #98bf0d;
+					}
+				}
+
+				&:nth-of-type(3n) {
+					&.active a, a:hover, a:focus {
+						background-color: #01b0ec;
+						@include background-image(linear-gradient(#01b0ec, lighten(#01b0ec, 5%), #01b0ec));
+					}
+
+					span.arrow {
+						border-top-color: #01b0ec;
+					}
+				}
 			}
 		}
 	}
 
-	.no-csstransforms3d &.enable-animations {
-		&[class*=position] {
-			display: none;
+	article {
+		@include clearfix;
+
+		h2 {
+			font-size: 2em;
+		}
+
+		aside {
+			position: relative;
+			float: right;
+			margin: 0 20px 20px 0;
+			padding: 20px;
+			@include box-shadow(0 0 5px #999);
+			@include transform(rotateZ(2.5deg) translateZ(0));
+
+			.csstransforms3d & {
+
+				&:before, &:after {
+					position: absolute;
+					z-index: 2;
+					background: #eee;
+					display: block;
+					content: '';
+					width: 100px;
+					height: 25px;
+					@include box-shadow(0 0 2px #999);
+				}
+
+				&:before {
+					top: 5px;
+					left: -35px;
+					@include transform(rotateZ(-35deg));
+				}
+
+				&:after {
+					bottom: 10px;
+					right: -35px;
+					@include transform(rotateZ(-45deg));
+				}
+			}
+		}
+
+		ul {
+			margin: 0 0 0.5em;
+
+			li {
+				list-style: none;
+				@include clearfix;
+
+				> span:first-of-type {
+					font-weight: bold;
+				}
+
+				> span.date {
+					display: block;
+				}
+
+				> span.label, > span.label + span {
+					display: block;
+					float: left;
+					width: 200px;
+				}
+
+				> span.label + span > span {
+					display: block;
+				}
+			}
+		}
+
+		aside + ul {
+			float: left;
+			width: 400px;
+			margin-top: 2em;
+		}
+	}
+
+	footer p {
+		text-align: center;
+		font-size: 0.9em;
+		margin-bottom: 0.5em;
+	}
+
+	.area {
+		$padding: 10px;
+
+		position: relative;
+		z-index: 2;
+		width: $container-width - 2*$padding;
+		margin-bottom: 1em;
+		padding: $padding;
+		background: #fff;
+		color: #666;
+		@include box-shadow(0 0 10px #999);
+		@include transform(
+			translateZ(0)
+		, false); // enable the gpu accel.
+
+		.csstransforms3d &.enable-animations {
+			@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1)); // enable transitions for moving area to the background
+			@include filter(none); // remove any filters for areas in foreground
+
+			.wrapper {
+				@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1));
+				visibility: visible;
+				opacity: 1;
+
+				@include transform(
+					translateZ(0)
+				, false); // enable the gpu accel.
+			}
+
+			&[class*=position] {
+				z-index: 1;
+				position: absolute;
+				top: 0;
+				background: #999;
+				@include filter(blur($blur-radius*0.7)); // blur fix for areas flying to the background
+				@include box-shadow(0 0 100px #777);
+
+				.wrapper {
+					opacity: 0;
+				}
+			}
+
+			&.in-background {
+				@include filter(blur($blur-radius)); // full blur for areas in the background
+
+				.wrapper {
+					visibility: hidden;
+				}
+			}
+
+			&.position-1 {
+				@include transform(
+						translate3d(
+							$position-1-base-pos-x,
+							$position-1-base-pos-y,
+							0)
+						scale($position-1-scale)
+						rotateX(nth($position-1-rotate, 1))
+						rotateY(nth($position-1-rotate, 2))
+						rotateZ(nth($position-1-rotate, 3)),
+					false); // move to the background position (transition)
+
+				&.in-background {
+					@include animation(position-1-in-background $position-1-transition-duration infinite linear); // add the float animation
+				}
+			}
+
+			&.position-2 {
+				@include transform(
+						translate3d(
+							$position-2-base-pos-x,
+							$position-2-base-pos-y,
+							0)
+						scale($position-2-scale)
+						rotateX(nth($position-2-rotate, 1))
+						rotateY(nth($position-2-rotate, 2))
+						rotateZ(nth($position-2-rotate, 3)),
+					false); // move to the background position (transition)
+
+				&.in-background {
+					@include animation(position-2-in-background $position-2-transition-duration infinite linear); // add the float animation
+				}
+			}
+
+			&.position-3 {
+				@include transform(
+						translate3d(
+							$position-3-base-pos-x,
+							$position-3-base-pos-y,
+							0)
+						scale($position-3-scale)
+						rotateX(nth($position-3-rotate, 1))
+						rotateY(nth($position-3-rotate, 2))
+						rotateZ(nth($position-3-rotate, 3)),
+					false); // move to the background position (transition)
+
+				&.in-background {
+					@include animation(position-3-in-background $position-3-transition-duration infinite linear); // add the float animation
+				}
+			}
+		}
+
+		.no-csstransforms3d &.enable-animations {
+			&[class*=position] {
+				display: none;
+			}
 		}
 	}
 }

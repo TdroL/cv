@@ -23,11 +23,9 @@ jQuery(document).on('webkitTransitionEnd msTransitionEnd oTransitionEnd', '*', f
 
 jQuery.fn.switchPosition = function(action, position) {
 
-	var rposition = /^.*(position-\d+).*$/i, positionId, maxWidth, maxHeight;
+	var rposition = /^.*(position-\d+).*$/i, positionId, $dummy;
 
 	position = position || '';
-	maxWidth = 960;
-	maxHeight = 2400;
 
 	if (action && (action == 'send' || action == 'send-flash')) {
 		return this.trigger('transitionend.switchPosition').each(function() {
@@ -41,16 +39,10 @@ jQuery.fn.switchPosition = function(action, position) {
 				throw 'jQuery#switchPosition error: argument or data \'position\' must not be empty and must contain valid position';
 			}
 
-			$.data(self, 'dimentions', { width: $this.width(), height: $this.height() });
-
-			$this.width(Math.min($this.width(), maxWidth));
-			$this.height(Math.min($this.height(), maxHeight));
-
 			$this.addClass(positionId);
 
 			if ( ! $this.is('.in-background')) {
 				$this.one('transitionend.switchPosition', function() {
-					$.data(self, 'contents', $this.contents().detach());
 					$this.addClass('in-background');
 				});
 
@@ -69,14 +61,9 @@ jQuery.fn.switchPosition = function(action, position) {
 			positionId = classes.replace(rposition, '$1');
 
 			if (rposition.test(classes) && positionId != null) {
-				dimentions = $.data(this, 'dimentions');
-
-				if (dimentions != null) {
-					$this.width(dimentions.width);
-					$this.height(dimentions.height);
-				}
-
-				$this.removeClass(positionId + ' in-background').append($.data(this, 'contents'));
+				$this.removeClass(positionId + ' in-background');
+				// fix chrome's visibility bug (visibility not changing after recall)
+				$this.children('.wrapper').addClass('wrapper');
 			}
 		});
 	}

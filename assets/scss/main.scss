@@ -85,47 +85,6 @@ a {
 	}
 }
 
-/* =============================================================================
-   Typography
-   ========================================================================== */
-
-/*
- * Redeclare monospace font family: h5bp.com/j
- */
-
-pre,
-code,
-kbd,
-samp {
-	font-family: monospace, serif;
-	_font-family: 'courier new', monospace;
-	font-size: 1em;
-}
-
-/*
- * Improve readability of pre-formatted text
- */
-
-pre {
-	white-space: pre;
-	white-space: pre-wrap;
-	word-wrap: break-word;
-}
-
-q {
-	quotes: none;
-
-	&:before,
-	&:after {
-		content: "";
-		content: none;
-	}
-}
-
-small {
-	font-size: 85%;
-}
-
 
 /* =============================================================================
    Lists
@@ -135,10 +94,6 @@ ul,
 ol {
 	margin: 1em 0;
 	padding: 0 0 0 40px;
-}
-
-dd {
-	margin: 0 0 0 40px;
 }
 
 nav ul,
@@ -170,27 +125,16 @@ img {
    Author: tdroL
    ========================================================================== */
 
+@mixin respond-to($media) {
+	@if $media == small {
+		@media only screen and (max-width: 320px) { @content; }
+	}
+	@else if $media == medium {
+		@media only screen and (min-width: 321px) and (max-width: 980px) { @content; }
+	}
+	@else if $media == wide {
+		@media only screen and (min-width: 980px) { @content; }
+	}
+}
+
 @import "main-body";
-
-
-/* ==|== non-semantic helper classes ========================================
-   Please define your styles before this section.
-   ========================================================================== */
-
-/*
- * Contain floats: h5bp.com/q
- */
-
-.clearfix:before,
-.clearfix:after {
-	content: "";
-	display: table;
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.clearfix {
-	*zoom: 1;
-}
