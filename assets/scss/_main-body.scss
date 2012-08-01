@@ -253,6 +253,12 @@ h1, h2, h3, h4 {
 			}
 		}
 	}
+
+	footer p {
+		text-align: center;
+		font-size: 0.9em;
+		margin-bottom: 0.5em;
+	}
 }
 
 @include respond-to(medium) {
@@ -341,6 +347,12 @@ h1, h2, h3, h4 {
 			width: 300px;
 			margin-top: 2em;
 		}
+	}
+
+	footer p {
+		text-align: center;
+		font-size: 0.9em;
+		margin-bottom: 0.5em;
 	}
 }
 

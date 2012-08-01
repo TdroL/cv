@@ -22,7 +22,6 @@ $ ->
 	$navLinks.first().click()
 
 	# QRCode
-
 	$('.area footer').prepend "<p>
-		<img src=\"http://chart.apis.google.com/chart?cht=qr&amp;chl=#{encodeURIComponent(location.href)}&amp;chs=240x240\" alt=\"QRCode\">
+		<img src=\"http://chart.apis.google.com/chart?cht=qr&amp;chl=#{encodeURIComponent(location.href.replace(/^([^#]+)(#.*)?/i, '$1'))}&amp;chs=240x240\" alt=\"QRCode\">
 		</p>";

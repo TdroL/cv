@@ -1923,9 +1923,16 @@ h1, h2, h3, h4 {
   .area ul ul li {
     list-style: disc;
   }
+
+  /* line 257, ../scss/_main-body.scss */
+  footer p {
+    text-align: center;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+  }
 }
 @media only screen and (min-width: 321px) and (max-width: 980px) {
-  /* line 260, ../scss/_main-body.scss */
+  /* line 266, ../scss/_main-body.scss */
   header h1, header h2 {
     padding: 0;
     line-height: 1;
@@ -1933,19 +1940,19 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
   }
 
-  /* line 269, ../scss/_main-body.scss */
+  /* line 275, ../scss/_main-body.scss */
   nav li a {
     display: block;
     padding: 5px 10px;
     background: #4b4948;
   }
-  /* line 275, ../scss/_main-body.scss */
+  /* line 281, ../scss/_main-body.scss */
   nav li a, nav li a:hover, nav li a:focus, nav li a:visited {
     color: #fff;
     font-style: 400;
     text-decoration: none;
   }
-  /* line 282, ../scss/_main-body.scss */
+  /* line 288, ../scss/_main-body.scss */
   nav li:nth-of-type(n) a {
     background-color: #d54421;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d54421), color-stop(50%, #df5230), color-stop(100%, #d54421));
@@ -1954,7 +1961,7 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#d54421, #df5230, #d54421);
     background-image: linear-gradient(#d54421, #df5230, #d54421);
   }
-  /* line 287, ../scss/_main-body.scss */
+  /* line 293, ../scss/_main-body.scss */
   nav li:nth-of-type(2n) a {
     background-color: #98bf0d;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #98bf0d), color-stop(50%, #abd70f), color-stop(100%, #98bf0d));
@@ -1963,7 +1970,7 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#98bf0d, #abd70f, #98bf0d);
     background-image: linear-gradient(#98bf0d, #abd70f, #98bf0d);
   }
-  /* line 292, ../scss/_main-body.scss */
+  /* line 298, ../scss/_main-body.scss */
   nav li:nth-of-type(3n) a {
     background-color: #01b0ec;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #01b0ec), color-stop(50%, #09bffe), color-stop(100%, #01b0ec));
@@ -1973,14 +1980,14 @@ h1, h2, h3, h4 {
     background-image: linear-gradient(#01b0ec, #09bffe, #01b0ec);
   }
 
-  /* line 298, ../scss/_main-body.scss */
+  /* line 304, ../scss/_main-body.scss */
   .area {
     padding: 10px;
     background: #fff;
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 304, ../scss/_main-body.scss */
+  /* line 310, ../scss/_main-body.scss */
   .area aside {
     float: right;
     margin: 0 20px 20px 0;
@@ -1994,43 +2001,50 @@ h1, h2, h3, h4 {
     -o-transform: rotateZ(2.5deg) translateZ(0);
     transform: rotateZ(2.5deg) translateZ(0);
   }
-  /* line 312, ../scss/_main-body.scss */
+  /* line 318, ../scss/_main-body.scss */
   .area ul {
     margin: 0 0 0.5em;
   }
-  /* line 315, ../scss/_main-body.scss */
+  /* line 321, ../scss/_main-body.scss */
   .area ul li {
     list-style: none;
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 319, ../scss/_main-body.scss */
+  /* line 325, ../scss/_main-body.scss */
   .area ul li > span:first-of-type {
     font-weight: bold;
   }
-  /* line 323, ../scss/_main-body.scss */
+  /* line 329, ../scss/_main-body.scss */
   .area ul li > span.date {
     display: block;
   }
-  /* line 327, ../scss/_main-body.scss */
+  /* line 333, ../scss/_main-body.scss */
   .area ul li > span.label, .area ul li > span.label + span {
     display: block;
     float: left;
     width: 150px;
   }
-  /* line 333, ../scss/_main-body.scss */
+  /* line 339, ../scss/_main-body.scss */
   .area ul li > span.label + span > span {
     display: block;
   }
-  /* line 339, ../scss/_main-body.scss */
+  /* line 345, ../scss/_main-body.scss */
   .area aside + ul {
     float: left;
     width: 300px;
     margin-top: 2em;
   }
+
+  /* line 352, ../scss/_main-body.scss */
+  footer p {
+    text-align: center;
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+  }
 }
 @media only screen and (min-width: 980px) {
-  /* line 349, ../scss/_main-body.scss */
+  /* line 361, ../scss/_main-body.scss */
   body {
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #ffffff), color-stop(100%, #999999)) fixed no-repeat;
     background: -webkit-radial-gradient(#ffffff, #999999) fixed no-repeat;
@@ -2039,7 +2053,7 @@ h1, h2, h3, h4 {
     background: radial-gradient(#ffffff, #999999) fixed no-repeat;
   }
 
-  /* line 355, ../scss/_main-body.scss */
+  /* line 367, ../scss/_main-body.scss */
   #container {
     width: 960px;
     margin: 0 auto;
@@ -2047,39 +2061,39 @@ h1, h2, h3, h4 {
     position: relative;
   }
 
-  /* line 363, ../scss/_main-body.scss */
+  /* line 375, ../scss/_main-body.scss */
   header h1, header h2 {
     display: inline-block;
     text-transform: uppercase;
   }
-  /* line 368, ../scss/_main-body.scss */
+  /* line 380, ../scss/_main-body.scss */
   header h1 {
     font-size: 2.5em;
     letter-spacing: -0.02em;
   }
-  /* line 373, ../scss/_main-body.scss */
+  /* line 385, ../scss/_main-body.scss */
   header h2 {
     font-weight: 300;
   }
 
-  /* line 378, ../scss/_main-body.scss */
+  /* line 390, ../scss/_main-body.scss */
   nav {
     position: relative;
     z-index: 3;
   }
-  /* line 382, ../scss/_main-body.scss */
+  /* line 394, ../scss/_main-body.scss */
   nav ul {
     overflow: hidden;
     *zoom: 1;
     height: 75px;
   }
-  /* line 386, ../scss/_main-body.scss */
+  /* line 398, ../scss/_main-body.scss */
   nav ul li {
     float: left;
     width: 320px;
     position: relative;
   }
-  /* line 392, ../scss/_main-body.scss */
+  /* line 404, ../scss/_main-body.scss */
   nav ul li a {
     display: block;
     text-align: center;
@@ -2090,13 +2104,13 @@ h1, h2, h3, h4 {
     line-height: 50px;
     background: #4b4948;
   }
-  /* line 397, ../scss/_main-body.scss */
+  /* line 409, ../scss/_main-body.scss */
   nav ul li a, nav ul li a:hover, nav ul li a:focus, nav ul li a:visited {
     color: #fff;
     font-style: 400;
     text-decoration: none;
   }
-  /* line 411, ../scss/_main-body.scss */
+  /* line 423, ../scss/_main-body.scss */
   nav ul li span.arrow {
     position: absolute;
     z-index: -1;
@@ -2114,11 +2128,11 @@ h1, h2, h3, h4 {
     -o-transition: all 0.25s;
     transition: all 0.25s;
   }
-  /* line 427, ../scss/_main-body.scss */
+  /* line 439, ../scss/_main-body.scss */
   nav ul li.active span.arrow {
     bottom: -20px;
   }
-  /* line 432, ../scss/_main-body.scss */
+  /* line 444, ../scss/_main-body.scss */
   nav ul li:nth-of-type(n).active a, nav ul li:nth-of-type(n) a:hover, nav ul li:nth-of-type(n) a:focus {
     background-color: #d54421;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d54421), color-stop(50%, #df5230), color-stop(100%, #d54421));
@@ -2127,11 +2141,11 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#d54421, #df5230, #d54421);
     background-image: linear-gradient(#d54421, #df5230, #d54421);
   }
-  /* line 437, ../scss/_main-body.scss */
+  /* line 449, ../scss/_main-body.scss */
   nav ul li:nth-of-type(n) span.arrow {
     border-top-color: #d54421;
   }
-  /* line 443, ../scss/_main-body.scss */
+  /* line 455, ../scss/_main-body.scss */
   nav ul li:nth-of-type(2n).active a, nav ul li:nth-of-type(2n) a:hover, nav ul li:nth-of-type(2n) a:focus {
     background-color: #98bf0d;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #98bf0d), color-stop(50%, #abd70f), color-stop(100%, #98bf0d));
@@ -2140,11 +2154,11 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#98bf0d, #abd70f, #98bf0d);
     background-image: linear-gradient(#98bf0d, #abd70f, #98bf0d);
   }
-  /* line 448, ../scss/_main-body.scss */
+  /* line 460, ../scss/_main-body.scss */
   nav ul li:nth-of-type(2n) span.arrow {
     border-top-color: #98bf0d;
   }
-  /* line 454, ../scss/_main-body.scss */
+  /* line 466, ../scss/_main-body.scss */
   nav ul li:nth-of-type(3n).active a, nav ul li:nth-of-type(3n) a:hover, nav ul li:nth-of-type(3n) a:focus {
     background-color: #01b0ec;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #01b0ec), color-stop(50%, #09bffe), color-stop(100%, #01b0ec));
@@ -2153,21 +2167,21 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#01b0ec, #09bffe, #01b0ec);
     background-image: linear-gradient(#01b0ec, #09bffe, #01b0ec);
   }
-  /* line 459, ../scss/_main-body.scss */
+  /* line 471, ../scss/_main-body.scss */
   nav ul li:nth-of-type(3n) span.arrow {
     border-top-color: #01b0ec;
   }
 
-  /* line 467, ../scss/_main-body.scss */
+  /* line 479, ../scss/_main-body.scss */
   article {
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 470, ../scss/_main-body.scss */
+  /* line 482, ../scss/_main-body.scss */
   article h2 {
     font-size: 2em;
   }
-  /* line 474, ../scss/_main-body.scss */
+  /* line 486, ../scss/_main-body.scss */
   article aside {
     position: relative;
     float: right;
@@ -2182,7 +2196,7 @@ h1, h2, h3, h4 {
     -o-transform: rotateZ(2.5deg) translateZ(0);
     transform: rotateZ(2.5deg) translateZ(0);
   }
-  /* line 484, ../scss/_main-body.scss */
+  /* line 496, ../scss/_main-body.scss */
   .csstransforms3d article aside:before, .csstransforms3d article aside:after {
     position: absolute;
     z-index: 2;
@@ -2195,7 +2209,7 @@ h1, h2, h3, h4 {
     -moz-box-shadow: 0 0 2px #999999;
     box-shadow: 0 0 2px #999999;
   }
-  /* line 495, ../scss/_main-body.scss */
+  /* line 507, ../scss/_main-body.scss */
   .csstransforms3d article aside:before {
     top: 5px;
     left: -35px;
@@ -2205,7 +2219,7 @@ h1, h2, h3, h4 {
     -o-transform: rotateZ(-35deg);
     transform: rotateZ(-35deg);
   }
-  /* line 501, ../scss/_main-body.scss */
+  /* line 513, ../scss/_main-body.scss */
   .csstransforms3d article aside:after {
     bottom: 10px;
     right: -35px;
@@ -2215,49 +2229,49 @@ h1, h2, h3, h4 {
     -o-transform: rotateZ(-45deg);
     transform: rotateZ(-45deg);
   }
-  /* line 509, ../scss/_main-body.scss */
+  /* line 521, ../scss/_main-body.scss */
   article ul {
     margin: 0 0 0.5em;
   }
-  /* line 512, ../scss/_main-body.scss */
+  /* line 524, ../scss/_main-body.scss */
   article ul li {
     list-style: none;
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 516, ../scss/_main-body.scss */
+  /* line 528, ../scss/_main-body.scss */
   article ul li > span:first-of-type {
     font-weight: bold;
   }
-  /* line 520, ../scss/_main-body.scss */
+  /* line 532, ../scss/_main-body.scss */
   article ul li > span.date {
     display: block;
   }
-  /* line 524, ../scss/_main-body.scss */
+  /* line 536, ../scss/_main-body.scss */
   article ul li > span.label, article ul li > span.label + span {
     display: block;
     float: left;
     width: 200px;
   }
-  /* line 530, ../scss/_main-body.scss */
+  /* line 542, ../scss/_main-body.scss */
   article ul li > span.label + span > span {
     display: block;
   }
-  /* line 536, ../scss/_main-body.scss */
+  /* line 548, ../scss/_main-body.scss */
   article aside + ul {
     float: left;
     width: 400px;
     margin-top: 2em;
   }
 
-  /* line 543, ../scss/_main-body.scss */
+  /* line 555, ../scss/_main-body.scss */
   footer p {
     text-align: center;
     font-size: 0.9em;
     margin-bottom: 0.5em;
   }
 
-  /* line 549, ../scss/_main-body.scss */
+  /* line 561, ../scss/_main-body.scss */
   .area {
     position: relative;
     z-index: 2;
@@ -2275,7 +2289,7 @@ h1, h2, h3, h4 {
     -o-transform: translateZ(0);
     transform: translateZ(0);
   }
-  /* line 564, ../scss/_main-body.scss */
+  /* line 576, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations {
     -webkit-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
     -moz-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
@@ -2285,7 +2299,7 @@ h1, h2, h3, h4 {
     -moz-filter: none;
     filter: none;
   }
-  /* line 568, ../scss/_main-body.scss */
+  /* line 580, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations .wrapper {
     -webkit-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
     -moz-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
@@ -2299,7 +2313,7 @@ h1, h2, h3, h4 {
     -o-transform: translateZ(0);
     transform: translateZ(0);
   }
-  /* line 578, ../scss/_main-body.scss */
+  /* line 590, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations[class*=position] {
     z-index: 1;
     position: absolute;
@@ -2312,21 +2326,21 @@ h1, h2, h3, h4 {
     -moz-box-shadow: 0 0 100px #777777;
     box-shadow: 0 0 100px #777777;
   }
-  /* line 586, ../scss/_main-body.scss */
+  /* line 598, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations[class*=position] .wrapper {
     opacity: 0;
   }
-  /* line 591, ../scss/_main-body.scss */
+  /* line 603, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations.in-background {
     -webkit-filter: blur(50px);
     -moz-filter: blur(50px);
     filter: blur(50px);
   }
-  /* line 594, ../scss/_main-body.scss */
+  /* line 606, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations.in-background .wrapper {
     visibility: hidden;
   }
-  /* line 599, ../scss/_main-body.scss */
+  /* line 611, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations.position-1 {
     -webkit-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
     -moz-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
@@ -2334,7 +2348,7 @@ h1, h2, h3, h4 {
     -o-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
     transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
   }
-  /* line 611, ../scss/_main-body.scss */
+  /* line 623, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations.position-1.in-background {
     -webkit-animation: position-1-in-background 31s infinite linear;
     -moz-animation: position-1-in-background 31s infinite linear;
@@ -2342,7 +2356,7 @@ h1, h2, h3, h4 {
     -o-animation: position-1-in-background 31s infinite linear;
     animation: position-1-in-background 31s infinite linear;
   }
-  /* line 616, ../scss/_main-body.scss */
+  /* line 628, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations.position-2 {
     -webkit-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
     -moz-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
@@ -2350,7 +2364,7 @@ h1, h2, h3, h4 {
     -o-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
     transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
   }
-  /* line 628, ../scss/_main-body.scss */
+  /* line 640, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations.position-2.in-background {
     -webkit-animation: position-2-in-background 37s infinite linear;
     -moz-animation: position-2-in-background 37s infinite linear;
@@ -2358,7 +2372,7 @@ h1, h2, h3, h4 {
     -o-animation: position-2-in-background 37s infinite linear;
     animation: position-2-in-background 37s infinite linear;
   }
-  /* line 633, ../scss/_main-body.scss */
+  /* line 645, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations.position-3 {
     -webkit-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
     -moz-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
@@ -2366,7 +2380,7 @@ h1, h2, h3, h4 {
     -o-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
     transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
   }
-  /* line 645, ../scss/_main-body.scss */
+  /* line 657, ../scss/_main-body.scss */
   .csstransforms3d .area.enable-animations.position-3.in-background {
     -webkit-animation: position-3-in-background 41s infinite linear;
     -moz-animation: position-3-in-background 41s infinite linear;
@@ -2374,7 +2388,7 @@ h1, h2, h3, h4 {
     -o-animation: position-3-in-background 41s infinite linear;
     animation: position-3-in-background 41s infinite linear;
   }
-  /* line 652, ../scss/_main-body.scss */
+  /* line 664, ../scss/_main-body.scss */
   .no-csstransforms3d .area.enable-animations[class*=position] {
     display: none;
   }
