@@ -45,7 +45,7 @@
 		$nx: nth($next, 1);
 		$ny: nth($next, 2);
 
-		$frame: nth($frames, $i) * 100 / $total-length;
+		$frame: round((nth($frames, $i) * 100 / $total-length) * 100) * 0.01;
 		$t: ((100 + ($frame - 0.5)) % 100);
 		#{$t * 1%} {
 			@include transform(
