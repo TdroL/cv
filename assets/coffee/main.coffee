@@ -1,25 +1,25 @@
 $ ->
 
-	$navLinks = $('nav li a')
+	$navListItems = $('nav li')
+	$navLinks = $navListItems.find('a')
 	activateArea = (area) ->
 		$area = $(area).closest '.area'
 
 		$area.switchPosition('recall')
 			.siblings('.area').switchPosition 'send'
 
-		$navLinks.closest('li').removeClass('active').end()
-			.filter("a[href=##{$area.prop('id')}]")
-				.closest('li').addClass 'active'
+		$navListItems.removeClass 'active'
+		$navLinks.filter("a[href='##{$area.attr('id')}']").closest('li').addClass 'active'
 
-	$(document).on 'click', 'a[href^=#area-]', (e) ->
+	$(document).on 'click', 'a[href^="#area-"]', (e) ->
 		activateArea @hash
 
-		if Modernizr.mq('only screen and (min-width: 980px)')
+		if Modernizr.mq 'only screen and (min-width: 980px)'
 			e.preventDefault()
 
-	$('.area').addClass('enable-animations')
+	$('.area').addClass 'enable-animations'
 
-	$navLinks.first().click()
+	$navLinks.first().trigger 'click'
 
 	# QRCode
 	$('.area footer').prepend "<p>

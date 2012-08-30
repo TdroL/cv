@@ -239,7 +239,6 @@ $(function() {
     var coords, p, x, y;
     x = width / 2;
     y = height / 2;
-    console.log(points);
     coords = (function() {
       var _i, _len, _results;
       _results = [];

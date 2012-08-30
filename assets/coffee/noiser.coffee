@@ -201,8 +201,6 @@ $ ->
 		x = width / 2
 		y = height / 2
 
-		console.log points
-
 		coords = for p in points
 			"#{Math.round((p[0]-x))} #{Math.round((p[1]-y))}"
 

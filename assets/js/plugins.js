@@ -1,6 +1,4 @@
-// usage: log('inside coolFunc', this, arguments);
-// paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
-
+// Avoid `console` errors in browsers that lack a console.
 if (!(window.console && console.log)) {
 	(function() {
 		var noop = function() {};
@@ -13,15 +11,15 @@ if (!(window.console && console.log)) {
 	}());
 }
 
-// place any jQuery/helper plugins in here, instead of separate, slower script files.
+// place any jQuery/Zepto/helper plugins in here, instead of separate, slower script files.
 
-jQuery(document).on('webkitTransitionEnd msTransitionEnd oTransitionEnd', '*', function (e) {
+$(document).on('webkitTransitionEnd msTransitionEnd oTransitionEnd', '*', function (e) {
 	$(this).trigger('transitionend');
 });
 
 // position switcher
 
-jQuery.fn.switchPosition = function(action, position) {
+$.fn.switchPosition = function(action, position) {
 
 	var rposition = /^.*(position-\d+).*$/i, positionId, $dummy;
 
@@ -56,14 +54,14 @@ jQuery.fn.switchPosition = function(action, position) {
 	if (action && action == 'recall') {
 		return this.trigger('transitionend.switchPosition').each(function() {
 			var $this = $(this),
-			    classes = $this.prop('class');
+			    classes = $this.attr('class');
 
 			positionId = classes.replace(rposition, '$1');
 
 			if (rposition.test(classes) && positionId != null) {
 				$this.removeClass(positionId + ' in-background');
-				// fix chrome's visibility bug (visibility not changing after recall)
-				$this.children('.wrapper').addClass('wrapper');
+				// fix chrome's visibility bug (visibility does not change after recall)
+				//$this.children('.wrapper').addClass('wrapper');
 			}
 		});
 	}
