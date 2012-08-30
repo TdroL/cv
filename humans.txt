@@ -1,13 +1,14 @@
-# humanstxt.org/
-# The humans responsible & technology colophon
+/* TEAM */
+Everything: tdroL
 
-# TEAM
-    tdroL
+/* THANKS */
+Name: Ubumbumburu
 
-# TECHNOLOGY COLOPHON
+/* TECH */
 
-    HTML5, CSS3 (3d transforms, transitions, filter)
-    jQuery, Modernizr
+Standards: HTML5, CSS3 (3d transforms, transitions, filter)
+Components: jQuery/Zepto, Modernizr
+Software: Sublime Text 2, Compass, Coffeescript
 
 
              .:;rir,,,. ,.....,,,,
