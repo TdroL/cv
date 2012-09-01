@@ -11,7 +11,7 @@ if (!(window.console && console.log)) {
 	}());
 }
 
-// place any jQuery/Zepto/helper plugins in here, instead of separate, slower script files.
+// place any jQuery/helper plugins in here, instead of separate, slower script files.
 
 $(document).on('webkitTransitionEnd msTransitionEnd oTransitionEnd', '*', function (e) {
 	$(this).trigger('transitionend');
@@ -19,31 +19,32 @@ $(document).on('webkitTransitionEnd msTransitionEnd oTransitionEnd', '*', functi
 
 // position switcher
 
-$.fn.switchPosition = function(action, position) {
+$.fn.switchPosition = function (action) {
 
-	var rposition = /^.*(position-\d+).*$/i, positionId, $dummy;
+	if (action == 'send' || action == 'send-flash') {
+		// if any element is in middle of transition, trigger "transitionend" event to skip animations
+		this.trigger('transitionend.switchPosition');
 
-	position = position || '';
-
-	if (action && (action == 'send' || action == 'send-flash')) {
-		return this.trigger('transitionend.switchPosition').each(function() {
+		// send each element to the background
+		return this.each(function () {
 			var $this = $(this),
-			    self = this;
+			    positionId;
 
-			positionId = position || ('position-' + $this.data('position'));
-			positionId = positionId.replace(rposition, '$1');
+			// get target position for this element
+			positionId = 'position-' + $this.data('position');
 
-			if (positionId == null) {
-				throw 'jQuery#switchPosition error: argument or data \'position\' must not be empty and must contain valid position';
-			}
-
+			// start the "send" animation
 			$this.addClass(positionId);
 
+			// skip elements already in the background
 			if ( ! $this.is('.in-background')) {
-				$this.one('transitionend.switchPosition', function() {
+				// attach "transitionend" event for animated element
+				$this.one('transitionend.switchPosition', function () {
+					// at the end of transition add class "in-background" to prevent from attaching "transitionend" event
 					$this.addClass('in-background');
 				});
 
+				// if requested "send-flash" method, trigger "transitionend" event immediately
 				if (action == 'send-flash') {
 					$this.trigger('transitionend.switchPosition');
 				}
@@ -51,17 +52,21 @@ $.fn.switchPosition = function(action, position) {
 		});
 	}
 
-	if (action && action == 'recall') {
-		return this.trigger('transitionend.switchPosition').each(function() {
+	if (action == 'recall') {
+		// if any element is in middle of transition, trigger "transitionend" event to skip animations
+		this.trigger('transitionend.switchPosition');
+
+		// recall each element from the background
+		return this.each(function () {
 			var $this = $(this),
-			    classes = $this.attr('class');
+			    positionId;
 
-			positionId = classes.replace(rposition, '$1');
+			// get target position for this element
+			positionId = 'position-' + $this.data('position');
 
-			if (rposition.test(classes) && positionId != null) {
+			if ($this.hasClass(positionId)) {
+				// remove "position-*" and "in-background" classes from this element - start the "recall" animation
 				$this.removeClass(positionId + ' in-background');
-				// fix chrome's visibility bug (visibility does not change after recall)
-				//$this.children('.wrapper').addClass('wrapper');
 			}
 		});
 	}

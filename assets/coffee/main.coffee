@@ -2,6 +2,9 @@ $ ->
 
 	$navListItems = $('nav li')
 	$navLinks = $navListItems.find('a')
+
+	selectors = ("a[href^=\"##{link.id}\"]" for link in $navLinks)
+
 	activateArea = (area) ->
 		$area = $(area).closest '.area'
 
@@ -9,9 +12,10 @@ $ ->
 			.siblings('.area').switchPosition 'send'
 
 		$navListItems.removeClass 'active'
-		$navLinks.filter("a[href='##{$area.attr('id')}']").closest('li').addClass 'active'
+		$navLinks.filter("a[href='##{$area.prop('id')}']")
+			.closest('li').addClass 'active'
 
-	$(document).on 'click', 'a[href^="#area-"]', (e) ->
+	$(document).on 'click', selectors.join(','), (e) ->
 		activateArea @hash
 
 		if Modernizr.mq 'only screen and (min-width: 980px)'

@@ -19,14 +19,14 @@
 
 			<nav>
 				<ul>
-					<li><a href="#area-1" accesskey="1">O mnie</a><span class="arrow"><!-- :before chrome bug --></span></li>
-					<li><a href="#area-2" accesskey="2">Wykształcenie i doświadczenie</a><span class="arrow"><!-- :before chrome bug --></span></li>
-					<li><a href="#area-3" accesskey="3">Dodatkowe informacje</a><span class="arrow"><!-- :before chrome bug --></span></li>
+					<li><a href="#o-mnie" accesskey="1">O mnie</a><span class="arrow"><!-- :before chrome bug --></span></li>
+					<li><a href="#wyksztalcenie-i-doswiadczenie" accesskey="2">Wykształcenie i doświadczenie</a><span class="arrow"><!-- :before chrome bug --></span></li>
+					<li><a href="#dodatkowe-informacje" accesskey="3">Dodatkowe informacje</a><span class="arrow"><!-- :before chrome bug --></span></li>
 				</ul>
 			</nav>
 		</header>
 
-		<article id="area-1" class="area" data-position="1">
+		<article id="o-mnie" class="area" data-position="1">
 			<div class="wrapper">
 				<h2>O mnie</h2>
 
@@ -63,7 +63,7 @@
 			</div>
 		</article>
 
-		<article id="area-2" class="area" data-position="2">
+		<article id="wyksztalcenie-i-doswiadczenie" class="area" data-position="2">
 			<div class="wrapper">
 				<h2>Wykształcenie</h2>
 
@@ -93,7 +93,7 @@
 			</div>
 		</article>
 
-		<article id="area-3" class="area" data-position="3">
+		<article id="dodatkowe-informacje" class="area" data-position="3">
 			<div class="wrapper">
 				<h2>Dodatkowe informacje</h2>
 				<h3>Technologie</h3>
@@ -142,20 +142,13 @@
 
 	<script>
 		var prefix = /^http/.test(document.location.protocol) ? '' : 'http:',
-		    isModernBrowser = '__proto__' in {},
 		    _gaq = [['_setAccount', 'UA-34472921-1'], ['_trackPageview']];
 
 		yepnope([{
-			test: isModernBrowser,
-			yep : prefix + '//cdnjs.cloudflare.com/ajax/libs/zepto/1.0rc1/zepto.min.js',
-			nope: prefix + '//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js',
-			complete: function () {
+			load: 'timeout=200!' + prefix + '//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js',
+			callback: function () {
 				if ( ! window.$) {
-					yepnope({
-						test: isModernBrowser,
-						yep : 'assets/js/vendor/zepto-1.0rc1.min.js',
-						nope: 'assets/js/vendor/jquery-1.8.0.min.js'
-					});
+					yepnope('assets/js/vendor/jquery-1.8.1.min.js');
 				}
 			}
 		}, 'assets/js/plugins.js', 'assets/js/main.js']);

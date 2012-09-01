@@ -3,12 +3,13 @@ Everything: tdroL
 
 /* THANKS */
 Name: Ubumbumburu
+Site: http://piotrszkaluba.pl
 
 /* TECH */
 
-Standards: HTML5, CSS3 (3d transforms, transitions, filter)
-Components: jQuery/Zepto, Modernizr
-Software: Sublime Text 2, Compass, Coffeescript
+Standards: HTML5, CSS3 (3D transforms, transitions, filter)
+Components: jQuery, Modernizr, Raphaël
+Software: Sublime Text 2, Compass, CoffeeScript
 
 
              .:;rir,,,. ,.....,,,,

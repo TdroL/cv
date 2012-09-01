@@ -308,11 +308,37 @@ h1, h2, h3, h4 {
 		@include clearfix;
 
 		aside {
-			float: right;
 			margin: 0 20px 20px 0;
 			padding: 20px;
 			@include box-shadow(0 0 5px #999);
-			@include transform(rotateZ(2.5deg) translateZ(0));
+			max-width: 330px;
+
+			img {
+				max-width: 100%;
+			}
+		}
+
+		// special cases
+		@media only screen and (min-width: 450px) and (max-width: 980px) {
+
+			aside {
+				display: inline-block;
+				@include transform(rotateZ(2.5deg) translateZ(0));
+
+				img {
+					max-width: auto;
+				}
+			}
+
+		}
+
+		@media only screen and (min-width: 800px) and (max-width: 980px) {
+
+			aside {
+				display: block;
+				float: right;
+			}
+
 		}
 
 		ul {
