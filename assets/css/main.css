@@ -2311,7 +2311,7 @@ h1, h2, h3, h4 {
     transform: translateZ(0);
   }
   /* line 602, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations {
+  .csstransforms3d .area {
     -webkit-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
     -moz-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
     -o-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
@@ -2321,7 +2321,7 @@ h1, h2, h3, h4 {
     filter: none;
   }
   /* line 606, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations .wrapper {
+  .csstransforms3d .area .wrapper {
     -webkit-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
     -moz-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
     -o-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
@@ -2335,7 +2335,7 @@ h1, h2, h3, h4 {
     transform: translateZ(0);
   }
   /* line 616, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations[class*=position] {
+  .csstransforms3d .area[class*=position] {
     z-index: 1;
     position: absolute;
     top: 0;
@@ -2348,21 +2348,21 @@ h1, h2, h3, h4 {
     box-shadow: 0 0 100px #777777;
   }
   /* line 624, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations[class*=position] .wrapper {
+  .csstransforms3d .area[class*=position] .wrapper {
     opacity: 0;
   }
   /* line 629, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations.in-background {
+  .csstransforms3d .area.in-background {
     -webkit-filter: blur(50px);
     -moz-filter: blur(50px);
     filter: blur(50px);
   }
   /* line 632, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations.in-background .wrapper {
+  .csstransforms3d .area.in-background .wrapper {
     visibility: hidden;
   }
   /* line 637, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations.position-1 {
+  .csstransforms3d .area.position-1 {
     -webkit-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
     -moz-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
     -ms-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
@@ -2370,7 +2370,7 @@ h1, h2, h3, h4 {
     transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
   }
   /* line 649, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations.position-1.in-background {
+  .csstransforms3d .area.position-1.in-background {
     -webkit-animation: position-1-in-background 31s infinite linear;
     -moz-animation: position-1-in-background 31s infinite linear;
     -ms-animation: position-1-in-background 31s infinite linear;
@@ -2378,7 +2378,7 @@ h1, h2, h3, h4 {
     animation: position-1-in-background 31s infinite linear;
   }
   /* line 654, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations.position-2 {
+  .csstransforms3d .area.position-2 {
     -webkit-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
     -moz-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
     -ms-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
@@ -2386,7 +2386,7 @@ h1, h2, h3, h4 {
     transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
   }
   /* line 666, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations.position-2.in-background {
+  .csstransforms3d .area.position-2.in-background {
     -webkit-animation: position-2-in-background 37s infinite linear;
     -moz-animation: position-2-in-background 37s infinite linear;
     -ms-animation: position-2-in-background 37s infinite linear;
@@ -2394,7 +2394,7 @@ h1, h2, h3, h4 {
     animation: position-2-in-background 37s infinite linear;
   }
   /* line 671, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations.position-3 {
+  .csstransforms3d .area.position-3 {
     -webkit-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
     -moz-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
     -ms-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
@@ -2402,7 +2402,7 @@ h1, h2, h3, h4 {
     transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
   }
   /* line 683, ../scss/_main-body.scss */
-  .csstransforms3d .area.enable-animations.position-3.in-background {
+  .csstransforms3d .area.position-3.in-background {
     -webkit-animation: position-3-in-background 41s infinite linear;
     -moz-animation: position-3-in-background 41s infinite linear;
     -ms-animation: position-3-in-background 41s infinite linear;
@@ -2410,7 +2410,7 @@ h1, h2, h3, h4 {
     animation: position-3-in-background 41s infinite linear;
   }
   /* line 690, ../scss/_main-body.scss */
-  .no-csstransforms3d .area.enable-animations[class*=position] {
+  .no-csstransforms3d .area[class*=position] {
     display: none;
   }
 }

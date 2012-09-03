@@ -599,7 +599,7 @@ h1, h2, h3, h4 {
 			translateZ(0)
 		, false); // enable the gpu accel.
 
-		.csstransforms3d &.enable-animations {
+		.csstransforms3d & {
 			@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1)); // enable transitions for moving area to the background
 			@include filter(none); // remove any filters for areas in foreground
 
@@ -686,7 +686,7 @@ h1, h2, h3, h4 {
 			}
 		}
 
-		.no-csstransforms3d &.enable-animations {
+		.no-csstransforms3d & {
 			&[class*=position] {
 				display: none;
 			}

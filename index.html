@@ -84,7 +84,7 @@
 						<span class="date">2007&nbsp;&ndash;&nbsp;...</span>
 						<span>Freelancer</span>
 						<ul>
-							<li><strong>Gramy na Maxa</strong> - (Piotr Typiak, Marcin Skała) - CMS dla audycji radiowej o&nbsp;grach komputerowych</li>
+							<li><strong>Gramy na Maxa</strong> - (Piotr Typiak, Marcin Skała, Damian Siemkowicz) - CMS dla audycji radiowej o&nbsp;grach komputerowych</li>
 							<li><strong>Piotr Szkałuba</strong> - proste portfolio</li>
 							<li><strong>Komraf</strong> - (Rafał Rybak) - cięcie layoutów</li>
 						</ul>
@@ -153,7 +153,11 @@
 			}
 		}, 'assets/js/plugins.js', 'assets/js/main.js']);
 
-		yepnope.injectJs(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
+		if (document.location.host != 'localhost')
+		{
+			yepnope.injectJs(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
+		}
+
 	</script>
 </body>
 </html>
