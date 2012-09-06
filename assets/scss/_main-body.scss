@@ -600,7 +600,10 @@ h1, h2, h3, h4 {
 		, false); // enable the gpu accel.
 
 		.csstransforms3d & {
-			@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1)); // enable transitions for moving area to the background
+			// enable transitions for moving area to the background
+			@include transition-duration($transition-to-background-duration);
+			@include transition-property(transform);
+			@include transition-timing-function(cubic-bezier(.1, .5, .5, 1));
 			@include filter(none); // remove any filters for areas in foreground
 
 			.wrapper {
@@ -618,7 +621,7 @@ h1, h2, h3, h4 {
 				position: absolute;
 				top: 0;
 				background: #999;
-				@include filter(blur($blur-radius*0.7)); // blur fix for areas flying to the background
+				@include filter(blur(0)); // blur fix for areas flying to the background
 				@include box-shadow(0 0 100px #777);
 
 				.wrapper {

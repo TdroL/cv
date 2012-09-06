@@ -12,8 +12,6 @@ $ ->
 		$areas.switchPosition areasState
 		$area.switchPosition areaState
 
-		console.log 'click'
-
 		$navListItems.removeClass 'active'
 		$navLinks.filter("a[href='##{$area.prop('id')}']")
 			.closest('li').addClass 'active'

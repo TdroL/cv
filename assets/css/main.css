@@ -12,7 +12,7 @@
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */
-/* line 27, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000327}}
 article,
 aside,
 details,
@@ -31,7 +31,7 @@ summary {
  * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
  * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
  */
-/* line 40, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000340}}
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
@@ -44,13 +44,13 @@ html {
  * These selection declarations have to be separate.
  * Customize the background color to match your design.
  */
-/* line 53, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000353}}
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
 }
 
-/* line 58, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000358}}
 ::selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -59,24 +59,24 @@ html {
 /* =============================================================================
    Links
    ========================================================================== */
-/* line 68, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000368}}
 a {
   color: #ff5e28;
 }
-/* line 71, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000371}}
 a:visited {
   color: #f43d00;
 }
-/* line 74, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000374}}
 a:hover {
   text-decoration: underline;
   color: #ff845b;
 }
-/* line 79, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000379}}
 a:focus {
   outline: thin dotted;
 }
-/* line 83, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000383}}
 a:hover, a:active {
   outline: 0;
 }
@@ -84,14 +84,14 @@ a:hover, a:active {
 /* =============================================================================
    Lists
    ========================================================================== */
-/* line 94, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\0000394}}
 ul,
 ol {
   margin: 1em 0;
   padding: 0 0 0 40px;
 }
 
-/* line 100, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\00003100}}
 nav ul,
 nav ol {
   list-style: none;
@@ -107,7 +107,7 @@ nav ol {
  * 1. Improve image quality when scaled in IE7: h5bp.com/d
  * 2. Remove the gap between images and borders on image containers: h5bp.com/i/440
  */
-/* line 117, ../scss/main.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/main\.scss}line{font-family:\00003117}}
 img {
   border: 0;
   vertical-align: middle;
@@ -1800,7 +1800,7 @@ img {
   }
 }
 
-/* line 146, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003146}}
 body {
   margin: 0;
   font: 1em/1.5 "Asap", Arial, sans-serif;
@@ -1809,7 +1809,7 @@ body {
   overflow-x: hidden;
 }
 
-/* line 154, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003154}}
 h1, h2, h3, h4 {
   font-family: 'Advent Pro', Arial, sans-serif;
   line-height: 1.2;
@@ -1817,14 +1817,14 @@ h1, h2, h3, h4 {
 }
 
 @media only screen and (max-width: 320px) {
-  /* line 163, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003163}}
   header h1, header h2 {
     line-height: 1;
     padding: 5px 5px 0;
     margin: 3px;
   }
 
-  /* line 171, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003171}}
   nav a {
     display: block;
     -webkit-transition: all 0.25s;
@@ -1835,13 +1835,13 @@ h1, h2, h3, h4 {
     padding: 5px;
     background: #4b4948;
   }
-  /* line 175, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003175}}
   nav a, nav a:hover, nav a:focus, nav a:visited {
     color: #fff;
     font-style: 400;
     text-decoration: none;
   }
-  /* line 190, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003190}}
   nav li:nth-of-type(n) a {
     background-color: #d54421;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d54421), color-stop(50%, #df5230), color-stop(100%, #d54421));
@@ -1850,7 +1850,7 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#d54421, #df5230, #d54421);
     background-image: linear-gradient(#d54421, #df5230, #d54421);
   }
-  /* line 195, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003195}}
   nav li:nth-of-type(2n) a {
     background-color: #98bf0d;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #98bf0d), color-stop(50%, #abd70f), color-stop(100%, #98bf0d));
@@ -1859,7 +1859,7 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#98bf0d, #abd70f, #98bf0d);
     background-image: linear-gradient(#98bf0d, #abd70f, #98bf0d);
   }
-  /* line 200, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003200}}
   nav li:nth-of-type(3n) a {
     background-color: #01b0ec;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #01b0ec), color-stop(50%, #09bffe), color-stop(100%, #01b0ec));
@@ -1869,16 +1869,16 @@ h1, h2, h3, h4 {
     background-image: linear-gradient(#01b0ec, #09bffe, #01b0ec);
   }
 
-  /* line 206, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003206}}
   .area {
     background: #fff;
     padding: 5px;
   }
-  /* line 210, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003210}}
   .area aside {
     text-align: center;
   }
-  /* line 213, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003213}}
   .area aside img {
     max-width: 94%;
     padding: 3%;
@@ -1886,45 +1886,45 @@ h1, h2, h3, h4 {
     -moz-box-shadow: 0 0 5px #999999;
     box-shadow: 0 0 5px #999999;
   }
-  /* line 220, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003220}}
   .area ul {
     padding: 0;
   }
-  /* line 223, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003223}}
   .area ul li {
     list-style: none;
     overflow: hidden;
     *zoom: 1;
     padding-bottom: 0.25em;
   }
-  /* line 228, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003228}}
   .area ul li > span:first-of-type {
     font-weight: bold;
   }
-  /* line 232, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003232}}
   .area ul li > span.date {
     display: block;
   }
-  /* line 236, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003236}}
   .area ul li > span.label, .area ul li > span.label + span {
     display: block;
     float: left;
     width: 50%;
   }
-  /* line 242, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003242}}
   .area ul li > span.label + span > span {
     display: block;
   }
-  /* line 247, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003247}}
   .area ul ul {
     margin: 0 0 0.5em 0.5em;
   }
-  /* line 250, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003250}}
   .area ul ul li {
     list-style: disc;
   }
 
-  /* line 257, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003257}}
   footer p {
     text-align: center;
     font-size: 0.9em;
@@ -1932,7 +1932,7 @@ h1, h2, h3, h4 {
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 980px) {
-  /* line 266, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003266}}
   header h1, header h2 {
     padding: 0;
     line-height: 1;
@@ -1940,19 +1940,19 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
   }
 
-  /* line 275, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003275}}
   nav li a {
     display: block;
     padding: 5px 10px;
     background: #4b4948;
   }
-  /* line 281, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003281}}
   nav li a, nav li a:hover, nav li a:focus, nav li a:visited {
     color: #fff;
     font-style: 400;
     text-decoration: none;
   }
-  /* line 288, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003288}}
   nav li:nth-of-type(n) a {
     background-color: #d54421;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d54421), color-stop(50%, #df5230), color-stop(100%, #d54421));
@@ -1961,7 +1961,7 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#d54421, #df5230, #d54421);
     background-image: linear-gradient(#d54421, #df5230, #d54421);
   }
-  /* line 293, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003293}}
   nav li:nth-of-type(2n) a {
     background-color: #98bf0d;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #98bf0d), color-stop(50%, #abd70f), color-stop(100%, #98bf0d));
@@ -1970,7 +1970,7 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#98bf0d, #abd70f, #98bf0d);
     background-image: linear-gradient(#98bf0d, #abd70f, #98bf0d);
   }
-  /* line 298, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003298}}
   nav li:nth-of-type(3n) a {
     background-color: #01b0ec;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #01b0ec), color-stop(50%, #09bffe), color-stop(100%, #01b0ec));
@@ -1980,14 +1980,14 @@ h1, h2, h3, h4 {
     background-image: linear-gradient(#01b0ec, #09bffe, #01b0ec);
   }
 
-  /* line 304, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003304}}
   .area {
     padding: 10px;
     background: #fff;
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 310, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003310}}
   .area aside {
     margin: 0 20px 20px 0;
     padding: 20px;
@@ -1996,46 +1996,46 @@ h1, h2, h3, h4 {
     box-shadow: 0 0 5px #999999;
     max-width: 330px;
   }
-  /* line 316, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003316}}
   .area aside img {
     max-width: 100%;
   }
-  /* line 344, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003344}}
   .area ul {
     margin: 0 0 0.5em;
   }
-  /* line 347, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003347}}
   .area ul li {
     list-style: none;
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 351, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003351}}
   .area ul li > span:first-of-type {
     font-weight: bold;
   }
-  /* line 355, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003355}}
   .area ul li > span.date {
     display: block;
   }
-  /* line 359, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003359}}
   .area ul li > span.label, .area ul li > span.label + span {
     display: block;
     float: left;
     width: 150px;
   }
-  /* line 365, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003365}}
   .area ul li > span.label + span > span {
     display: block;
   }
-  /* line 371, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003371}}
   .area aside + ul {
     float: left;
     width: 300px;
     margin-top: 2em;
   }
 
-  /* line 378, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003378}}
   footer p {
     text-align: center;
     font-size: 0.9em;
@@ -2043,7 +2043,7 @@ h1, h2, h3, h4 {
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 980px) and (min-width: 450px) and (max-width: 980px) {
-  /* line 324, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003324}}
   .area aside {
     display: inline-block;
     -webkit-transform: rotateZ(2.5deg) translateZ(0);
@@ -2052,20 +2052,20 @@ h1, h2, h3, h4 {
     -o-transform: rotateZ(2.5deg) translateZ(0);
     transform: rotateZ(2.5deg) translateZ(0);
   }
-  /* line 328, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003328}}
   .area aside img {
     max-width: auto;
   }
 }
 @media only screen and (min-width: 321px) and (max-width: 980px) and (min-width: 800px) and (max-width: 980px) {
-  /* line 337, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003337}}
   .area aside {
     display: block;
     float: right;
   }
 }
 @media only screen and (min-width: 980px) {
-  /* line 387, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003387}}
   body {
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #ffffff), color-stop(100%, #999999)) fixed no-repeat;
     background: -webkit-radial-gradient(#ffffff, #999999) fixed no-repeat;
@@ -2074,7 +2074,7 @@ h1, h2, h3, h4 {
     background: radial-gradient(#ffffff, #999999) fixed no-repeat;
   }
 
-  /* line 393, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003393}}
   #container {
     width: 960px;
     margin: 0 auto;
@@ -2082,39 +2082,39 @@ h1, h2, h3, h4 {
     position: relative;
   }
 
-  /* line 401, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003401}}
   header h1, header h2 {
     display: inline-block;
     text-transform: uppercase;
   }
-  /* line 406, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003406}}
   header h1 {
     font-size: 2.5em;
     letter-spacing: -0.02em;
   }
-  /* line 411, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003411}}
   header h2 {
     font-weight: 300;
   }
 
-  /* line 416, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003416}}
   nav {
     position: relative;
     z-index: 3;
   }
-  /* line 420, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003420}}
   nav ul {
     overflow: hidden;
     *zoom: 1;
     height: 75px;
   }
-  /* line 424, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003424}}
   nav ul li {
     float: left;
     width: 320px;
     position: relative;
   }
-  /* line 430, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003430}}
   nav ul li a {
     display: block;
     text-align: center;
@@ -2125,13 +2125,13 @@ h1, h2, h3, h4 {
     line-height: 50px;
     background: #4b4948;
   }
-  /* line 435, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003435}}
   nav ul li a, nav ul li a:hover, nav ul li a:focus, nav ul li a:visited {
     color: #fff;
     font-style: 400;
     text-decoration: none;
   }
-  /* line 449, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003449}}
   nav ul li span.arrow {
     position: absolute;
     z-index: -1;
@@ -2149,11 +2149,11 @@ h1, h2, h3, h4 {
     -o-transition: all 0.25s;
     transition: all 0.25s;
   }
-  /* line 465, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003465}}
   nav ul li.active span.arrow {
     bottom: -20px;
   }
-  /* line 470, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003470}}
   nav ul li:nth-of-type(n).active a, nav ul li:nth-of-type(n) a:hover, nav ul li:nth-of-type(n) a:focus {
     background-color: #d54421;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d54421), color-stop(50%, #df5230), color-stop(100%, #d54421));
@@ -2162,11 +2162,11 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#d54421, #df5230, #d54421);
     background-image: linear-gradient(#d54421, #df5230, #d54421);
   }
-  /* line 475, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003475}}
   nav ul li:nth-of-type(n) span.arrow {
     border-top-color: #d54421;
   }
-  /* line 481, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003481}}
   nav ul li:nth-of-type(2n).active a, nav ul li:nth-of-type(2n) a:hover, nav ul li:nth-of-type(2n) a:focus {
     background-color: #98bf0d;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #98bf0d), color-stop(50%, #abd70f), color-stop(100%, #98bf0d));
@@ -2175,11 +2175,11 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#98bf0d, #abd70f, #98bf0d);
     background-image: linear-gradient(#98bf0d, #abd70f, #98bf0d);
   }
-  /* line 486, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003486}}
   nav ul li:nth-of-type(2n) span.arrow {
     border-top-color: #98bf0d;
   }
-  /* line 492, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003492}}
   nav ul li:nth-of-type(3n).active a, nav ul li:nth-of-type(3n) a:hover, nav ul li:nth-of-type(3n) a:focus {
     background-color: #01b0ec;
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #01b0ec), color-stop(50%, #09bffe), color-stop(100%, #01b0ec));
@@ -2188,21 +2188,21 @@ h1, h2, h3, h4 {
     background-image: -o-linear-gradient(#01b0ec, #09bffe, #01b0ec);
     background-image: linear-gradient(#01b0ec, #09bffe, #01b0ec);
   }
-  /* line 497, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003497}}
   nav ul li:nth-of-type(3n) span.arrow {
     border-top-color: #01b0ec;
   }
 
-  /* line 505, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003505}}
   article {
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 508, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003508}}
   article h2 {
     font-size: 2em;
   }
-  /* line 512, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003512}}
   article aside {
     position: relative;
     float: right;
@@ -2217,7 +2217,7 @@ h1, h2, h3, h4 {
     -o-transform: rotateZ(2.5deg) translateZ(0);
     transform: rotateZ(2.5deg) translateZ(0);
   }
-  /* line 522, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003522}}
   .csstransforms3d article aside:before, .csstransforms3d article aside:after {
     position: absolute;
     z-index: 2;
@@ -2230,7 +2230,7 @@ h1, h2, h3, h4 {
     -moz-box-shadow: 0 0 2px #999999;
     box-shadow: 0 0 2px #999999;
   }
-  /* line 533, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003533}}
   .csstransforms3d article aside:before {
     top: 5px;
     left: -35px;
@@ -2240,7 +2240,7 @@ h1, h2, h3, h4 {
     -o-transform: rotateZ(-35deg);
     transform: rotateZ(-35deg);
   }
-  /* line 539, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003539}}
   .csstransforms3d article aside:after {
     bottom: 10px;
     right: -35px;
@@ -2250,49 +2250,49 @@ h1, h2, h3, h4 {
     -o-transform: rotateZ(-45deg);
     transform: rotateZ(-45deg);
   }
-  /* line 547, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003547}}
   article ul {
     margin: 0 0 0.5em;
   }
-  /* line 550, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003550}}
   article ul li {
     list-style: none;
     overflow: hidden;
     *zoom: 1;
   }
-  /* line 554, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003554}}
   article ul li > span:first-of-type {
     font-weight: bold;
   }
-  /* line 558, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003558}}
   article ul li > span.date {
     display: block;
   }
-  /* line 562, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003562}}
   article ul li > span.label, article ul li > span.label + span {
     display: block;
     float: left;
     width: 200px;
   }
-  /* line 568, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003568}}
   article ul li > span.label + span > span {
     display: block;
   }
-  /* line 574, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003574}}
   article aside + ul {
     float: left;
     width: 400px;
     margin-top: 2em;
   }
 
-  /* line 581, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003581}}
   footer p {
     text-align: center;
     font-size: 0.9em;
     margin-bottom: 0.5em;
   }
 
-  /* line 587, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003587}}
   .area {
     position: relative;
     z-index: 2;
@@ -2310,17 +2310,25 @@ h1, h2, h3, h4 {
     -o-transform: translateZ(0);
     transform: translateZ(0);
   }
-  /* line 602, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003602}}
   .csstransforms3d .area {
-    -webkit-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
-    -moz-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
-    -o-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
-    transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: cubic-bezier(0.1, 0.5, 0.5, 1);
+    -moz-transition-timing-function: cubic-bezier(0.1, 0.5, 0.5, 1);
+    -o-transition-timing-function: cubic-bezier(0.1, 0.5, 0.5, 1);
+    transition-timing-function: cubic-bezier(0.1, 0.5, 0.5, 1);
     -webkit-filter: none;
     -moz-filter: none;
     filter: none;
   }
-  /* line 606, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003609}}
   .csstransforms3d .area .wrapper {
     -webkit-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
     -moz-transition: 500ms all cubic-bezier(0.1, 0.5, 0.5, 1);
@@ -2334,34 +2342,34 @@ h1, h2, h3, h4 {
     -o-transform: translateZ(0);
     transform: translateZ(0);
   }
-  /* line 616, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003619}}
   .csstransforms3d .area[class*=position] {
     z-index: 1;
     position: absolute;
     top: 0;
     background: #999;
-    -webkit-filter: blur(35px);
-    -moz-filter: blur(35px);
-    filter: blur(35px);
+    -webkit-filter: blur(0);
+    -moz-filter: blur(0);
+    filter: blur(0);
     -webkit-box-shadow: 0 0 100px #777777;
     -moz-box-shadow: 0 0 100px #777777;
     box-shadow: 0 0 100px #777777;
   }
-  /* line 624, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003627}}
   .csstransforms3d .area[class*=position] .wrapper {
     opacity: 0;
   }
-  /* line 629, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003632}}
   .csstransforms3d .area.in-background {
     -webkit-filter: blur(50px);
     -moz-filter: blur(50px);
     filter: blur(50px);
   }
-  /* line 632, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003635}}
   .csstransforms3d .area.in-background .wrapper {
     visibility: hidden;
   }
-  /* line 637, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003640}}
   .csstransforms3d .area.position-1 {
     -webkit-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
     -moz-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
@@ -2369,7 +2377,7 @@ h1, h2, h3, h4 {
     -o-transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
     transform: translate3d(576px, 0px, 0) scale(0.05) rotateX(-330deg) rotateY(150deg) rotateZ(35deg);
   }
-  /* line 649, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003652}}
   .csstransforms3d .area.position-1.in-background {
     -webkit-animation: position-1-in-background 31s infinite linear;
     -moz-animation: position-1-in-background 31s infinite linear;
@@ -2377,7 +2385,7 @@ h1, h2, h3, h4 {
     -o-animation: position-1-in-background 31s infinite linear;
     animation: position-1-in-background 31s infinite linear;
   }
-  /* line 654, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003657}}
   .csstransforms3d .area.position-2 {
     -webkit-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
     -moz-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
@@ -2385,7 +2393,7 @@ h1, h2, h3, h4 {
     -o-transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
     transform: translate3d(-576px, -48px, 0) scale(0.06) rotateX(30deg) rotateY(35deg) rotateZ(30deg);
   }
-  /* line 666, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003669}}
   .csstransforms3d .area.position-2.in-background {
     -webkit-animation: position-2-in-background 37s infinite linear;
     -moz-animation: position-2-in-background 37s infinite linear;
@@ -2393,7 +2401,7 @@ h1, h2, h3, h4 {
     -o-animation: position-2-in-background 37s infinite linear;
     animation: position-2-in-background 37s infinite linear;
   }
-  /* line 671, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003674}}
   .csstransforms3d .area.position-3 {
     -webkit-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
     -moz-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
@@ -2401,7 +2409,7 @@ h1, h2, h3, h4 {
     -o-transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
     transform: translate3d(672px, 144px, 0) scale(0.04) rotateX(5deg) rotateY(15deg) rotateZ(40deg);
   }
-  /* line 683, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003686}}
   .csstransforms3d .area.position-3.in-background {
     -webkit-animation: position-3-in-background 41s infinite linear;
     -moz-animation: position-3-in-background 41s infinite linear;
@@ -2409,7 +2417,7 @@ h1, h2, h3, h4 {
     -o-animation: position-3-in-background 41s infinite linear;
     animation: position-3-in-background 41s infinite linear;
   }
-  /* line 690, ../scss/_main-body.scss */
+@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/_main-body\.scss}line{font-family:\00003693}}
   .no-csstransforms3d .area[class*=position] {
     display: none;
   }
