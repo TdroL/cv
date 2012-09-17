@@ -1,1 +1,6 @@
 * text=auto
+
+*.scss merge=ours
+*.coffee merge=ours
+*.css merge=ours
+*.js merge=ours
