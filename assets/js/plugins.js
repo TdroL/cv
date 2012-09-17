@@ -25,7 +25,7 @@ if (!(window.console && console.log)) {
 	    	'msTransition'     : 'MSTransitionEnd',
 	    	'transition'       : 'transitionend'
 	    },
-	    transitionName = transEndEventNames[ Modernizr.prefixed('transition') ];
+	    transitionName = transEndEventNames[Modernizr.prefixed('transition')];
 
 	// simple transition handler/helper
 	var transition = {
@@ -45,12 +45,12 @@ if (!(window.console && console.log)) {
 
 			// create delayed check for active transition
 			var timer = setTimeout(function () {
-				if ( ! transition.isActive($el)) {
-					// if no transition is active or browser does not support it, execute
-					// the callback manually
-					callback();
-				}
-			}, transition.transitionCheckTimeOut);
+			    	if ( ! transition.isActive($el)) {
+			    		// if no transition is active or browser does not support it, execute
+			    		// the callback manually
+			    		callback();
+			    	}
+			    }, transition.transitionCheckTimeOut);
 
 			// remember timer id
 			$el.data('timer.switchPosition', timer);
@@ -70,93 +70,93 @@ if (!(window.console && console.log)) {
 	};
 
 	// "state machine"
-	var state = {
-		// main function for managing states of provided element
-		request: function ($el, newState) {
-			// get name of current state, if the element has any
-			var curState = $el.data('state');
+	var machine = {
+	    	// main function for managing states of provided element
+	    	request: function ($el, newState) {
+	    		// get name of current state, if the element has any
+	    		var curState = $el.data('state');
+	    		// validate current state name
+	    		if (curState != null && this.states.hasOwnProperty(curState))
+	    		{
+	    			// execute method "release" for current state - detach and/or remove
+	    			// any elements and handlers created by method "init" of this state
+	    			this.states[curState].release.call($el);
+	    		}
+	    		// validate new state name
+	    		if (newState != null  && this.states.hasOwnProperty(newState))
+	    		{
+	    			// initialize new state for element
+	    			this.states[newState].init.call($el);
+	    		}
+	    		// remember new state name
+	    		$el.data('state', newState);
+	    	},
+	    	states: {}
+	    };
 
-			// validate current state name
-			if (curState != null && this.states.hasOwnProperty(curState))
-			{
-				// execute method "release" for current state - detach and/or remove
-				// any elements and handlers created by method "init" of this state
-				this.states[curState].release.call($el);
-			}
+	// state for elements in the foreground
+	machine.states['front'] = {
+		init: function () {},
+		release: function () {}
+	};
 
-			// validate new state name
-			if (newState != null  && this.states.hasOwnProperty(newState))
-			{
-				// initialize new state for element
-				this.states[newState].init.call($el);
-			}
+	// state for elements in the background
+	machine.states['back'] = {
+		init: function () {
+			// add "position-*" and "in-background" classes to sent the element
+			// to proper  place in the background
+			var position = 'position-' + this.data('position');
 
-			// remember new state name
-			$el.data('state', newState);
+			this.addClass(position + ' in-background');
 		},
-		states: {
-			// state for elements in the foreground
-			'front': {
-				init: function () {},
-				release: function () {}
-			},
-			// state for elements in the background
-			'back': {
-				init: function () {
-					// add "position-*" and "in-background" classes to sent the element
-					// to proper  place in the background
-					var position = 'position-' + this.data('position');
+		release: function () {
+			// remove "position-*" and "in-background" to recall the element from
+			// the background, and (depending of the next state) start transition
+			var position = 'position-' + this.data('position');
 
-					this.addClass(position + ' in-background');
-				},
-				release: function () {
-					// remove "position-*" and "in-background" to recall the element from
-					// the background, and (depending of the next state) start transition
-					var position = 'position-' + this.data('position');
+			this.removeClass(position + ' in-background');
+		}
+	};
 
-					this.removeClass(position + ' in-background');
-				}
-			},
-			// state for elements in transition from the background to the foreground
-			'move-to-front': {
-				init: function () {
-					var self = this;
+	// state for elements in transition from the background to the foreground
+	machine.states['move-to-front'] = {
+		init: function () {
+			var self = this;
 
-					// after end of the transition, switch state of the element to "front"
-					// animation and transition is activated in method "release" of state
-					// "back"
-					transition.on(this, function () {
-						state.request(self, 'front');
-					});
-				},
-				release: function () {
-					// detach the element from event transitionend
-					transition.off(this);
-				}
-			},
-			// state for elements in transition from the foreground to the background
-			'move-to-back': {
-				init: function () {
-					var position = 'position-' + this.data('position'),
-					    self = this;
+			// after end of the transition, switch state of the element to "front"
+			// animation and transition is activated in method "release" of state
+			// "back"
+			transition.on(this, function () {
+				machine.request(self, 'front');
+			});
+		},
+		release: function () {
+			// detach the element from event transitionend
+			transition.off(this);
+		}
+	};
 
-					// start the transition by adding class "position-*" to the element
-					this.addClass(position);
-					// after end of the transition, switch state of the element to "back"
-					transition.on(this, function () {
-						state.request(self, 'back');
-					});
-				},
-				release: function () {
-					var position = 'position-' + this.data('position');
+	// state for elements in transition from the foreground to the background
+	machine.states['move-to-back'] = {
+		init: function () {
+			var position = 'position-' + this.data('position'),
+			    self = this;
 
-					// remove "position-*" class from the element - this class will be
-					// readded in state "back"
-					this.removeClass(position);
-					// detach the element from event transitionend
-					transition.off(this);
-				}
-			}
+			// start the transition by adding class "position-*" to the element
+			this.addClass(position);
+			// after end of the transition, switch state of the element to "back"
+			transition.on(this, function () {
+				machine.request(self, 'back');
+			});
+		},
+		release: function () {
+			var position = 'position-' + this.data('position');
+
+			// remove "position-*" class from the element - this class will be
+			// readded in state "back"
+			this.removeClass(position);
+			// detach the element from event transitionend
+			transition.off(this);
 		}
 	};
 
@@ -175,11 +175,11 @@ if (!(window.console && console.log)) {
 
 			// if requested "flash" switch, then skip transitional "move-to-*" states
 			if (reqState.indexOf('flash') != -1) {
-				state.request($this, reqState.replace(rstate, '$1'));
+				machine.request($this, reqState.replace(rstate, '$1'));
 
 			// otherwise request transitional state "move-to-*"
 			} else if (reqState !== curState) {
-				state.request($this, 'move-to-' + reqState);
+				machine.request($this, 'move-to-' + reqState);
 			}
 		});
 	};
