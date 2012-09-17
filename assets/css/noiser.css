@@ -12,7 +12,7 @@
 /* =============================================================================
    HTML5 display definitions
    ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000327}}
+/* line 27, ../scss/noiser.scss */
 article,
 aside,
 details,
@@ -24,14 +24,14 @@ summary {
   display: block;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000331}}
+/* line 31, ../scss/noiser.scss */
 canvas {
   display: inline-block;
   *display: inline;
   *zoom: 1;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000337}}
+/* line 37, ../scss/noiser.scss */
 [hidden] {
   display: none;
 }
@@ -43,7 +43,7 @@ canvas {
  * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
  * 2. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000351}}
+/* line 51, ../scss/noiser.scss */
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
@@ -56,13 +56,13 @@ html {
  * These selection declarations have to be separate.
  * Customize the background color to match your design.
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000364}}
+/* line 64, ../scss/noiser.scss */
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000369}}
+/* line 69, ../scss/noiser.scss */
 ::selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -71,24 +71,24 @@ html {
 /* =============================================================================
    Links
    ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000379}}
+/* line 79, ../scss/noiser.scss */
 a {
   color: #ff5e28;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000382}}
+/* line 82, ../scss/noiser.scss */
 a:visited {
   color: #f43d00;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000385}}
+/* line 85, ../scss/noiser.scss */
 a:hover {
   text-decoration: underline;
   color: #ff845b;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000390}}
+/* line 90, ../scss/noiser.scss */
 a:focus {
   outline: thin dotted;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\0000394}}
+/* line 94, ../scss/noiser.scss */
 a:hover, a:active {
   outline: 0;
 }
@@ -99,7 +99,7 @@ a:hover, a:active {
 /*
  * Redeclare monospace font family: h5bp.com/j
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003110}}
+/* line 110, ../scss/noiser.scss */
 pre,
 code,
 kbd,
@@ -112,24 +112,24 @@ samp {
 /*
  * Improve readability of pre-formatted text
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003120}}
+/* line 120, ../scss/noiser.scss */
 pre {
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003126}}
+/* line 126, ../scss/noiser.scss */
 q {
   quotes: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003130}}
+/* line 130, ../scss/noiser.scss */
 q:before, q:after {
   content: "";
   content: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003136}}
+/* line 136, ../scss/noiser.scss */
 small {
   font-size: 85%;
 }
@@ -137,19 +137,19 @@ small {
 /* =============================================================================
    Lists
    ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003146}}
+/* line 146, ../scss/noiser.scss */
 ul,
 ol {
   margin: 1em 0;
   padding: 0 0 0 40px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003151}}
+/* line 151, ../scss/noiser.scss */
 dd {
   margin: 0 0 0 40px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003156}}
+/* line 156, ../scss/noiser.scss */
 nav ul,
 nav ol {
   list-style: none;
@@ -165,7 +165,7 @@ nav ol {
  * 1. Improve image quality when scaled in IE7: h5bp.com/d
  * 2. Remove the gap between images and borders on image containers: h5bp.com/i/440
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003173}}
+/* line 173, ../scss/noiser.scss */
 img {
   border: 0;
   vertical-align: middle;
@@ -175,7 +175,7 @@ img {
 /* =============================================================================
    Chrome Frame Prompt
    ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003183}}
+/* line 183, ../scss/noiser.scss */
 .chromeframe {
   margin: 0.2em 0;
   background: #ccc;
@@ -186,7 +186,7 @@ img {
 /* ==|== primary styles =====================================================
    Author: tdroL
    ========================================================================== */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003195}}
+/* line 195, ../scss/noiser.scss */
 body {
   margin: 0;
   font: 1em/1.5 "Asap", Arial, sans-serif;
@@ -200,14 +200,14 @@ body {
   overflow-x: hidden;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003204}}
+/* line 204, ../scss/noiser.scss */
 #container {
   width: 960px;
   margin: 20px auto;
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003210}}
+/* line 210, ../scss/noiser.scss */
 .area {
   position: relative;
   z-index: 2;
@@ -221,7 +221,7 @@ body {
   box-shadow: 0 0 10px #999999;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003222}}
+/* line 222, ../scss/noiser.scss */
 #canvas svg {
   border: 0;
   -webkit-box-shadow: 0 0 5px #999999;
@@ -229,7 +229,7 @@ body {
   box-shadow: 0 0 5px #999999;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003228}}
+/* line 228, ../scss/noiser.scss */
 #coords {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -243,19 +243,19 @@ body {
 /*
  * Contain floats: h5bp.com/q
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003242}}
+/* line 242, ../scss/noiser.scss */
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003247}}
+/* line 247, ../scss/noiser.scss */
 .clearfix:after {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/d\:\/httpd\/tests\/cv\/assets\/scss\/noiser\.scss}line{font-family:\00003251}}
+/* line 251, ../scss/noiser.scss */
 .clearfix {
   *zoom: 1;
 }

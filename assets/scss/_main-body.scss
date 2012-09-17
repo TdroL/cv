@@ -126,21 +126,24 @@ $blur-radius: 50px;
 	@include in-background-animation(
 		$position-1-base-pos-x, $position-1-base-pos-y,
 		$position-1-scale, $position-1-rotate, $position-1-rotate-axis,
-		(0 0, 48 64, -64 80, 96 -48, -96 -32));
+		(0 0, -44 -19, -78 -18, -95 1, -97 26, -73 68, -26 97, 9 97, 29 73, 27 35));
+		//(0 0, 48 64, -64 80, 96 -48, -96 -32)
 }
 
 @include keyframes(position-2-in-background) {
 	@include in-background-animation(
 		$position-2-base-pos-x, $position-2-base-pos-y,
 		$position-2-scale, $position-2-rotate, $position-2-rotate-axis,
-		(0 0, 60 -48, 84 24, -24 72, -72 12, 0 -60, 96 48, 36 84));
+		(0 0, 34 2, 63 18, 69 48, 52 73, 8 89, -48 80, -66 66, -79 42, -76 16, -52 2));
+		//(0 0, 60 -48, 84 24, -24 72, -72 12, 0 -60, 96 48, 36 84)
 }
 
 @include keyframes(position-3-in-background) {
 	@include in-background-animation(
 		$position-3-base-pos-x, $position-3-base-pos-y,
 		$position-3-scale, $position-3-rotate, $position-3-rotate-axis,
-		(0 0, -68 -52, 24 76, 12 -72, -52 76, -80 20));
+		(0 0, 19 -23, 26 -48, 18 -75, -4 -88, -33 -87, -72 -66, -88 -36, -84 3, -64 24, -25 20));
+		//(0 0, -68 -52, 24 76, 12 -72, -52 76, -80 20)
 }
 
 body {
@@ -617,7 +620,7 @@ h1, h2, h3, h4 {
 			}
 
 			&[class*=position] {
-				z-index: 1;
+				z-index: -2;
 				position: absolute;
 				top: 0;
 				background: #999;
