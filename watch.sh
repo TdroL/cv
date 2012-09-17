@@ -98,6 +98,9 @@ function log_watchers {
 		compass)
 			tail -f $COMPASS_LOG
 			;;
+		*)
+			tail -f $COFFEE_LOG $COMPASS_LOG
+			;;
 	esac
 }
 
