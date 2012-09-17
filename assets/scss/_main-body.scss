@@ -7,6 +7,15 @@
 	}
 }
 
+@mixin filter($style) {
+	$style: unquote($style);
+	-webkit-filter: $style;
+	   -moz-filter: $style;
+	    -ms-filter: $style;
+	     -o-filter: $style;
+	        filter: $style;
+}
+
 @mixin in-background-animation($x, $y, $scale, $rotate, $rotate-axis: 0 0 0, $positions: (0 0)) {
 	$total-length: 0;
 	$lengths: ();
