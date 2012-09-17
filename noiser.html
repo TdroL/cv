@@ -19,8 +19,7 @@
 	</div>
 
 	<script>
-		var prefix = /^http/.test(document.location.protocol) ? '' : 'http:',
-		    isModernBrowser = '__proto__' in {};
+		var prefix = /^http/.test(document.location.protocol) ? '' : 'http:';
 
 		yepnope([{
 			load: 'timeout=200!' + prefix + '//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js',
