@@ -65,19 +65,19 @@ $ ->
 
 		elements['background']?.remove()
 		elements['background'] = cv.rect(0, 0, width, height)
-			.attr { fill: 'rgba(255, 255, 255, 0.8)', 'stroke-width': 0 }
+			.attr fill: 'rgba(255, 255, 255, 0.8)', 'stroke-width': 0
 
 		elements['cross-lines']?.remove()
 		elements['cross-lines'] = cv.path("M#{x-cross_dist},#{y}L#{x+cross_dist},#{y}M#{x},#{y-cross_dist}L#{x},#{y+cross_dist}")
-			.attr { stroke: '#333' }
+			.attr stroke: '#333'
 
 		elements['cross-circle']?.remove()
 		elements['cross-circle'] = cv.circle(x, y, max_dist)
-			.attr { stroke: '#333' }
+			.attr stroke: '#333'
 
 		elements['info']?.remove()
 		elements['info'] = cv.text(20, 70, info)
-			.attr { color: '#333', 'font-size': 16, 'text-anchor': 'start' }
+			.attr color: '#333', 'font-size': 16, 'text-anchor': 'start'
 
 	getLinesPath = ->
 		[px, py] = points[points.length-1]
@@ -92,12 +92,12 @@ $ ->
 	drawLines = ->
 		elements['points-lines']?.remove()
 		elements['points-lines'] = cv.path(getLinesPath())
-			.attr { stroke: '#e00' }
+			.attr stroke: '#e00'
 
 		elements['points-lines-clickable']?.remove()
 		elements['points-lines-clickable'] = cv.path(getLinesPath())
 			.click(lineClick)
-			.attr { stroke: 'rgba(0,0,0,0.0)', 'stroke-width': 8 }
+			.attr stroke: 'rgba(0,0,0,0.0)', 'stroke-width': 8
 
 	lineClick = (coords, x3, y3) ->
 		dists = []
@@ -169,13 +169,12 @@ $ ->
 		@data 'cy', @attr('cy')
 
 	dragMove = (dx, dy) ->
-		@attr { cx: @data('cx') + dx, cy: @data('cy') + dy }
+		@attr cx: @data('cx') + dx, cy: @data('cy') + dy
 
-		points = for bullet in elements['points-bullets']
-			[bullet.attr('cx'), bullet.attr('cy')]
+		points = ([bullet.attr('cx'), bullet.attr('cy')] for bullet in elements['points-bullets'])
 
-		elements['points-lines'].attr { path: getLinesPath() }
-		elements['points-lines-clickable'].attr { path: getLinesPath() }
+		elements['points-lines'].attr path: getLinesPath()
+		elements['points-lines-clickable'].attr path: getLinesPath()
 		printCoords()
 
 		@data 'timestamp', +new Date
@@ -191,7 +190,7 @@ $ ->
 			@data 'isMouseOver', false
 
 	bulletDblClick = (args...)->
-		if new Date - @data('timestamp') > 500
+		if Date.now() - @data('timestamp') > 500
 			points.splice @data('i'), 1
 			@remove()
 			drawLines()
@@ -201,8 +200,7 @@ $ ->
 		x = width / 2
 		y = height / 2
 
-		coords = for p in points
-			"#{Math.round((p[0]-x))} #{Math.round((p[1]-y))}"
+		coords = ("#{Math.round((p[0]-x))} #{Math.round((p[1]-y))}" for p in points)
 
 		$('#coords').val coords.join(', ')
 
@@ -219,10 +217,9 @@ $ ->
 
 	$('#coords').keyup ->
 		$this = $ @
-		pairs = $this.val().trim().replace(/\s*,\s*/g, ',').split ','
+		pairs = $this.val().trim().split /\s*,\s*/ # .replace(/\s*,\s*/g, ',')
 
-		unless pairs.length
-			return
+		return unless pairs.length
 
 		unless /^0\s+0$/.test pairs[0]
 			pairs.splice 0, 0, '0 0'
@@ -231,11 +228,11 @@ $ ->
 		x = width / 2
 		y = height / 2
 
-		for pair, i in pairs
+		for pair in pairs
 			point = pair.split /\s+/
 
 			if point.length == 2
-				points.push [+point[0] + x, +point[1] + y]
+				points.push [parseInt(point[0], 10) + x, parseInt(point[1], 10) + y]
 
 		drawLines()
 		drawBullets()
