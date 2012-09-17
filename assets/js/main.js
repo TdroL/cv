@@ -27,7 +27,7 @@ $(function() {
     $area.switchPosition(areaState);
     $navListItems.removeClass('active');
     $navLinks.filter("a[href='#" + ($area.prop('id')) + "']").closest('li').addClass('active');
-    if (Modernizr.mq('only screen and (min-width: 980px)')) {
+    if (Modernizr.mq('(min-width: 980px)')) {
       return e.preventDefault();
     }
   });
