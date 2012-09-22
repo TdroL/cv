@@ -1,0 +1,127 @@
+
+@mixin respond-to($media) {
+	@if $media == small {
+		@media (max-width: 320px) { @content; }
+	}
+	@else if $media == medium {
+		@media (min-width: 321px) and (max-width: 979px) { @content; }
+	}
+	@else if $media == wide {
+		@media (min-width: 980px) { @content; }
+	}
+}
+
+@function fake-sin($t) {
+	@if $t >= 0.5 {
+		$t: $t - 0.5;
+		@return 16 * $t * ($t - 0.5);
+	} @else {
+		@return -16 * $t * ($t - 0.5);
+	}
+}
+
+@function round-to($value, $precision) {
+	$f: 1;
+
+	@for $i from 1 through $precision {
+		$f: $f * 10;
+	}
+
+	@return round($value * $f) / $f;
+}
+
+@mixin filter($style) {
+	$style: unquote($style);
+	-webkit-filter: $style;
+	   -moz-filter: $style;
+	    -ms-filter: $style;
+	     -o-filter: $style;
+	        filter: $style;
+}
+
+@mixin in-background-animation($x, $y, $scale, $rotate, $rotate-axis: 0 0 0, $positions: (0 0)) {
+	$total-length: 0;
+	$lengths: ();
+	$frames: 0;
+
+	$ext-positions: append($positions, nth($positions, 1));
+
+	@for $i from 2 through length($ext-positions) {
+		$prev: nth($ext-positions, $i - 1);
+		$curr: nth($ext-positions, $i);
+		$length-x: nth($prev, 1) - nth($curr, 1);
+		$length-y: nth($prev, 2) - nth($curr, 2);
+		$length: sqrt($length-x * $length-x + $length-y * $length-y);
+		$total-length: $total-length + $length;
+		$lengths: append($lengths, $length);
+		$frame: nth($frames, length($frames)) + $length;
+		$frames: append($frames, $frame);
+	}
+
+	$padding: 0.05;
+	$npadding: 1 - $padding;
+	@for $i from 1 through length($positions) {
+		$prev: 0 0;
+		@if $i != 1 {
+			$prev: nth($ext-positions, $i - 1);
+		}
+		@else {
+			$prev: nth($positions, length($positions));
+		}
+		$px: nth($prev, 1);
+		$py: nth($prev, 2);
+		$curr: nth($ext-positions, $i);
+		$cx: nth($curr, 1);
+		$cy: nth($curr, 2);
+		$next: nth($ext-positions, $i + 1);
+		$nx: nth($next, 1);
+		$ny: nth($next, 2);
+
+		$frame: round-to(nth($frames, $i) * 100 / $total-length, 1);
+		$t: (100 + ($frame - 0.5)) % 100;
+		#{$t * 1%} {
+			@include transform(
+					translate3d(
+						round($x + $cx * $npadding + $padding * $px),
+						round($y + $cy * $npadding + $padding * $py),
+						0)
+					scale($scale)
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100), 2)),
+			false);
+		}
+
+		$t: $frame;
+		#{$t * 1%} {
+			@include transform(
+					translate3d(
+						round($x + $cx * $npadding + 0.5 * $padding * ($nx + $px)),
+						round($y + $cy * $npadding + 0.5 * $padding * ($ny + $py)),
+						0)
+					scale($scale)
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100), 2)),
+			false);
+		}
+
+		$t: $frame + 0.5;
+		#{$t * 1%} {
+			$next: nth($ext-positions, $i + 1);
+			$nx: nth($next, 1);
+			$ny: nth($next, 2);
+
+			@include transform(
+					translate3d(
+						round($x + ($cx * $npadding + $padding * $nx)),
+						round($y + ($cy * $npadding + $padding * $ny)),
+						0)
+					scale($scale)
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100), 2)),
+			false);
+		}
+	}
+}

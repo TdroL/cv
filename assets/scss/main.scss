@@ -120,21 +120,19 @@ img {
 	-ms-interpolation-mode: bicubic;
 }
 
+/* ==========================================================================
+Chrome Frame prompt
+========================================================================== */
+
+.chromeframe {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
 
 /* ==|== primary styles =====================================================
    Author: tdroL
    ========================================================================== */
-
-@mixin respond-to($media) {
-	@if $media == small {
-		@media only screen and (max-width: 320px) { @content; }
-	}
-	@else if $media == medium {
-		@media only screen and (min-width: 321px) and (max-width: 980px) { @content; }
-	}
-	@else if $media == wide {
-		@media only screen and (min-width: 980px) { @content; }
-	}
-}
 
 @import "main-body";
