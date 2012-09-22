@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Remove CSS files"
+echo "Removing CSS files"
 for FILE in `find assets/scss/ -name *.scss -type f`; do
 	FILE=${FILE//scss/css}
 	if [[ -f $FILE ]]; then
@@ -35,7 +35,7 @@ else
 	echo "OK"
 fi
 
-echo "Compress JavaScript files"
+echo "Compressing JavaScript files"
 for FILE in `find assets/js/ -name *.js -type f -maxdepth 1`; do
 	LOG=`uglifyjs -o $FILE $FILE`
 
