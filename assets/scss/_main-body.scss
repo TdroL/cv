@@ -1,108 +1,8 @@
-@function fake-sin($t) {
-	@if $t >= 0.5 {
-		$t: $t - 0.5;
-		@return 16 * $t * ($t - 0.5);
-	} @else {
-		@return -16 * $t * ($t - 0.5);
-	}
-}
+@import "_mixins";
 
-@mixin filter($style) {
-	$style: unquote($style);
-	-webkit-filter: $style;
-	   -moz-filter: $style;
-	    -ms-filter: $style;
-	     -o-filter: $style;
-	        filter: $style;
-}
-
-@mixin in-background-animation($x, $y, $scale, $rotate, $rotate-axis: 0 0 0, $positions: (0 0)) {
-	$total-length: 0;
-	$lengths: ();
-	$frames: 0;
-
-	$ext-positions: append($positions, nth($positions, 1));
-
-	@for $i from 2 through length($ext-positions) {
-		$prev: nth($ext-positions, $i - 1);
-		$curr: nth($ext-positions, $i);
-		$length-x: nth($prev, 1) - nth($curr, 1);
-		$length-y: nth($prev, 2) - nth($curr, 2);
-		$length: sqrt($length-x * $length-x + $length-y * $length-y);
-		$total-length: $total-length + $length;
-		$lengths: append($lengths, $length);
-		$frame: nth($frames, length($frames)) + $length;
-		$frames: append($frames, $frame);
-	}
-
-	$padding: 0.05;
-	$npadding: 1 - $padding;
-	@for $i from 1 through length($positions) {
-		$prev: 0 0;
-		@if $i != 1 {
-			$prev: nth($ext-positions, $i - 1);
-		}
-		@else {
-			$prev: nth($positions, length($positions));
-		}
-		$px: nth($prev, 1);
-		$py: nth($prev, 2);
-		$curr: nth($ext-positions, $i);
-		$cx: nth($curr, 1);
-		$cy: nth($curr, 2);
-		$next: nth($ext-positions, $i + 1);
-		$nx: nth($next, 1);
-		$ny: nth($next, 2);
-
-		$frame: round((nth($frames, $i) * 100 / $total-length) * 100) * 0.01;
-		$t: ((100 + ($frame - 0.5)) % 100);
-		#{$t * 1%} {
-			@include transform(
-					translate3d(
-						$x + $cx * $npadding + $padding * $px,
-						$y + $cy * $npadding + $padding * $py,
-						0)
-					scale($scale)
-					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100))
-					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100))
-					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100)),
-			false);
-		}
-
-		$t: $frame;
-		#{$t * 1%} {
-			@include transform(
-					translate3d(
-						$x + $cx * $npadding + 0.5 * $padding * ($nx + $px),
-						$y + $cy * $npadding + 0.5 * $padding * ($ny + $py),
-						0)
-					scale($scale)
-					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100))
-					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100))
-					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100)),
-			false);
-		}
-
-		$t: $frame + 0.5;
-		#{$t * 1%} {
-			$next: nth($ext-positions, $i + 1);
-			$nx: nth($next, 1);
-			$ny: nth($next, 2);
-
-			@include transform(
-					translate3d(
-						$x + ($cx * $npadding + $padding * $nx),
-						$y + ($cy * $npadding + $padding * $ny),
-						0)
-					scale($scale)
-					rotateX(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100))
-					rotateY(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100))
-					rotateZ(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100)),
-			false);
-		}
-	}
-}
-
+/**
+ * Animations
+ */
 // primes:
 //  2  3  5  7 11  13  17  19  23  29  31  37  41  43  47  53  59  61  67  71
 // 73 79 83 89 97 101 103 107 109 113 127 131 137 139 149 151 157 163 167 173
@@ -155,104 +55,152 @@ $blur-radius: 50px;
 		//(0 0, -68 -52, 24 76, 12 -72, -52 76, -80 20)
 }
 
+/**
+ * Styles
+ */
+
+$color-0: #4b4948;
+$color-1: #e14f15;
+$color-2: #165b91;
+$color-3: #65c813;
+
 body {
 	margin: 0;
-	font: 1em/1.5 'Asap', Arial, sans-serif;
+	font: 1em/1.5 Asap, Arial, sans-serif;
 	color: #222;
 	background-color: mix(#fff, #999);
 	overflow-x: hidden;
+	min-height: 100%;
 }
 
 h1, h2, h3, h4 {
-	font-family: 'Advent Pro', Arial, sans-serif;
+	font-family: "Advent Pro", Arial, sans-serif;
 	line-height: 1.2;
 	margin: 0 0 0.2em;
+}
+
+header {
+	h1, h2 {
+		line-height: 1;
+		text-transform: uppercase;
+	}
+}
+
+nav li {
+	a {
+		display: block;
+		background: $color-0;
+
+		@include transition(all 0.25s);
+
+		&, &:hover, &:focus, &:visited
+		{
+			color: #fff;
+			font-style: 400;
+			text-decoration: none;
+		}
+	}
+
+	&:nth-of-type(n) a {
+		background-color: $color-1;
+
+		+ span.arrow {
+			border-top-color: $color-1;
+		}
+	}
+
+	&:nth-of-type(2n) a {
+		background-color: $color-2;
+
+		+ span.arrow {
+			border-top-color: $color-2;
+		}
+	}
+
+	&:nth-of-type(3n) a {
+		background-color: $color-3;
+
+		+ span.arrow {
+			border-top-color: $color-3;
+		}
+	}
+}
+
+article {
+	@include clearfix;
+	background: #fff;
+
+	aside {
+		padding: 20px;
+		@include box-shadow(0 0 5px #999);
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	ul {
+		li {
+			list-style: none;
+			@include clearfix;
+
+			> span:first-of-type {
+				font-weight: bold;
+			}
+
+			> span.date {
+				display: block;
+			}
+
+			> span.label, > span.label + span {
+				display: block;
+				float: left;
+			}
+
+			> span.label + span > span {
+				display: block;
+			}
+		}
+	}
+
+	footer p {
+		text-align: center;
+		font-size: 0.9em;
+		margin-bottom: 0.5em;
+	}
 }
 
 @include respond-to(small) {
 
 	header {
 		h1, h2 {
-			line-height: 1;
-			padding: 5px 5px 0;
-			margin: 3px;
+			padding: 5px 3px 0;
 		}
 	}
 
 	nav {
 		a {
-			display: block;
-
-			&, &:hover, &:focus, &:visited
-			{
-				color: #fff;
-				font-style: 400;
-				text-decoration: none;
-			}
-
-			@include transition(all 0.25s);
-
 			line-height: 1.5;
 			padding: 5px;
-
-			// colors shamelessly stolen from css-tricks.com
-			background: #4b4948;
-		}
-
-		li:nth-of-type(n) a {
-			background-color: #d54421;
-			@include background-image(linear-gradient(#d54421, lighten(#d54421, 5%), #d54421));
-		}
-
-		li:nth-of-type(2n) a {
-			background-color: #98bf0d;
-			@include background-image(linear-gradient(#98bf0d, lighten(#98bf0d, 5%), #98bf0d));
-		}
-
-		li:nth-of-type(3n) a {
-			background-color: #01b0ec;
-			@include background-image(linear-gradient(#01b0ec, lighten(#01b0ec, 5%), #01b0ec));
 		}
 	}
 
-	.area {
-		background: #fff;
+	article {
 		padding: 5px;
 
 		aside {
 			text-align: center;
-
-			img {
-				max-width: 94%;
-				padding: 3%;
-				@include box-shadow(0 0 5px #999);
-			}
+			margin: 10px;
 		}
 
 		ul {
 			padding: 0;
 
 			li {
-				list-style: none;
-				@include clearfix;
 				padding-bottom: 0.25em;
 
-				> span:first-of-type {
-					font-weight: bold;
-				}
-
-				> span.date {
-					display: block;
-				}
-
 				> span.label, > span.label + span {
-					display: block;
-					float: left;
 					width: 50%;
-				}
-
-				> span.label + span > span {
-					display: block;
 				}
 			}
 
@@ -265,90 +213,74 @@ h1, h2, h3, h4 {
 			}
 		}
 	}
-
-	footer p {
-		text-align: center;
-		font-size: 0.9em;
-		margin-bottom: 0.5em;
-	}
 }
 
 @include respond-to(medium) {
 	header {
 		h1, h2 {
-			padding: 0;
-			line-height: 1;
+			padding: 5px 10px 0;
 			display: inline-block;
-			text-transform: uppercase;
 		}
 	}
 
 	nav li {
 		a {
-			display: block;
 			padding: 5px 10px;
-			background: #4b4948;
-
-			&, &:hover, &:focus, &:visited
-			{
-				color: #fff;
-				font-style: 400;
-				text-decoration: none;
-			}
-		}
-
-		&:nth-of-type(n) a {
-			background-color: #d54421;
-			@include background-image(linear-gradient(#d54421, lighten(#d54421, 5%), #d54421));
-		}
-
-		&:nth-of-type(2n) a {
-			background-color: #98bf0d;
-			@include background-image(linear-gradient(#98bf0d, lighten(#98bf0d, 5%), #98bf0d));
-		}
-
-		&:nth-of-type(3n) a {
-			background-color: #01b0ec;
-			@include background-image(linear-gradient(#01b0ec, lighten(#01b0ec, 5%), #01b0ec));
 		}
 	}
 
-	.area {
+	article {
 		padding: 10px;
-		background: #fff;
-
-		@include clearfix;
 
 		aside {
 			margin: 0 20px 20px 0;
-			padding: 20px;
-			@include box-shadow(0 0 5px #999);
 			max-width: 330px;
-
-			img {
-				max-width: 100%;
-			}
 		}
 
 		// special cases
-		@media only screen and (min-width: 450px) and (max-width: 980px) {
+		@media (min-width: 450px) {
 
 			aside {
+				margin: 20px 20px 20px 0;
+
 				display: inline-block;
 				@include transform(rotateZ(2.5deg) translateZ(0));
-
-				img {
-					max-width: auto;
-				}
 			}
 
 		}
 
-		@media only screen and (min-width: 800px) and (max-width: 980px) {
+		@media (min-width: 800px) {
 
 			aside {
 				display: block;
 				float: right;
+
+				.csstransforms3d & {
+					position: relative;
+
+					&:before, &:after {
+						position: absolute;
+						z-index: 2;
+						background: #eee;
+						display: block;
+						content: "";
+						width: 100px;
+						height: 25px;
+						@include box-shadow(0 0 2px #999);
+					}
+
+					&:before {
+						top: 5px;
+						left: -35px;
+						@include transform(rotateZ(-35deg));
+					}
+
+					&:after {
+						bottom: 10px;
+						right: -35px;
+						@include transform(rotateZ(-45deg));
+					}
+				}
 			}
 
 		}
@@ -357,25 +289,9 @@ h1, h2, h3, h4 {
 			margin: 0 0 0.5em;
 
 			li {
-				list-style: none;
-				@include clearfix;
-
-				> span:first-of-type {
-					font-weight: bold;
-				}
-
-				> span.date {
-					display: block;
-				}
 
 				> span.label, > span.label + span {
-					display: block;
-					float: left;
 					width: 150px;
-				}
-
-				> span.label + span > span {
-					display: block;
 				}
 			}
 		}
@@ -386,18 +302,12 @@ h1, h2, h3, h4 {
 			margin-top: 2em;
 		}
 	}
-
-	footer p {
-		text-align: center;
-		font-size: 0.9em;
-		margin-bottom: 0.5em;
-	}
 }
 
 @include respond-to(wide) {
 
 	body {
-		@include background(radial-gradient(#fff, #999) fixed no-repeat);
+		@include background(#999 radial-gradient(#fff, #999) fixed no-repeat);
 	}
 
 	$container-width: 960px;
@@ -412,7 +322,6 @@ h1, h2, h3, h4 {
 	header {
 		h1, h2 {
 			display: inline-block;
-			text-transform: uppercase;
 		}
 
 		h1 {
@@ -428,87 +337,58 @@ h1, h2, h3, h4 {
 	nav {
 		position: relative;
 		z-index: 3; // .area: z-index = 2
+		@include clearfix;
+		height: 75px;
 
-		ul {
-			@include clearfix;
-			height: 75px;
+		li {
+			$li-width: $container-width / 3;
+			float: left;
+			width: $li-width;
+			position: relative;
 
-			li {
-				$li-width: $container-width / 3;
-				float: left;
-				width: $li-width;
-				position: relative;
+			a {
+				text-align: center;
+				line-height: 50px;
+				padding: 0;
+			}
 
-				a {
-					display: block;
-					text-align: center;
+			span.arrow {
+				position: absolute;
+				z-index: -1;
+				bottom: 0;
+				left: $li-width / 2 - 25px;
+				display: block;
+				content: "";
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-color: transparent;
+				border-width: 25px 25px 0;
 
-					&, &:hover, &:focus, &:visited
-					{
-						color: #fff;
-						font-style: 400;
-						text-decoration: none;
-					}
+				@include transition(all 0.25s);
+			}
 
-					@include transition(all 0.25s);
+			&.active span.arrow {
+				bottom: -20px;
+			}
 
-					line-height: 50px;
+			&:nth-of-type(n) {
+				background: $color-0;
 
-					// colors shamelessly stolen from css-tricks.com
-					background: #4b4948;
+				&.active a, a:hover, a:focus {
+					background: $color-1;
 				}
+			}
 
-				span.arrow {
-					position: absolute;
-					z-index: -1;
-					bottom: 0;
-					left: $li-width / 2 - 25px;
-					display: block;
-					content: '';
-					width: 0;
-					height: 0;
-					border-style: solid;
-					border-color: transparent;
-					border-width: 25px 25px 0;
-
-					@include transition(all 0.25s);
+			&:nth-of-type(2n) {
+				&.active a, a:hover, a:focus {
+					background: $color-2;
 				}
+			}
 
-				&.active span.arrow {
-					bottom: -20px;
-				}
-
-				&:nth-of-type(n) {
-					&.active a, a:hover, a:focus {
-						background-color: #d54421;
-						@include background-image(linear-gradient(#d54421, lighten(#d54421, 5%), #d54421));
-					}
-
-					span.arrow {
-						border-top-color: #d54421;
-					}
-				}
-
-				&:nth-of-type(2n) {
-					&.active a, a:hover, a:focus {
-						background-color: #98bf0d;
-						@include background-image(linear-gradient(#98bf0d, lighten(#98bf0d, 5%), #98bf0d));
-					}
-
-					span.arrow {
-						border-top-color: #98bf0d;
-					}
-				}
-
-				&:nth-of-type(3n) {
-					&.active a, a:hover, a:focus {
-						background-color: #01b0ec;
-						@include background-image(linear-gradient(#01b0ec, lighten(#01b0ec, 5%), #01b0ec));
-					}
-
-					span.arrow {
-						border-top-color: #01b0ec;
-					}
+			&:nth-of-type(3n) {
+				&.active a, a:hover, a:focus {
+					background: $color-3;
 				}
 			}
 		}
@@ -522,21 +402,19 @@ h1, h2, h3, h4 {
 		}
 
 		aside {
-			position: relative;
 			float: right;
 			margin: 0 20px 20px 0;
-			padding: 20px;
-			@include box-shadow(0 0 5px #999);
 			@include transform(rotateZ(2.5deg) translateZ(0));
 
 			.csstransforms3d & {
+				position: relative;
 
 				&:before, &:after {
 					position: absolute;
 					z-index: 2;
 					background: #eee;
 					display: block;
-					content: '';
+					content: "";
 					width: 100px;
 					height: 25px;
 					@include box-shadow(0 0 2px #999);
@@ -560,25 +438,9 @@ h1, h2, h3, h4 {
 			margin: 0 0 0.5em;
 
 			li {
-				list-style: none;
-				@include clearfix;
-
-				> span:first-of-type {
-					font-weight: bold;
-				}
-
-				> span.date {
-					display: block;
-				}
 
 				> span.label, > span.label + span {
-					display: block;
-					float: left;
 					width: 200px;
-				}
-
-				> span.label + span > span {
-					display: block;
 				}
 			}
 		}
@@ -590,12 +452,6 @@ h1, h2, h3, h4 {
 		}
 	}
 
-	footer p {
-		text-align: center;
-		font-size: 0.9em;
-		margin-bottom: 0.5em;
-	}
-
 	.area {
 		$padding: 10px;
 
@@ -604,8 +460,7 @@ h1, h2, h3, h4 {
 		width: $container-width - 2*$padding;
 		margin-bottom: 1em;
 		padding: $padding;
-		background: #fff;
-		color: #666;
+
 		@include box-shadow(0 0 10px #999);
 		@include transform(
 			translateZ(0)
