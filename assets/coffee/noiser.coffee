@@ -5,10 +5,10 @@ $ ->
 	max_dist = 100
 
 	$canvas = $('#canvas')
-	width = $canvas.data 'width'
-	height = $canvas.data 'height'
+	width = $canvas.data('width')
+	height = $canvas.data('height')
 
-	cv = Raphael $canvas[0], width, height
+	cv = Raphael($canvas[0], width, height)
 
 	elements = {}
 
@@ -54,9 +54,9 @@ $ ->
 					num++
 					continue
 
-			points.push point
+			points.push(point)
 
-		points.splice 0, 0, [0, 0]
+		points.splice(0, 0, [0, 0])
 
 	drawCross = ->
 		x = width / 2
@@ -65,19 +65,19 @@ $ ->
 
 		elements['background']?.remove()
 		elements['background'] = cv.rect(0, 0, width, height)
-			.attr fill: 'rgba(255, 255, 255, 0.8)', 'stroke-width': 0
+			.attr(fill: 'rgba(255, 255, 255, 0.8)', 'stroke-width': 0)
 
 		elements['cross-lines']?.remove()
 		elements['cross-lines'] = cv.path("M#{x-cross_dist},#{y}L#{x+cross_dist},#{y}M#{x},#{y-cross_dist}L#{x},#{y+cross_dist}")
-			.attr stroke: '#333'
+			.attr(stroke: '#333')
 
 		elements['cross-circle']?.remove()
 		elements['cross-circle'] = cv.circle(x, y, max_dist)
-			.attr stroke: '#333'
+			.attr(stroke: '#333')
 
 		elements['info']?.remove()
 		elements['info'] = cv.text(20, 70, info)
-			.attr color: '#333', 'font-size': 16, 'text-anchor': 'start'
+			.attr(color: '#333', 'font-size': 16, 'text-anchor': 'start')
 
 	getLinesPath = ->
 		[px, py] = points[points.length-1]
@@ -92,23 +92,23 @@ $ ->
 	drawLines = ->
 		elements['points-lines']?.remove()
 		elements['points-lines'] = cv.path(getLinesPath())
-			.attr stroke: '#e00'
+			.attr(stroke: '#e00')
 
 		elements['points-lines-clickable']?.remove()
 		elements['points-lines-clickable'] = cv.path(getLinesPath())
 			.click(lineClick)
-			.attr stroke: 'rgba(0,0,0,0.0)', 'stroke-width': 8
+			.attr(stroke: 'rgba(0,0,0,0.0)', 'stroke-width': 8)
 
 	lineClick = (coords, x3, y3) ->
 		dists = []
 
 		offset = $canvas.offset()
 
-		x3 = Math.round x3 - offset.left
-		y3 = Math.round y3 - offset.top
+		x3 = Math.round(x3 - offset.left)
+		y3 = Math.round(y3 - offset.top)
 
 		_points = points[..]
-		_points.push _points[0]
+		_points.push(_points[0])
 
 		min_dist = null
 		id = null
@@ -137,7 +137,7 @@ $ ->
 						min_dist = dist
 						id = i
 
-		points.splice id + 1, 0, [x3, y3]
+		points.splice(id + 1, 0, [x3, y3])
 		drawLines()
 		drawBullets()
 
@@ -152,46 +152,46 @@ $ ->
 			if i != 0
 				c.attr(colors.default.out)
 					.mouseover(mouseOver).mouseout(mouseOut).dblclick(bulletDblClick)
-					.drag dragMove, dragStart
+					.drag(dragMove, dragStart)
 			else
 				c.attr(colors.start.out)
 
-			c.data 'isMouseOver', false
-			c.data 'i', i
-			c.data 'timestamp', +new Date
+			c.data('isMouseOver', false)
+			c.data('i', i)
+			c.data('timestamp', Date.now())
 
-			elements['points-bullets'].push c
+			elements['points-bullets'].push(c)
 
 		printCoords()
 
 	dragStart = ->
-		@data 'cx', @attr('cx')
-		@data 'cy', @attr('cy')
+		@data('cx', @attr('cx'))
+		@data('cy', @attr('cy'))
 
 	dragMove = (dx, dy) ->
-		@attr cx: @data('cx') + dx, cy: @data('cy') + dy
+		@attr(cx: @data('cx') + dx, cy: @data('cy') + dy)
 
 		points = ([bullet.attr('cx'), bullet.attr('cy')] for bullet in elements['points-bullets'])
 
-		elements['points-lines'].attr path: getLinesPath()
-		elements['points-lines-clickable'].attr path: getLinesPath()
+		elements['points-lines'].attr(path: getLinesPath())
+		elements['points-lines-clickable'].attr(path: getLinesPath())
 		printCoords()
 
-		@data 'timestamp', +new Date
+		@data('timestamp', Date.now())
 
 	mouseOver = ->
 		if @data('isMouseOver') is false
-			@attr colors.default.over
-			@data 'isMouseOver', true
+			@attr(colors.default.over)
+			@data('isMouseOver', true)
 
 	mouseOut = ->
 		if @data('isMouseOver') is true
-			@attr colors.default.out
-			@data 'isMouseOver', false
+			@attr(colors.default.out)
+			@data('isMouseOver', false)
 
 	bulletDblClick = (args...)->
 		if Date.now() - @data('timestamp') > 500
-			points.splice @data('i'), 1
+			points.splice(@data('i'), 1)
 			@remove()
 			drawLines()
 			drawBullets()
@@ -202,9 +202,9 @@ $ ->
 
 		coords = ("#{Math.round((p[0]-x))} #{Math.round((p[1]-y))}" for p in points)
 
-		$('#coords').val coords.join(', ')
+		$('#coords').val(coords.join(', '))
 
-	generatePoints num, max_dist, min_dist
+	generatePoints(num, max_dist, min_dist)
 
 	x = width / 2
 	y = height / 2
@@ -217,22 +217,22 @@ $ ->
 
 	$('#coords').keyup ->
 		$this = $ @
-		pairs = $this.val().trim().split /\s*,\s*/ # .replace(/\s*,\s*/g, ',')
+		pairs = $this.val().trim().split(/\s*,\s*/) # .replace(/\s*,\s*/g, ',')
 
 		return unless pairs.length
 
-		unless /^0\s+0$/.test pairs[0]
-			pairs.splice 0, 0, '0 0'
+		unless /^0\s+0$/.test(pairs[0])
+			pairs.splice(0, 0, '0 0')
 
-		points.splice 0
+		points.splice(0)
 		x = width / 2
 		y = height / 2
 
 		for pair in pairs
-			point = pair.split /\s+/
+			point = pair.split(/\s+/)
 
 			if point.length == 2
-				points.push [parseInt(point[0], 10) + x, parseInt(point[1], 10) + y]
+				points.push([parseInt(point[0], 10) + x, parseInt(point[1], 10) + y])
 
 		drawLines()
 		drawBullets()

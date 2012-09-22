@@ -4,19 +4,21 @@ $ ->
 	$navLinks = $navListItems.find('a')
 	$areas = $('.area')
 
-	selectors = ("a[href^=\"##{link.id}\"]" for link in $navLinks)
+	selectors = ("a[href^=\"##{link.id}\"]" for link in $navLinks).join(',')
 
-	$(document).on 'click', selectors.join(','), (e, areasState = 'back', areaState = 'front') ->
-		$area = $(@hash).closest '.area'
+	clickCallback = (e, areasState = 'back', areaState = 'front') ->
+		$area = $(@hash).closest('.area')
 
-		$areas.switchPosition areasState
-		$area.switchPosition areaState
+		$areas.switchPosition(areasState)
+		$area.switchPosition(areaState)
 
-		$navListItems.removeClass 'active'
+		$navListItems.removeClass('active')
 		$navLinks.filter("a[href='##{$area.prop('id')}']")
-			.closest('li').addClass 'active'
+			.closest('li').addClass('active')
 
-		if Modernizr.mq '(min-width: 980px)'
+		if Modernizr.mq('(min-width: 980px)')
 			e.preventDefault()
 
-	$navLinks.first().trigger 'click', ['back-flash', 'front-flash']
+	$(document).on('click', selectors, clickCallback)
+
+	$navLinks.first().trigger('click', ['back-flash', 'front-flash'])

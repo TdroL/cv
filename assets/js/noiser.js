@@ -179,7 +179,7 @@ $(function() {
       }
       c.data('isMouseOver', false);
       c.data('i', i);
-      c.data('timestamp', +(new Date));
+      c.data('timestamp', Date.now());
       elements['points-bullets'].push(c);
     }
     return printCoords();
@@ -211,7 +211,7 @@ $(function() {
       path: getLinesPath()
     });
     printCoords();
-    return this.data('timestamp', +(new Date));
+    return this.data('timestamp', Date.now());
   };
   mouseOver = function() {
     if (this.data('isMouseOver') === false) {
