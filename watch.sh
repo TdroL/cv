@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 COFFEE_LOG=./.logs/coffee.log
 COMPASS_LOG=./.logs/compass.log
@@ -26,16 +26,17 @@ function start_compass {
 }
 
 function stop_coffee {
-	local PID=`cat $COFFEE_PID`
-	ps -ef | grep $PID | grep /bin/sh$ &> /dev/null && {
+	local _PPID=`cat $COFFEE_PID`
+	local PID=`ps -ef | grep $_PPID | grep node | sed "s/\s*[^ ]*\s*\([0-9]*\).*/\1/"`
+	ps -ef | grep $PID | grep node$ > /dev/null && {
 		echo "Stopping coffeescript watcher"
-		kill $PID > /dev/null
+		kill -9 $PID > /dev/null
 	}
 }
 
 function stop_compass {
 	local PID=`cat $COMPASS_PID`
-	ps -ef | grep $PID | grep /bin/ruby$ &> /dev/null && {
+	ps -ef | grep $PID > /dev/null && {
 		echo "Stopping compass watcher"
 		kill $PID > /dev/null
 	}
