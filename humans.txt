@@ -6,8 +6,7 @@ Name: Ubumbumburu
 Site: http://piotrszkaluba.pl
 
 /* TECH */
-
-Standards: HTML5, CSS3 (3D transforms, transitions, filter)
+Buzzwords: HTML5, CSS3 (3D transforms, transitions, filter)
 Components: jQuery, Modernizr, Raphaël
 Software: Sublime Text 2, Compass, CoffeeScript
 

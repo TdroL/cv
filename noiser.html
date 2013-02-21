@@ -7,6 +7,8 @@
 	<link rel="author" href="humans.txt">
 	<meta name="description" content="Experimenting with 3D transforms">
 	<meta name="viewport" content="width=device-width">
+	<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+	<link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
 	<link rel="stylesheet" href="assets/css/noiser.css">
 	<script src="assets/js/vendor/modernizr-2.6.2-custom.min.js"></script>
 </head>
@@ -28,7 +30,14 @@
 					yepnope('assets/js/vendor/jquery-1.8.2.min.js');
 				}
 			}
-		}, 'assets/js/vendor/raphael-min.js', 'assets/js/noiser.js']);
+		}, {
+			load: 'timeout=200!' + prefix + '//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js',
+			callback: function () {
+				if ( ! window.$) {
+					yepnope('assets/js/vendor/raphael-min.js');
+				}
+			}
+		}, 'assets/js/noiser.js']);
 	</script>
 </body>
 </html>

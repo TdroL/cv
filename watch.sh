@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-COFFEE_LOG=./.logs/coffee.log
-COMPASS_LOG=./.logs/compass.log
+COFFEE_LOG=.logs/coffee.log
+COMPASS_LOG=.logs/compass.log
 
-COFFEE_PID=./.logs/coffee.pid
-COMPASS_PID=./.logs/compass.pid
+COFFEE_PID=.logs/coffee.pid
+COMPASS_PID=.logs/compass.pid
 touch $COFFEE_PID $COMPASS_PID
 
 function start_coffee {

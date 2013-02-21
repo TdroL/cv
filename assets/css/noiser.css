@@ -196,7 +196,6 @@ body {
   background: -webkit-radial-gradient(#ffffff, #999999) fixed no-repeat;
   background: -moz-radial-gradient(#ffffff, #999999) fixed no-repeat;
   background: -o-radial-gradient(#ffffff, #999999) fixed no-repeat;
-  background: -ms-radial-gradient(#ffffff, #999999) fixed no-repeat;
   background: radial-gradient(#ffffff, #999999) fixed no-repeat;
   overflow-x: hidden;
 }

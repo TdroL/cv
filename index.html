@@ -5,9 +5,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Michał Lipka - Curriculum Vitae</title>
 	<link rel="author" href="humans.txt">
-	<meta name="description" content="Michał Lipka - Curriculum Vitae; experimental CSS-only 3D transforms and animations">
+	<meta name="description" content="Michał Lipka - Curriculum Vitae; an experimental CV with CSS3 3D transforms and animations">
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="dns-prefetch" href="//ajax.googleapis.com" />
+	<link rel="dns-prefetch" href="//fonts.googleapis.com" />
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Advent+Pro:400,300|Asap:400,400italic&amp;subset=latin,latin-ext">
 	<script src="assets/js/vendor/modernizr-2.6.2-custom.min.js"></script>
 </head>
@@ -22,143 +24,167 @@
 
 			<nav>
 				<ul>
-					<li><a href="#o-mnie" accesskey="1">O mnie</a><span class="arrow"><!-- :before chrome bug --></span></li>
-					<li><a href="#wyksztalcenie-i-doswiadczenie" accesskey="2">Wykształcenie i doświadczenie</a><span class="arrow"><!-- :before chrome bug --></span></li>
-					<li><a href="#dodatkowe-informacje" accesskey="3">Dodatkowe informacje</a><span class="arrow"><!-- :before chrome bug --></span></li>
+					<li><a href="#o-mnie" accesskey="1">O mnie</a></li>
+					<li><a href="#wyksztalcenie-i-doswiadczenie" accesskey="2">Wykształcenie i doświadczenie</a></li>
+					<li><a href="#dodatkowe-informacje" accesskey="3">Dodatkowe informacje</a></li>
 				</ul>
 			</nav>
 		</header>
 
-		<article id="o-mnie" class="area" data-position="1">
-			<div class="wrapper">
-				<h2>O mnie</h2>
+		<div class="outer-wrapper">
+			<article id="o-mnie" class="area" data-position="1">
+				<div class="wrapper">
+					<h2>O mnie</h2>
 
-				<aside>
-					<img src="assets/img/photo.png" alt="Zdjęcie">
-				</aside>
+					<aside>
+						<img src="assets/img/photo.png" alt="Zdjęcie">
+					</aside>
 
-				<ul>
-					<li>
-						<span class="label">Imię i nazwisko:</span>
-						<span>Michał Lipka</span>
-					</li>
-					<li>
-						<span class="label">Data urodzenia:</span>
-						<span>1988-02-23</span>
-					</li>
-					<li>
-						<span class="label">Adres:</span>
-						<span><span>ul. Lazurowa&nbsp;57,</span> <span>20-781&nbsp;Lublin</span></span>
-					</li>
-					<li>
-						<span class="label">Telefon:</span>
-						<span>501-618-599</span>
-					</li>
-					<li>
-						<span class="label">E-mail:</span>
-						<span><a href="mailto:stdrol+cv@gmail.com">stdrol@gmail.com</a></span>
-					</li>
-					<li>
-						<span class="label">github:</span>
-						<span><a href="http://github.com/tdrol">github.com/tdrol</a></span>
-					</li>
-				</ul>
-			</div>
-		</article>
+					<ul>
+						<li>
+							<span class="label">Imię i nazwisko:</span>
+							<span>Michał Lipka</span>
+						</li>
+						<li>
+							<span class="label">Data urodzenia:</span>
+							<span><time datetime="1988-02-23">1988-02-23</time></span>
+						</li>
+						<li>
+							<span class="label">Adres:</span>
+							<span><span>ul. Lazurowa&nbsp;57,</span> <span>20-781&nbsp;Lublin</span></span>
+						</li>
+						<li>
+							<span class="label">Telefon:</span>
+							<span>501-618-599</span>
+						</li>
+						<li>
+							<span class="label">E-mail:</span>
+							<span><a href="mailto:stdrol+cv@gmail.com">stdrol@gmail.com</a></span>
+						</li>
+						<li>
+							<span class="label">github:</span>
+							<span><a href="http://github.com/tdrol">github.com/tdrol</a></span>
+						</li>
+					</ul>
+				</div>
+			</article>
+		</div>
 
-		<article id="wyksztalcenie-i-doswiadczenie" class="area" data-position="2">
-			<div class="wrapper">
-				<h2>Wykształcenie</h2>
+		<div class="outer-wrapper">
+			<article id="wyksztalcenie-i-doswiadczenie" class="area" data-position="2">
+				<div class="wrapper">
+					<h2>Wykształcenie</h2>
 
-				<ul>
-					<li>
-						<span class="date">2010&nbsp;&ndash;&nbsp;2012</span>
-						<span>Studia magisterskie na Politechnice Lubelskiej, kierunek: Informatyka i&nbsp;elektrotechinka, specjalizacja: Aplikacje internetowe</span>
-					</li>
-					<li>
-						<span class="date">2007&nbsp;&ndash;&nbsp;2010</span>
-						<span>Studia inżynierskie na Politechnice Lubelskiej, kierunek: Informatyka i&nbsp;elektrotechinka</span>
-					</li>
-				</ul>
+					<ul>
+						<li>
+							<time datetime="2010/2012">2010&nbsp;&ndash;&nbsp;2012</time>
+							<span>Studia magisterskie na Politechnice Lubelskiej, kierunek: Informatyka i&nbsp;elektrotechinka, specjalizacja: Aplikacje internetowe</span>
+						</li>
+						<li>
+							<time datetime="2007/2010">2007&nbsp;&ndash;&nbsp;2010</time>
+							<span>Studia inżynierskie na Politechnice Lubelskiej, kierunek: Informatyka i&nbsp;elektrotechinka</span>
+						</li>
+					</ul>
 
-				<h2>Doświadczenie zawodowe</h2>
-				<ul>
-					<li>
-						<span class="date">2007&nbsp;&ndash;&nbsp;...</span>
-						<span>Freelancer</span>
-						<ul>
-							<li><strong>Gramy na Maxa</strong> - (Piotr Typiak, Marcin Skała, Damian Siemkowicz) - CMS dla audycji radiowej o&nbsp;grach komputerowych</li>
-							<li><strong>Piotr Szkałuba</strong> - proste portfolio</li>
-							<li><strong>Komraf</strong> - (Rafał Rybak) - cięcie layoutów</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</article>
+					<h2>Doświadczenie zawodowe</h2>
+					<ul>
+						<li>
+							<time datetime="2007/2012">2007&nbsp;&ndash;&nbsp;2012</time>
+							<span>Freelancer</span>
+							<ul>
+								<li><strong>Gramy na Maxa</strong> - (Piotr Typiak, Marcin Skała, Damian Siemkowicz) - CMS dla audycji radiowej o&nbsp;grach komputerowych</li>
+								<li><strong>Piotr Szkałuba</strong> - proste portfolio</li>
+								<li><strong>Komraf</strong> - (Rafał Rybak) - cięcie layoutów</li>
+							</ul>
+							<div>Hobbystyczne projekty</div>
+							<ul>
+								<li><strong><a href="https://github.com/tdrol/kohana-yaminify">kohana-yaminify</a></strong> - moduł integrujący bibliotekę minify z Kohaną</li>
+								<li><strong><a href="https://github.com/tdrol/kohana-assets">kohana-assets</a></strong> - moduł zarządzania assetami, dostosowany do współpracy z modułem KOstache</li>
+								<li><strong><a href="https://github.com/tdrol/kohana-yaminify-assets">kohana-yaminify-assets</a></strong> - moduł integrujący yaminify i assets</li>
+								<li><strong><a href="https://github.com/tdrol/kohana-jelly-torn">kohana-jelly-torn</a></strong> - moduł do generowania formularzy na podstawie modeli</li>
+								<li><strong><a href="https://github.com/tdrol/Classy.js">Classy.js</a></strong> - eksperymentalny generator klas z wielodziedziczeniem dla języka JavaScript</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</article>
+		</div>
 
-		<article id="dodatkowe-informacje" class="area" data-position="3">
-			<div class="wrapper">
-				<h2>Dodatkowe informacje</h2>
-				<h3>Technologie</h3>
-				<ul>
-					<li>
-						<em>Języki programowania:</em>
-						<ul>
-							<li>C/C++</li>
-							<li>PHP</li>
-							<li>JavaScript</li>
-							<li>HTML5</li>
-							<li>CSS3</li>
-						</ul>
-					</li>
-					<li>
-						<em>Narzędzia/biblioteki:</em>
-						<ul>
-							<li>Framework KohanaPHP, Bonafide, Jelly, Kostache</li>
-							<li>CoffeeScript, jQuery</li>
-							<li>WebSocket, Canvas</li>
-							<li>SASS/SCSS</li>
-							<li>Git</li>
-							<li>MySQL</li>
-						</ul>
-					</li>
-					<li><em>Systemy operacyjne:</em>
-						<ul>
-							<li>Windows</li>
-							<li>Linux (Debian)</li>
-						</ul>
-					</li>
-				</ul>
+		<div class="outer-wrapper">
+			<article id="dodatkowe-informacje" class="area" data-position="3">
+				<div class="wrapper">
+					<h2>Dodatkowe informacje</h2>
+					<h3>Technologie</h3>
+					<ul>
+						<li>
+							<em>Języki programowania:</em>
+							<ul>
+								<li>C/C++</li>
+								<li>PHP</li>
+								<li>JavaScript</li>
+								<li>HTML5</li>
+								<li>CSS3</li>
+							</ul>
+						</li>
+						<li>
+							<em>Narzędzia/biblioteki:</em>
+							<ul>
+								<li>Framework KohanaPHP oraz moduły Bonafide, Jelly, Kostache</li>
+								<li>CoffeeScript, jQuery</li>
+								<li>WebSocket, Canvas</li>
+								<li>SASS/SCSS</li>
+								<li>Git</li>
+								<li>MySQL</li>
+							</ul>
+						</li>
+						<li><em>Systemy operacyjne:</em>
+							<ul>
+								<li>Windows</li>
+								<li>Linux (Debian)</li>
+							</ul>
+						</li>
+					</ul>
 
-				<h3>Języki obce</h3>
-				<ul>
-					<li><em>Angielski:</em> wystarczający do zrozumienia dokumentacji technicznych</li>
-				</ul>
+					<h3>Języki obce</h3>
+					<ul>
+						<li><em>Angielski:</em> wystarczający do zrozumienia dokumentacji technicznych</li>
+					</ul>
 
-				<footer>
-					<p><img src="assets/img/qrcode.png" alt="http://tdrol.github.com/cv"></p>
-					<p>Źródło dostępne na <a href="https://github.com/tdrol/cv">github.com/tdrol/cv</a></p>
-				</footer>
-			</div>
-		</article>
+					<footer>
+						<p id="qrcode" class="collapsable collapse" data-show-title="Pokaż QRCode" data-hide-title="Ukryj QRCode"><img src="assets/img/qrcode.png" alt="http://tdrol.github.com/cv"></p>
+						<p>Źródło dostępne na <a href="https://github.com/tdrol/cv">github.com/tdrol/cv</a></p>
+					</footer>
+				</div>
+			</article>
+		</div>
 	</div>
 
 	<script>
-		var prefix = /^http/.test(document.location.protocol) ? '' : 'http:',
-		    _gaq = [['_setAccount', 'UA-34472921-1'], ['_trackPageview']];
+		var prefixCDN = '',
+		    prefixAnalytics = 'http://www',
+		    _gaq;
+		if (document.location.protocol == 'https:')
+		{
+			prefixAnalytics = 'https://ssl';
+		}
+		else if (document.location.protocol == 'file:')
+		{
+			prefixCDN = 'http:';
+		}
 
 		yepnope([{
-			load: 'timeout=200!' + prefix + '//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js',
+			load: 'timeout=200!' + prefixCDN + '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
 			callback: function () {
 				if ( ! window.$) {
-					yepnope('assets/js/vendor/jquery-1.8.2.min.js');
+					yepnope('assets/js/vendor/jquery-1.9.1.min.js');
 				}
 			}
 		}, 'assets/js/plugins.js', 'assets/js/main.js']);
 
-		if (document.location.host != 'localhost')
+		if (document.location.host != 'localhost' && document.location.protocol != 'file:')
 		{
-			yepnope.injectJs(('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js');
+			_gaq = [['_setAccount', 'UA-34472921-1'], ['_trackPageview']];
+			yepnope.injectJs(prefixAnalytics + '.google-analytics.com/ga.js');
 		}
 
 	</script>
