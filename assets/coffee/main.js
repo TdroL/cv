@@ -32,6 +32,7 @@ $(function() {
     }
   };
   collapseCallback = function() {
+    console.log('toggle class', $(this));
     return $(this).toggleClass('collapse');
   };
   $(document).on('click', selectors, positionSwitchCallback);

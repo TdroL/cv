@@ -28,9 +28,10 @@ $position-3-rotate-axis: 30deg 60deg -40deg;
 $position-3-transition-duration: 41s;
 
 $transition-to-background-duration: 500ms;
-$blur-radius: 50px;
+$blur-radius: 4px;
 
 // floating animation
+@include set-experimental-support($moz: false, $webkit: true, $ms: false, $o: true, $khtml: false);
 @include keyframes(position-1-in-background) {
 	@include in-background-animation(
 		$position-1-base-pos-x, $position-1-base-pos-y,
@@ -65,62 +66,62 @@ $color-2: #165b91;
 $color-3: #65c813;
 
 body {
-	margin: 0;
-	font: 1em/1.5 Asap, Arial, sans-serif;
-	color: #222;
-	background-color: mix(#fff, #999);
 	overflow-x: hidden;
+	margin: 0;
 	min-height: 100%;
+	background-color: mix(#fff, #999);
+	color: #222;
+	font: 1em/1.5 Asap, Arial, sans-serif;
 }
 
 h1, h2, h3, h4 {
+	margin: 0 0 0.2em;
 	font-family: "Advent Pro", Arial, sans-serif;
 	line-height: 1.2;
-	margin: 0 0 0.2em;
 }
 
 header {
 	h1, h2 {
-		line-height: 1;
 		text-transform: uppercase;
+		line-height: 1;
 	}
 }
 
 nav li {
 	a {
-		display: block;
-		background: $color-0;
 
 		@include transition(all 0.25s);
+		display: block;
+		background: $color-0;
 
 		&, &:hover, &:focus, &:visited
 		{
 			color: #fff;
-			font-style: 400;
 			text-decoration: none;
+			font-style: 400;
 		}
 	}
 
 	&:nth-of-type(n) a {
-		background-color: $color-1;
+		background: $color-1;
 
-		+ span.arrow {
+		&:after {
 			border-top-color: $color-1;
 		}
 	}
 
 	&:nth-of-type(2n) a {
-		background-color: $color-2;
+		background: $color-2;
 
-		+ span.arrow {
+		&:after {
 			border-top-color: $color-2;
 		}
 	}
 
 	&:nth-of-type(3n) a {
-		background-color: $color-3;
+		background: $color-3;
 
-		+ span.arrow {
+		&:after {
 			border-top-color: $color-3;
 		}
 	}
@@ -131,42 +132,86 @@ article {
 	background: #fff;
 
 	aside {
-		padding: 20px;
 		@include box-shadow(0 0 5px #999);
+		padding: 20px;
 
 		img {
 			max-width: 100%;
 		}
 	}
 
-	ul {
-		li {
-			list-style: none;
-			@include clearfix;
+	li {
+		@include clearfix;
+		list-style: none;
 
-			> span:first-of-type {
-				font-weight: bold;
-			}
+		> time {
+			font-weight: bold;
+			display: block;
+		}
 
-			> span.date {
-				display: block;
-			}
+		> span.label, > span.label + span {
+			display: block;
+			float: left;
+		}
 
-			> span.label, > span.label + span {
-				display: block;
-				float: left;
-			}
-
-			> span.label + span > span {
-				display: block;
-			}
+		> span.label + span > span {
+			display: block;
 		}
 	}
 
 	footer p {
+		margin-bottom: 0.5em;
 		text-align: center;
 		font-size: 0.9em;
-		margin-bottom: 0.5em;
+	}
+
+	footer .collapsable {
+		padding-top: 1.5em;
+		border: 1px solid #666;
+		border-width: 1px 0;
+		overflow: hidden;
+		position: relative;
+		@include transition(all 0.25s);
+
+		&:before, &:after {
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			width: inherit;
+			cursor: pointer;
+
+			@include transition(all 0.25s);
+		}
+
+		&:before {
+			display: block;
+			content: attr(data-show-title);
+			left: -100%;
+		}
+
+		&:after {
+			display: block;
+			content: attr(data-hide-title);
+			left: 0;
+		}
+
+		&.collapse {
+			height: 0 !important;
+
+			&:before {
+				left: 0;
+			}
+			&:after {
+				left: 100%;
+			}
+		}
+	}
+
+	#qrcode {
+		width: 240px;
+		height: 240px;
+		margin-right: auto;
+		margin-left: auto;
 	}
 }
 
@@ -175,13 +220,19 @@ article {
 	header {
 		h1, h2 {
 			padding: 5px 3px 0;
+			line-height: 0.8;
+			margin-bottom: 0;
+		}
+
+		h2 {
+			margin-bottom: 0.3em;
 		}
 	}
 
 	nav {
 		a {
-			line-height: 1.5;
 			padding: 5px;
+			line-height: 1.5;
 		}
 	}
 
@@ -189,8 +240,8 @@ article {
 		padding: 5px;
 
 		aside {
-			text-align: center;
 			margin: 10px;
+			text-align: center;
 		}
 
 		ul {
@@ -216,10 +267,13 @@ article {
 }
 
 @include respond-to(medium) {
+
 	header {
 		h1, h2 {
-			padding: 5px 10px 0;
 			display: inline-block;
+			padding: 5px 10px 0;
+			line-height: 0.8;
+			margin-bottom: 0;
 		}
 	}
 
@@ -241,10 +295,10 @@ article {
 		@media (min-width: 450px) {
 
 			aside {
-				margin: 20px 20px 20px 0;
+				@include transform(rotateZ(2.5deg) translateZ(0));
 
 				display: inline-block;
-				@include transform(rotateZ(2.5deg) translateZ(0));
+				margin: 20px 20px 20px 0;
 			}
 
 		}
@@ -259,26 +313,26 @@ article {
 					position: relative;
 
 					&:before, &:after {
+						@include box-shadow(0 0 2px #999);
 						position: absolute;
 						z-index: 2;
-						background: #eee;
 						display: block;
-						content: "";
 						width: 100px;
 						height: 25px;
-						@include box-shadow(0 0 2px #999);
+						background: #eee;
+						content: "";
 					}
 
 					&:before {
+						@include transform(rotateZ(-35deg));
 						top: 5px;
 						left: -35px;
-						@include transform(rotateZ(-35deg));
 					}
 
 					&:after {
-						bottom: 10px;
-						right: -35px;
 						@include transform(rotateZ(-45deg));
+						right: -35px;
+						bottom: 10px;
 					}
 				}
 			}
@@ -298,25 +352,25 @@ article {
 
 		aside + ul {
 			float: left;
-			width: 300px;
 			margin-top: 2em;
+			width: 300px;
 		}
 	}
 }
 
 @include respond-to(wide) {
 
+	$container-width: 960px;
+
 	body {
 		@include background(#999 radial-gradient(#fff, #999) fixed no-repeat);
 	}
 
-	$container-width: 960px;
-
 	#container {
-		width: $container-width;
+		position: relative;
 		margin: 0 auto;
 		padding: 20px 0;
-		position: relative;
+		width: $container-width;
 	}
 
 	header {
@@ -325,8 +379,8 @@ article {
 		}
 
 		h1 {
-			font-size: 2.5em;
 			letter-spacing: -0.02em;
+			font-size: 2.5em;
 		}
 
 		h2 {
@@ -336,44 +390,45 @@ article {
 
 	nav {
 		position: relative;
-		z-index: 3; // .area: z-index = 2
+		z-index: 3;
+		height: 75px; // .area: z-index = 2
 		@include clearfix;
-		height: 75px;
 
 		li {
 			$li-width: $container-width / 3;
+			position: relative;
 			float: left;
 			width: $li-width;
-			position: relative;
 
 			a {
+				padding: 0;
 				text-align: center;
 				line-height: 50px;
-				padding: 0;
 			}
 
-			span.arrow {
+			a:after {
+				@include transition(all 0.25s);
 				position: absolute;
-				z-index: -1;
 				bottom: 0;
 				left: $li-width / 2 - 25px;
+				z-index: -1;
 				display: block;
-				content: "";
 				width: 0;
 				height: 0;
+				border-width: 25px 25px 0;
 				border-style: solid;
 				border-color: transparent;
-				border-width: 25px 25px 0;
-
-				@include transition(all 0.25s);
+				content: "";
 			}
 
-			&.active span.arrow {
+			&.active a:after {
 				bottom: -20px;
 			}
 
 			&:nth-of-type(n) {
-				background: $color-0;
+				a {
+					background: $color-0;
+				}
 
 				&.active a, a:hover, a:focus {
 					background: $color-1;
@@ -402,34 +457,34 @@ article {
 		}
 
 		aside {
+			@include transform(rotateZ(2.5deg) translateZ(0));
 			float: right;
 			margin: 0 20px 20px 0;
-			@include transform(rotateZ(2.5deg) translateZ(0));
 
 			.csstransforms3d & {
 				position: relative;
 
 				&:before, &:after {
+					@include box-shadow(0 0 2px #999);
 					position: absolute;
 					z-index: 2;
-					background: #eee;
 					display: block;
-					content: "";
 					width: 100px;
 					height: 25px;
-					@include box-shadow(0 0 2px #999);
+					background: #eee;
+					content: "";
 				}
 
 				&:before {
+					@include transform(rotateZ(-35deg));
 					top: 5px;
 					left: -35px;
-					@include transform(rotateZ(-35deg));
 				}
 
 				&:after {
-					bottom: 10px;
-					right: -35px;
 					@include transform(rotateZ(-45deg));
+					right: -35px;
+					bottom: 10px;
 				}
 			}
 		}
@@ -447,57 +502,58 @@ article {
 
 		aside + ul {
 			float: left;
-			width: 400px;
 			margin-top: 2em;
+			width: 400px;
+		}
+	}
+
+	.outer-wrapper {
+		@include filter(blur(0));
+
+		&.blurred {
+			@include filter(blur($blur-radius));
 		}
 	}
 
 	.area {
 		$padding: 10px;
 
+		@include box-shadow(0 0 10px #999);
+		@include transform(translateZ(0), false);
+
 		position: relative;
 		z-index: 2;
-		width: $container-width - 2*$padding;
 		margin-bottom: 1em;
 		padding: $padding;
-
-		@include box-shadow(0 0 10px #999);
-		@include transform(
-			translateZ(0)
-		, false); // enable the gpu accel.
+		width: $container-width - 2*$padding;
 
 		.csstransforms3d & {
-			// enable transitions for moving area to the background
-			@include transition-duration($transition-to-background-duration);
 			@include transition-property(transform);
-			@include transition-timing-function(cubic-bezier(.1, .5, .5, 1));
-			@include filter(none); // remove any filters for areas in foreground
+			@include transition-timing-function(cubic-bezier(.1, .5, .5, 1)); // remove any filters for areas in foreground
 
 			.wrapper {
 				@include transition($transition-to-background-duration all cubic-bezier(.1, .5, .5, 1));
 				visibility: visible;
 				opacity: 1;
 
-				@include transform(
-					translateZ(0)
-				, false); // enable the gpu accel.
+				@include transform(translateZ(0), false); // enable the gpu accel.
 			}
 
 			&[class*=position] {
-				z-index: -2;
+				// @include filter(blur(0));
 				position: absolute;
 				top: 0;
+				z-index: -2;
 				background: #999;
-				@include filter(blur(0)); // blur fix for areas flying to the background
-				@include box-shadow(0 0 100px #777);
 
 				.wrapper {
 					opacity: 0;
-				}
+				} // blur fix for areas flying to the background
+				@include box-shadow(0 0 100px #777);
 			}
 
 			&.in-background {
-				@include filter(blur($blur-radius)); // full blur for areas in the background
+				// @include filter(blur($blur-radius)); // full blur for areas in the background
 
 				.wrapper {
 					visibility: hidden;
@@ -554,6 +610,9 @@ article {
 					@include animation(position-3-in-background $position-3-transition-duration infinite linear); // add the float animation
 				}
 			}
+			// @include filter(none);
+			// enable transitions for moving area to the background
+			@include transition-duration($transition-to-background-duration);
 		}
 
 		.no-csstransforms3d & {

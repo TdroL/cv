@@ -1,3 +1,4 @@
+@import "_animations";
 
 @mixin respond-to($media) {
 	@if $media == small {
@@ -20,6 +21,38 @@
 	}
 }
 
+/*
+float sine(float x)
+{
+		const float B = 4/pi;
+		const float C = -4/(pi*pi);
+
+		float y = B * x + C * x * abs(x);
+
+		#ifdef EXTRA_PRECISION
+		//  const float Q = 0.775;
+				const float P = 0.225;
+
+				y = P * (y * abs(y) - y) + y;   // Q * y + P * y * abs(y)
+		#endif
+}
+*/
+
+@function approx-sin($x) {
+
+	$PI: 3.14159265359;
+	$B: 4/$PI;
+	$C: -4/($PI*$PI);
+
+	$y: $B * $x + $C * $x * abs($x);
+
+	// $Q: 0.775;
+	$P: 0.225;
+
+	$y: $P * ($y * abs($y) - $y) + $y;   // Q * y + P * y * abs(y)
+	@return $y;
+}
+
 @function round-to($value, $precision) {
 	$f: 1;
 
@@ -28,15 +61,6 @@
 	}
 
 	@return round($value * $f) / $f;
-}
-
-@mixin filter($style) {
-	$style: unquote($style);
-	-webkit-filter: $style;
-	   -moz-filter: $style;
-	    -ms-filter: $style;
-	     -o-filter: $style;
-	        filter: $style;
 }
 
 @mixin in-background-animation($x, $y, $scale, $rotate, $rotate-axis: 0 0 0, $positions: (0 0)) {
@@ -86,9 +110,9 @@
 						round($y + $cy * $npadding + $padding * $py),
 						0)
 					scale($scale)
-					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100), 2))
-					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100), 2))
-					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100), 2)),
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * approx-sin($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * approx-sin($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * approx-sin($t/100), 2)),
 			false);
 		}
 
@@ -100,9 +124,9 @@
 						round($y + $cy * $npadding + 0.5 * $padding * ($ny + $py)),
 						0)
 					scale($scale)
-					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100), 2))
-					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100), 2))
-					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100), 2)),
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * approx-sin($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * approx-sin($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * approx-sin($t/100), 2)),
 			false);
 		}
 
@@ -118,9 +142,9 @@
 						round($y + ($cy * $npadding + $padding * $ny)),
 						0)
 					scale($scale)
-					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * fake-sin($t/100), 2))
-					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * fake-sin($t/100), 2))
-					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * fake-sin($t/100), 2)),
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * approx-sin($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * approx-sin($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * approx-sin($t/100), 2)),
 			false);
 		}
 	}

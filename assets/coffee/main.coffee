@@ -6,7 +6,7 @@ $ ->
 
 	selectors = ("a[href^=\"##{link.id}\"]" for link in $navLinks).join(',')
 
-	clickCallback = (e, areasState = 'back', areaState = 'front') ->
+	positionSwitchCallback = (e, areasState = 'back', areaState = 'front') ->
 		$area = $(@hash).closest('.area')
 
 		$areas.switchPosition(areasState)
@@ -19,6 +19,12 @@ $ ->
 		if Modernizr.mq('(min-width: 980px)')
 			e.preventDefault()
 
-	$(document).on('click', selectors, clickCallback)
+	collapseCallback = () ->
+		console.log('toggle class', $(this))
+		$(this).toggleClass('collapse')
+
+	$(document).on('click', selectors, positionSwitchCallback)
+
+	$(document).on('click', '.collapsable', collapseCallback)
 
 	$navLinks.first().trigger('click', ['back-flash', 'front-flash'])
