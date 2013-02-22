@@ -181,7 +181,7 @@
 			}
 		}, 'assets/js/plugins.js', 'assets/js/main.js']);
 
-		if (document.location.host != 'localhost' && document.location.protocol != 'file:')
+		if (document.location.host != 'localhost' && document.location.protocol != 'file:' && document.location.search.indexOf('debug') < 0)
 		{
 			_gaq = [['_setAccount', 'UA-34472921-1'], ['_trackPageview']];
 			yepnope.injectJs(prefixAnalytics + '.google-analytics.com/ga.js');
