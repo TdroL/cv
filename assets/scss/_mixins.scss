@@ -12,45 +12,13 @@
 	}
 }
 
-@function fake-sin($t) {
+@function angle-progression($t) {
 	@if $t >= 0.5 {
 		$t: $t - 0.5;
 		@return 16 * $t * ($t - 0.5);
 	} @else {
 		@return -16 * $t * ($t - 0.5);
 	}
-}
-
-/*
-float sine(float x)
-{
-		const float B = 4/pi;
-		const float C = -4/(pi*pi);
-
-		float y = B * x + C * x * abs(x);
-
-		#ifdef EXTRA_PRECISION
-		//  const float Q = 0.775;
-				const float P = 0.225;
-
-				y = P * (y * abs(y) - y) + y;   // Q * y + P * y * abs(y)
-		#endif
-}
-*/
-
-@function approx-sin($x) {
-
-	$PI: 3.14159265359;
-	$B: 4/$PI;
-	$C: -4/($PI*$PI);
-
-	$y: $B * $x + $C * $x * abs($x);
-
-	// $Q: 0.775;
-	$P: 0.225;
-
-	$y: $P * ($y * abs($y) - $y) + $y;   // Q * y + P * y * abs(y)
-	@return $y;
 }
 
 @function round-to($value, $precision) {
@@ -110,9 +78,9 @@ float sine(float x)
 						round($y + $cy * $npadding + $padding * $py),
 						0)
 					scale($scale)
-					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * approx-sin($t/100), 2))
-					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * approx-sin($t/100), 2))
-					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * approx-sin($t/100), 2)),
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * angle-progression($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * angle-progression($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * angle-progression($t/100), 2)),
 			false);
 		}
 
@@ -124,9 +92,9 @@ float sine(float x)
 						round($y + $cy * $npadding + 0.5 * $padding * ($ny + $py)),
 						0)
 					scale($scale)
-					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * approx-sin($t/100), 2))
-					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * approx-sin($t/100), 2))
-					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * approx-sin($t/100), 2)),
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * angle-progression($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * angle-progression($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * angle-progression($t/100), 2)),
 			false);
 		}
 
@@ -142,9 +110,9 @@ float sine(float x)
 						round($y + ($cy * $npadding + $padding * $ny)),
 						0)
 					scale($scale)
-					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * approx-sin($t/100), 2))
-					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * approx-sin($t/100), 2))
-					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * approx-sin($t/100), 2)),
+					rotateX(round-to(nth($rotate, 1) + nth($rotate-axis, 1) * angle-progression($t/100), 2))
+					rotateY(round-to(nth($rotate, 2) + nth($rotate-axis, 2) * angle-progression($t/100), 2))
+					rotateZ(round-to(nth($rotate, 3) + nth($rotate-axis, 3) * angle-progression($t/100), 2)),
 			false);
 		}
 	}

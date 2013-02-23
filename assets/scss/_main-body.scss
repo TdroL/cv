@@ -507,14 +507,6 @@ article {
 		}
 	}
 
-	.outer-wrapper {
-		@include filter(blur(0));
-
-		&.blurred {
-			@include filter(blur($blur-radius));
-		}
-	}
-
 	.area {
 		$padding: 10px;
 
@@ -540,21 +532,20 @@ article {
 			}
 
 			&[class*=position] {
-				// @include filter(blur(0));
 				position: absolute;
 				top: 0;
 				z-index: -2;
-				background: #999;
+
+				background: rgba(120, 120, 120, 0.2);
+				@include box-shadow(0 0 200px rgba(120, 120, 120, 0.4));
+				border-radius: 100px;
 
 				.wrapper {
 					opacity: 0;
-				} // blur fix for areas flying to the background
-				@include box-shadow(0 0 100px #777);
+				}
 			}
 
 			&.in-background {
-				// @include filter(blur($blur-radius)); // full blur for areas in the background
-
 				.wrapper {
 					visibility: hidden;
 				}
@@ -620,5 +611,22 @@ article {
 				display: none;
 			}
 		}
+
+		// .no-cssfilters & {
+		// 	&[class*=position] {
+		// 		background: rgba(120, 120, 120, 0.2);
+		// 			@include box-shadow(0 0 200px rgba(120, 120, 120, 0.4));
+		// 			border-radius: 100px;
+		// 	}
+		// }
 	}
+
+	// .outer-wrapper {
+	// 	@include filter(blur(0));
+	// 	overflow: visible;
+
+	// 	&.blurred {
+	// 		@include filter(blur($blur-radius));
+	// 	}
+	// }
 }
