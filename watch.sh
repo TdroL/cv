@@ -10,34 +10,57 @@ touch $COFFEE_PID $COMPASS_PID
 function start_coffee {
 	local PID=`cat $COFFEE_PID`
 	ps -ef | grep $PID | grep /bin/sh$ > /dev/null || {
-		echo "Starting coffeescript watcher"
+		echo -n "Starting CoffeeScript watcher... "
 		(coffee -o assets/js/ -cbw assets/coffee/ &> $COFFEE_LOG) &
-		echo $! > $COFFEE_PID
+		if [ $? == 0 ];
+		then
+			echo $! > $COFFEE_PID
+			echo "done"
+		else
+			echo "fail"
+		fi;
 	}
 }
 
 function start_compass {
 	local PID=`cat $COMPASS_PID`
 	ps -ef | grep $PID | grep /bin/ruby$ > /dev/null || {
-		echo "Starting compass watcher"
+		echo -n "Starting Compass watcher... "
 		(compass watch &> $COMPASS_LOG) &
-		echo $! > $COMPASS_PID
+		if [ $? == 0 ];
+		then
+			echo $! > $COMPASS_PID
+			echo "done"
+		else
+			echo "fail"
+		fi;
 	}
 }
 
 function stop_coffee {
-	local _PPID=`cat $COFFEE_PID`
-	local PID=`ps -ef | grep $_PPID | grep node | sed "s/\s*[^ ]*\s*\([0-9]*\).*/\1/"`
+	local PID=`cat $COFFEE_PID`
+	if [ -z $PID ]; then return; fi;
+
+	ps -ef | grep $PID | grep -v grep > /dev/null && {
+		echo "Stopping CoffeeScript watcher"
+		kill $PID > /dev/null
+		return;
+	}
+
+	PID=`ps -ef | grep $PID | grep -v grep | grep node | sed "s/\s*[^ ]*\s*\([0-9]*\).*/\1/"`
+	if [ -z $PID ]; then return; fi;
 	ps -ef | grep $PID | grep node$ > /dev/null && {
-		echo "Stopping coffeescript watcher"
+		echo "Stopping CoffeeScript watcher"
 		kill -9 $PID > /dev/null
 	}
 }
 
 function stop_compass {
 	local PID=`cat $COMPASS_PID`
-	ps -ef | grep $PID > /dev/null && {
-		echo "Stopping compass watcher"
+	if [ -z $PID ]; then return; fi;
+
+	ps -ef | grep $PID | grep -v grep > /dev/null && {
+		echo "Stopping Compass watcher"
 		kill $PID > /dev/null
 	}
 }
