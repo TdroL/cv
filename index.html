@@ -160,18 +160,8 @@
 	</div>
 
 	<script>
-		var prefixCDN = '';
-		var prefixAnalytics = 'http://www';
 		var _gaq;
-
-		if (document.location.protocol == 'https:')
-		{
-			prefixAnalytics = 'https://ssl';
-		}
-		else if (document.location.protocol == 'file:')
-		{
-			prefixCDN = 'http:';
-		}
+		var prefixCDN = /^http/.test(document.location.protocol) ? '' : 'http:';
 
 		yepnope([{
 			load: 'timeout=200!' + prefixCDN + '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
@@ -185,7 +175,7 @@
 		if (document.location.host != 'localhost' && document.location.protocol != 'file:' && document.location.search.indexOf('debug') < 0)
 		{
 			_gaq = [['_setAccount', 'UA-34472921-1'], ['_trackPageview']];
-			yepnope.injectJs(prefixAnalytics + '.google-analytics.com/ga.js');
+			yepnope.injectJs('//google-analytics.com/ga.js');
 		}
 
 	</script>

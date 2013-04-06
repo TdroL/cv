@@ -21,17 +21,17 @@
 	</div>
 
 	<script>
-		var prefix = /^http/.test(document.location.protocol) ? '' : 'http:';
+		var prefixCDN = /^http/.test(document.location.protocol) ? '' : 'http:';
 
 		yepnope([{
-			load: 'timeout=200!' + prefix + '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
+			load: 'timeout=200!' + prefixCDN + '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
 			callback: function () {
 				if ( ! window.$) {
 					yepnope('assets/js/vendor/jquery-1.9.1.min.js');
 				}
 			}
 		}, {
-			load: 'timeout=200!' + prefix + '//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js',
+			load: 'timeout=200!' + prefixCDN + '//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js',
 			callback: function () {
 				if ( ! window.$) {
 					yepnope('assets/js/vendor/raphael-min.js');
